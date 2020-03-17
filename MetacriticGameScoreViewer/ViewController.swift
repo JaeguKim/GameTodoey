@@ -17,6 +17,7 @@ xhr.send(data);
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -38,8 +39,18 @@ class ViewController: UIViewController {
               ]
         Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
-                print("Got game info.")
+                print("Got Game list")
                 print(response)
+                
+                let responseJSON : JSON = JSON(response.result.value!)
+                //print(responseJSON)
+                if let jsonArray = responseJSON["result"].array {
+                for item in jsonArray {
+                    let platform = item["platform"]
+                    let title = item["title"]
+                    print("platform : \(platform), title : \(title)")
+                    }
+                }
                 /*
                 let flowerJSON : JSON = JSON(response.result.value!)
                 let pageId = flowerJSON["query"]["pageids"][0].stringValue
