@@ -1,20 +1,3 @@
-/*
- var requestURI = `https://chicken-coop.p.rapidapi.com/games?title=${gameTitle}`;
- xhr.open("GET", requestURI);
- xhr.responseType = 'json';
- xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
- xhr.setRequestHeader("x-rapidapi-host", "chicken-coop.p.rapidapi.com");
- xhr.setRequestHeader("x-rapidapi-key", "c976920022msha45b1a7b96d279ap17e7aejsne930cb2ce86d");
- 
- var requestURI = `https://chicken-coop.p.rapidapi.com/games/${gameTitle}?platform=${convPlatformStr}`;
- xhr.open("GET", requestURI);
- xhr.responseType = 'json';
- xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
- xhr.setRequestHeader("x-rapidapi-host", "chicken-coop.p.rapidapi.com");
- xhr.setRequestHeader("x-rapidapi-key", "c976920022msha45b1a7b96d279ap17e7aejsne930cb2ce86d");
- xhr.send(data);
- */
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -22,6 +5,13 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        requestInfo(title: "Halo")
+        tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+    }
     
     func convertPlatformString(platform : String) -> String{
         switch platform {
@@ -43,12 +33,6 @@ class ViewController: UIViewController {
             print("platform string is wrong")
         }
         return ""
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        requestInfo(title: "Halo")
-        // Do any additional setup after loading the view.
     }
     
     func requestInfo(title:String){
@@ -81,7 +65,6 @@ class ViewController: UIViewController {
                  self.flowerDescriptionLabel!.text = extract
                  */
             }
-            
         }
     }
     
@@ -98,17 +81,18 @@ class ViewController: UIViewController {
         let newGameTitle = gameTitle.replacingOccurrences(of: " ", with: "%20")
         Alamofire.request(metacriticURL+"/\(newGameTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
-                print("Got Game Score list")
                 let responseJSON : JSON = JSON(response.result.value!)
-                if let jsonArray = responseJSON["result"].array {
-                    for item in jsonArray {
-                        let score = item["score"]
-                        let imageURL = item["image"]
-                        print("platform : \(platform), title : \(gameTitle), score : \(score),imageURL : \(imageURL)")
-                    }
-                }
+                print(responseJSON)
+                let score = responseJSON["result"]["score"]
+                let imageURL = responseJSON["result"]["image"]
+                print("platform : \(platform), title : \(gameTitle), score : \(score),imageURL : \(imageURL)")
             }
         }
     }
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+}

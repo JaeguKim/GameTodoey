@@ -13,6 +13,8 @@
 		5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C002420DFB200E0698C /* Main.storyboard */; };
 		5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C032420DFB200E0698C /* Assets.xcassets */; };
 		5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */; };
+		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
+		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
 		B007163C03875DC5779F50A8 /* libPods-MetacriticGameScoreViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 361DF76E7629489F8C66F2CB /* libPods-MetacriticGameScoreViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		5B1F3C032420DFB200E0698C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B1F3C062420DFB200E0698C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B1F3C082420DFB200E0698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
+		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
 		F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.debug.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,15 +67,33 @@
 		5B1F3BF92420DFB200E0698C /* MetacriticGameScoreViewer */ = {
 			isa = PBXGroup;
 			children = (
+				5BE01E132422441A005DD70C /* Model */,
 				5B1F3BFA2420DFB200E0698C /* AppDelegate.swift */,
 				5B1F3BFC2420DFB200E0698C /* SceneDelegate.swift */,
 				5B1F3BFE2420DFB200E0698C /* ViewController.swift */,
-				5B1F3C002420DFB200E0698C /* Main.storyboard */,
+				5BE01E0E24222A64005DD70C /* View */,
 				5B1F3C032420DFB200E0698C /* Assets.xcassets */,
 				5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */,
 				5B1F3C082420DFB200E0698C /* Info.plist */,
 			);
 			path = MetacriticGameScoreViewer;
+			sourceTree = "<group>";
+		};
+		5BE01E0E24222A64005DD70C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B1F3C002420DFB200E0698C /* Main.storyboard */,
+				5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */,
+				5BE01E1024222AAF005DD70C /* GameInfoCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BE01E132422441A005DD70C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AAB35AE70D4CC19E166027C0 /* Pods */ = {
@@ -80,7 +102,6 @@
 				F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */,
 				7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,6 +175,7 @@
 				5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */,
 				5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
+				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +214,7 @@
 				5B1F3BFF2420DFB200E0698C /* ViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,
 				5B1F3BFD2420DFB200E0698C /* SceneDelegate.swift in Sources */,
+				5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
