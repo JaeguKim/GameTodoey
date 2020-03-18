@@ -5,11 +5,13 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
+    var gameScoreInfoArray : [GameScoreInfo] = []
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         requestInfo(title: "Halo")
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
     }
     
@@ -46,7 +48,6 @@ class ViewController: UIViewController {
         ]
         Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
-                print("Got Game list")
                 let responseJSON : JSON = JSON(response.result.value!)
                 if let jsonArray = responseJSON["result"].array {
                     for item in jsonArray {
@@ -82,10 +83,12 @@ class ViewController: UIViewController {
         Alamofire.request(metacriticURL+"/\(newGameTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
-                print(responseJSON)
-                let score = responseJSON["result"]["score"]
-                let imageURL = responseJSON["result"]["image"]
-                print("platform : \(platform), title : \(gameTitle), score : \(score),imageURL : \(imageURL)")
+                let score = responseJSON["result"]["score"].stringValue
+                let imageURL = responseJSON["result"]["image"].stringValue
+                self.gameScoreInfoArray.append(GameScoreInfo(imageURL: imageURL, title: gameTitle, platform: platform, score: score))
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -93,6 +96,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return gameScoreInfoArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell",for: indexPath) as! GameInfoCell
+        cell.titleLabel.text = gameScoreInfoArray[indexPath.row].title
+        cell.platformLabel.text = gameScoreInfoArray[indexPath.row].platform
+        cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
+        return cell
     }
 }
