@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SDWebImage
 
 class ViewController: UIViewController {
     
@@ -101,6 +102,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell",for: indexPath) as! GameInfoCell
+        cell.gameImgView.sd_setImage(with: URL(string: gameScoreInfoArray[indexPath.row].imageURL))
         cell.titleLabel.text = gameScoreInfoArray[indexPath.row].title
         cell.platformLabel.text = gameScoreInfoArray[indexPath.row].platform
         cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)

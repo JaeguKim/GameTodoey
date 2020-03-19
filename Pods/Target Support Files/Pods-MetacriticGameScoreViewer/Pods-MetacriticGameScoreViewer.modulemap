@@ -1,4 +1,4 @@
-module Pods_MetacriticGameScoreViewer {
+framework module Pods_MetacriticGameScoreViewer {
   umbrella header "Pods-MetacriticGameScoreViewer-umbrella.h"
 
   export *
