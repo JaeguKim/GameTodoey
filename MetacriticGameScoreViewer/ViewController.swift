@@ -16,10 +16,12 @@ class ViewController: UIViewController {
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
     var gameScoreInfoArray : [GameScoreInfo] = []
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestInfo(title: "Halo")
+        //requestInfo(title: "Halo")
+        searchBar.delegate = self
         tableView.dataSource = self
 //        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
 //        
@@ -108,6 +110,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gameScoreInfoArray.count
@@ -121,4 +124,16 @@ extension ViewController: UITableViewDataSource {
         cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
         return cell
     }
+}
+
+//MARK: - UISearchBarDelegate
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let title = searchBar.searchTextField.text {
+            gameScoreInfoArray.removeAll()
+            tableView.reloadData()
+            requestInfo(title: title )
+        }
+    }
+    
 }

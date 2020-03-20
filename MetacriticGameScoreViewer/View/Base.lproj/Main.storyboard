@@ -15,8 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hV-SG-xJV">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" rowHeight="85" id="8CC-vc-Ug7" customClass="GameScoreInfoCell" customModule="MetacriticGameScoreViewer" customModuleProvider="target">
@@ -81,14 +85,18 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dk9-ov-R3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5H2-oc-hAz"/>
                             <constraint firstAttribute="bottom" secondItem="3hV-SG-xJV" secondAttribute="bottom" id="7N8-HN-NOy"/>
-                            <constraint firstItem="3hV-SG-xJV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gqb-LX-lGn"/>
+                            <constraint firstItem="3hV-SG-xJV" firstAttribute="top" secondItem="dk9-ov-R3a" secondAttribute="bottom" id="AMa-pR-SUJ"/>
+                            <constraint firstItem="dk9-ov-R3a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rKo-Dg-ayJ"/>
                             <constraint firstItem="3hV-SG-xJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sjb-G9-BSJ"/>
                             <constraint firstItem="3hV-SG-xJV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u9K-hm-D3V"/>
+                            <constraint firstItem="dk9-ov-R3a" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xf5-ap-McA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="dk9-ov-R3a" id="igK-UG-bqZ"/>
                         <outlet property="tableView" destination="3hV-SG-xJV" id="GY3-u3-Jsb"/>
                     </connections>
                 </viewController>
