@@ -10,7 +10,6 @@ import UIKit
 
 class GameInfoCell: UITableViewCell {
 
-    @IBOutlet weak var gameInfoCell: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!

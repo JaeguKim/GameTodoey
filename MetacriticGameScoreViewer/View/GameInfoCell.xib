@@ -16,51 +16,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="385" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-Bs-oqT">
-                        <rect key="frame" x="10" y="10" width="365" height="60.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kb3-Bs-oqT">
+                        <rect key="frame" x="10" y="10" width="365" height="59"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Nc-rF-okP">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="60.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4EK-Gs-KOl"/>
-                                    <constraint firstAttribute="width" constant="50" id="74J-to-WBP"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Nc-rF-okP">
+                                <rect key="frame" x="0.0" y="0.0" width="84" height="59"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-hw-CkW">
-                                <rect key="frame" x="60" y="0.0" width="305" height="60.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="jbn-gC-Hly">
-                                        <rect key="frame" x="10" y="10" width="285" height="40.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-wp-CJ8" userLabel="TitleLabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="79.5" height="40.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soG-MF-2xA" userLabel="PlatformLabel">
-                                                <rect key="frame" x="102.5" y="0.0" width="80" height="40.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-3p-60d" userLabel="ScoreLabel">
-                                                <rect key="frame" x="205.5" y="0.0" width="79.5" height="40.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="jbn-gC-Hly" firstAttribute="top" secondItem="KGC-hw-CkW" secondAttribute="top" constant="10" id="O3z-Qy-EMa"/>
-                                    <constraint firstAttribute="trailing" secondItem="jbn-gC-Hly" secondAttribute="trailing" constant="10" id="Qhu-to-ZCz"/>
-                                    <constraint firstItem="jbn-gC-Hly" firstAttribute="leading" secondItem="KGC-hw-CkW" secondAttribute="leading" constant="10" id="RK8-Cn-BpO"/>
-                                    <constraint firstAttribute="bottom" secondItem="jbn-gC-Hly" secondAttribute="bottom" constant="10" id="zZ3-sd-N2O"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-wp-CJ8" userLabel="TitleLabel">
+                                <rect key="frame" x="94" y="0.0" width="83.5" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soG-MF-2xA" userLabel="PlatformLabel">
+                                <rect key="frame" x="187.5" y="0.0" width="84" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-3p-60d" userLabel="ScoreLabel">
+                                <rect key="frame" x="281.5" y="0.0" width="83.5" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -74,7 +53,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="gameImgView" destination="9Nc-rF-okP" id="Imd-Uc-V7b"/>
-                <outlet property="gameInfoCell" destination="jbn-gC-Hly" id="XtF-7V-CYL"/>
                 <outlet property="platformLabel" destination="soG-MF-2xA" id="HPL-a3-ofl"/>
                 <outlet property="scoreLabel" destination="H1W-3p-60d" id="Fy3-Id-B41"/>
                 <outlet property="titleLabel" destination="Zqb-wp-CJ8" id="xcq-3D-r6j"/>

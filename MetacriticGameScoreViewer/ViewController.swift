@@ -3,6 +3,14 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
+class GameScoreInfoCell : UITableViewCell{
+    @IBOutlet weak var gameImgView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var platformLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+}
+
 class ViewController: UIViewController {
     
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
@@ -11,9 +19,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestInfo(title: "Halo")
+        //requestInfo(title: "Halo")
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
+        
+        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
+        //tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
     }
     
     func convertPlatformString(platform : String) -> String{
@@ -101,7 +112,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell",for: indexPath) as! GameInfoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell",for: indexPath) as! GameScoreInfoCell
         cell.gameImgView.sd_setImage(with: URL(string: gameScoreInfoArray[indexPath.row].imageURL))
         cell.titleLabel.text = gameScoreInfoArray[indexPath.row].title
         cell.platformLabel.text = gameScoreInfoArray[indexPath.row].platform
