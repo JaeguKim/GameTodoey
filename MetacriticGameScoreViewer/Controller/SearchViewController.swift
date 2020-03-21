@@ -163,6 +163,7 @@ extension SearchViewController: UITableViewDelegate {
                 alert.dismiss(animated: true, completion: nil)
             }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
