@@ -12,7 +12,7 @@ class GameScoreInfoCell : UITableViewCell{
     
 }
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
     var gameScoreInfoArray : [GameScoreInfo] = []
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 //        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
-        //tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
     }
     
     func convertPlatformString(platform : String) -> String{
@@ -50,9 +50,8 @@ class ViewController: UIViewController {
         case "Switch":
             return "switch";
         default:
-            print("platform string is wrong")
+            return platform
         }
-        return ""
     }
     
     func requestInfo(title:String){
@@ -119,7 +118,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gameScoreInfoArray.count
     }
@@ -135,7 +134,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         save(gameScoreInfo: gameScoreInfoArray[indexPath.row])
         let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
@@ -148,7 +147,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 //MARK: - UISearchBarDelegate
-extension ViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.searchTextField.text {
             gameScoreInfoArray.removeAll()
