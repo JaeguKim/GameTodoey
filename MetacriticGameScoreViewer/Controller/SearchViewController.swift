@@ -85,6 +85,14 @@ class SearchViewController: UIViewController {
                         }
                     }
                 }
+                else {
+                    let alert = UIAlertController(title: "No Results", message: "", preferredStyle: .alert)
+                    self.present(alert, animated: true) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
             }
         }
     }
