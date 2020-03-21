@@ -17,12 +17,30 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-//        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
-//        
-//        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+    }
+    
+    func isValidPlatform(_ platform : String) -> Bool {
+        switch platform {
+        case "PS4":
+            return true
+        case "PS3":
+             return true
+        case "PC":
+            return true
+        case "XONE":
+            return true
+        case "X360":
+            return true
+        case "XBOX":
+             return true
+        case "Switch":
+             return true
+        default:
+            return false
+        }
     }
     
     func convertPlatformString(platform : String) -> String{
@@ -60,9 +78,11 @@ class SearchViewController: UIViewController {
                 let responseJSON : JSON = JSON(response.result.value!)
                 if let jsonArray = responseJSON["result"].array {
                     for item in jsonArray {
-                        let platform = item["platform"]
-                        let title = item["title"]
-                        self.requestInfo(platform: self.convertPlatformString(platform: platform.stringValue), gameTitle: title.stringValue)
+                        let platform = item["platform"].stringValue
+                        let title = item["title"].stringValue
+                        if self.isValidPlatform(platform) {
+                        self.requestInfo(platform: self.convertPlatformString(platform: platform), gameTitle: title)
+                        }
                     }
                 }
             }
