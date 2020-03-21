@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import RealmSwift
 
 class GameScoreInfoCell : UITableViewCell{
     @IBOutlet weak var gameImgView: UIImageView!
@@ -17,10 +18,12 @@ class ViewController: UIViewController {
     var gameScoreInfoArray : [GameScoreInfo] = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
 //        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
 //        
@@ -91,11 +94,26 @@ class ViewController: UIViewController {
                 let responseJSON : JSON = JSON(response.result.value!)
                 let score = responseJSON["result"]["score"].stringValue
                 let imageURL = responseJSON["result"]["image"].stringValue
-                self.gameScoreInfoArray.append(GameScoreInfo(imageURL: imageURL, title: gameTitle, platform: platform, score: score))
+                let gameScoreInfo = GameScoreInfo()
+                gameScoreInfo.imageURL = imageURL
+                gameScoreInfo.title = gameTitle
+                gameScoreInfo.platform = platform
+                gameScoreInfo.score = score
+                self.gameScoreInfoArray.append(gameScoreInfo)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    func save(gameScoreInfo : GameScoreInfo) {
+        do {
+            try realm.write {
+                realm.add(gameScoreInfo)
+            }
+        } catch {
+            print("Error Saving context \(error)")
         }
     }
 }
@@ -113,6 +131,19 @@ extension ViewController: UITableViewDataSource {
         cell.platformLabel.text = gameScoreInfoArray[indexPath.row].platform
         cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
         return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        save(gameScoreInfo: gameScoreInfoArray[indexPath.row])
+        let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }
 

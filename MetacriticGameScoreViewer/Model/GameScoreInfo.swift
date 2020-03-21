@@ -7,9 +7,12 @@
 //
 
 import Foundation
-struct GameScoreInfo {
-    let imageURL : String
-    let title : String
-    let platform : String
-    let score : String
+import RealmSwift
+
+class GameScoreInfo : Object {
+    @objc dynamic var imageURL : String = ""
+    @objc dynamic var title : String = ""
+    @objc dynamic var platform : String = ""
+    @objc dynamic var score : String = ""
+
 }
