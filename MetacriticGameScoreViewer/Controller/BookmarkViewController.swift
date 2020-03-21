@@ -1,4 +1,3 @@
-
 import UIKit
 import RealmSwift
 import SwipeCellKit

@@ -10,6 +10,7 @@ class SearchViewController: UIViewController {
     var gameScoreInfoArray : [GameScoreInfo] = []
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    var requests : [Alamofire.Request] = []
     let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -73,7 +74,7 @@ class SearchViewController: UIViewController {
         let parameters : [String:String] = [
             "title" : title
         ]
-        Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+        let request = Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 if let jsonArray = responseJSON["result"].array {
@@ -95,6 +96,7 @@ class SearchViewController: UIViewController {
                 }
             }
         }
+        requests.append(request)
     }
     
     func requestInfo(platform:String, gameTitle:String){
@@ -108,7 +110,7 @@ class SearchViewController: UIViewController {
         ]
         
         let newGameTitle = gameTitle.replacingOccurrences(of: " ", with: "%20")
-        Alamofire.request(metacriticURL+"/\(newGameTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+        let request = Alamofire.request(metacriticURL+"/\(newGameTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 let score = responseJSON["result"]["score"].stringValue
@@ -124,6 +126,14 @@ class SearchViewController: UIViewController {
                 }
             }
         }
+        requests.append(request)
+    }
+    
+    func cancelRequests(){
+        for request in requests {
+            request.cancel()
+        }
+        requests.removeAll()
     }
     
     func save(gameScoreInfo : GameScoreInfo) {
@@ -171,6 +181,7 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.searchTextField.text {
+            cancelRequests()
             gameScoreInfoArray.removeAll()
             tableView.reloadData()
             requestInfo(title: title )
