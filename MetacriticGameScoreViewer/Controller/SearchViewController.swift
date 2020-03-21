@@ -120,6 +120,7 @@ class SearchViewController: UIViewController {
                 gameScoreInfo.title = gameTitle
                 gameScoreInfo.platform = platform
                 gameScoreInfo.score = score
+                gameScoreInfo.done = false
                 self.gameScoreInfoArray.append(gameScoreInfo)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

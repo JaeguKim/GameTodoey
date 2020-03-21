@@ -11,6 +11,7 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
@@ -23,16 +24,16 @@ class BookmarkViewController: UIViewController {
     }
     
     func updateModel(at indexPath: IndexPath) {
-          if let itemForDeletion = self.gameInfoList?[indexPath.row]
-          {
-              do {
-                  try self.realm.write() {
-                      self.realm.delete(itemForDeletion)
-                  }
-              } catch {
-                  print("Error occurred when deleting item \(error)")
-              }
-          }
+        if let itemForDeletion = self.gameInfoList?[indexPath.row]
+        {
+            do {
+                try self.realm.write() {
+                    self.realm.delete(itemForDeletion)
+                }
+            } catch {
+                print("Error occurred when deleting item \(error)")
+            }
+        }
     }
 }
 
@@ -49,9 +50,26 @@ extension BookmarkViewController: UITableViewDataSource {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
             cell.scoreLabel.text = String(gameInfo.score)
-            cell.accessoryType = .checkmark
+            cell.accessoryType = gameInfo.done == true ? .checkmark : .none
         }
         return cell        
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension BookmarkViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let gameScoreItem = gameInfoList?[indexPath.row] {
+            do {
+                try realm.write {
+                    gameScoreItem.done = !gameScoreItem.done
+                }
+            } catch {
+                print("Error saving done status. \(error)")
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.reloadData()
+        }
     }
 }
 
