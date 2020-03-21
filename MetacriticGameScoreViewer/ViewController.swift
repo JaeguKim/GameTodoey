@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //requestInfo(title: "Halo")
         searchBar.delegate = self
         tableView.dataSource = self
 //        gameScoreInfoArray.append(GameScoreInfo(imageURL: "https://static.metacritic.com/images/products/games/5/c7a344249ff5b2a49917c70d765dfdf6-98.jpg", title: "Halo Wars 2", platform: "xbox-one", score: "79"))
@@ -72,15 +71,6 @@ class ViewController: UIViewController {
                         self.requestInfo(platform: self.convertPlatformString(platform: platform.stringValue), gameTitle: title.stringValue)
                     }
                 }
-                /*
-                 let flowerJSON : JSON = JSON(response.result.value!)
-                 let pageId = flowerJSON["query"]["pageids"][0].stringValue
-                 let extract = flowerJSON["query"]["pages"][pageId]["extract"].stringValue
-                 let flowerImageURL = flowerJSON["query"]["pages"][pageId]["thumbnail"]["source"].stringValue
-                 
-                 self.cameraImageView.sd_setImage(with: URL(string: flowerImageURL))
-                 self.flowerDescriptionLabel!.text = extract
-                 */
             }
         }
     }

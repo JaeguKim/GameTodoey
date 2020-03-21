@@ -9,4 +9,5 @@ target 'MetacriticGameScoreViewer' do
 pod 'Alamofire', '~> 4.4'
 pod 'SwiftyJSON'
 pod 'SDWebImage'
+pod 'RealmSwift'
 end
