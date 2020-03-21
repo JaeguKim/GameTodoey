@@ -12,7 +12,7 @@ import SwipeCellKit
 class GameInfoCell: SwipeTableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var platformLabel: UILabel!
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!
     override func awakeFromNib() {

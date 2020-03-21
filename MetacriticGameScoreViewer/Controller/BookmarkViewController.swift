@@ -48,8 +48,8 @@ extension BookmarkViewController: UITableViewDataSource {
         if let gameInfo = gameInfoList?[indexPath.row] {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
-            cell.platformLabel.text = gameInfo.platform
             cell.scoreLabel.text = String(gameInfo.score)
+            cell.accessoryType = .checkmark
         }
         return cell        
     }
