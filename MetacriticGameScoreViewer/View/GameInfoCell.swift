@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class GameInfoCell: UITableViewCell {
+class GameInfoCell: SwipeTableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
