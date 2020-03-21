@@ -4,14 +4,6 @@ import SwiftyJSON
 import SDWebImage
 import RealmSwift
 
-class GameScoreInfoCell : UITableViewCell{
-    @IBOutlet weak var gameImgView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var platformLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    
-}
-
 class SearchViewController: UIViewController {
     
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
