@@ -193,7 +193,7 @@
                                         <rect key="frame" x="49" y="50" width="316" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwf-5V-vo6">
                                         <rect key="frame" x="20" y="126" width="394" height="31"/>
@@ -201,6 +201,9 @@
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginBtnPressed:" destination="hlC-Mq-inT" eventType="touchUpInside" id="5xs-xZ-qQE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -285,7 +288,7 @@
                                         <rect key="frame" x="49" y="50" width="316" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-iv-SXC">
                                         <rect key="frame" x="20" y="126" width="394" height="31"/>
@@ -293,6 +296,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" name="BrandBlue"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerBtnPressed:" destination="XNk-ql-FkC" eventType="touchUpInside" id="dar-76-Pcf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -367,6 +373,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wal-wh-nS5"/>
+        <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>

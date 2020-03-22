@@ -86,11 +86,11 @@
 				5B1F3BFC2420DFB200E0698C /* SceneDelegate.swift */,
 				5B24A8DD2425CA7200A12A96 /* Controller */,
 				5BE01E0E24222A64005DD70C /* View */,
+				5B3E7C06242753410027BD1D /* Const.swift */,
 				5B1F3C032420DFB200E0698C /* Assets.xcassets */,
 				5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */,
 				5B1F3C082420DFB200E0698C /* Info.plist */,
 				5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */,
-				5B3E7C06242753410027BD1D /* Const.swift */,
 			);
 			path = MetacriticGameScoreViewer;
 			sourceTree = "<group>";
