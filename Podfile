@@ -11,4 +11,5 @@ pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'RealmSwift'
 pod 'SwipeCellKit'
+pod 'CLTypingLabel'
 end

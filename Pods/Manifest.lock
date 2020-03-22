@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - CLTypingLabel (0.3.0)
   - Realm (4.3.2):
     - Realm/Headers (= 4.3.2)
   - Realm/Headers (4.3.2)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - CLTypingLabel
   - RealmSwift
   - SDWebImage
   - SwiftyJSON
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CLTypingLabel
     - Realm
     - RealmSwift
     - SDWebImage
@@ -29,12 +32,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  CLTypingLabel: e5f3adf9467a38664a505e6475c23946c3b3c424
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: 211b7f785543f1a3951d858ac77189e3766ee9ba
+PODFILE CHECKSUM: 6519f82112f53287a8dc622a987f0556cfcfbb8a
 
 COCOAPODS: 1.8.4
