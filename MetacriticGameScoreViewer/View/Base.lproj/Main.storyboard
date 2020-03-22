@@ -193,7 +193,7 @@
                                         <rect key="frame" x="49" y="50" width="316" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwf-5V-vo6">
                                         <rect key="frame" x="20" y="126" width="394" height="31"/>
@@ -285,7 +285,7 @@
                                         <rect key="frame" x="49" y="50" width="316" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-iv-SXC">
                                         <rect key="frame" x="20" y="126" width="394" height="31"/>
@@ -367,6 +367,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gqr-tb-T2D"/>
+        <segue reference="Wal-wh-nS5"/>
     </inferredMetricsTieBreakers>
 </document>
