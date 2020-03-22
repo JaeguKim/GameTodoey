@@ -14,7 +14,7 @@ class RegisterViewController: UIViewController {
                     print(e.localizedDescription)
                 }
                 else {
-                    self.performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+                    self.performSegue(withIdentifier: Const.registerSegue, sender: self)
                 }
             }
         }
