@@ -15,6 +15,9 @@
 		5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C032420DFB200E0698C /* Assets.xcassets */; };
 		5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */; };
 		5B24A8DF2425CAC800A12A96 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */; };
+		5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */; };
+		5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C00242728000027BD1D /* LoginViewController.swift */; };
+		5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C022427284B0027BD1D /* WelcomeViewController.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
 		5BE01E1524224474005DD70C /* GameScoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* GameScoreInfo.swift */; };
@@ -30,6 +33,9 @@
 		5B1F3C062420DFB200E0698C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B1F3C082420DFB200E0698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5B3E7C00242728000027BD1D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5B3E7C022427284B0027BD1D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E1424224474005DD70C /* GameScoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreInfo.swift; sourceTree = "<group>"; };
@@ -86,6 +92,9 @@
 		5B24A8DD2425CA7200A12A96 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5B3E7C022427284B0027BD1D /* WelcomeViewController.swift */,
+				5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */,
+				5B3E7C00242728000027BD1D /* LoginViewController.swift */,
 				5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */,
 				5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */,
 			);
@@ -243,9 +252,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */,
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,
 				5BE01E1524224474005DD70C /* GameScoreInfo.swift in Sources */,
+				5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,
+				5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */,
 				5B1F3BFD2420DFB200E0698C /* SceneDelegate.swift in Sources */,
 				5B24A8DF2425CAC800A12A96 /* BookmarkViewController.swift in Sources */,
 				5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */,

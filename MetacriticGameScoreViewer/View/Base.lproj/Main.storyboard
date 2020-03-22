@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MwQ-LC-aut">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zjc-xB-I0G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="68.973214285714278"/>
+            <point key="canvasLocation" x="1952.1739130434785" y="68.973214285714278"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="aOn-M8-ZuF">
@@ -81,7 +82,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-1v-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985.5072463768117" y="68.973214285714278"/>
+            <point key="canvasLocation" x="2895.6521739130435" y="68.973214285714278"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="x1O-yG-gQN">
+            <objects>
+                <viewController id="yuP-M7-WEH" customClass="WelcomeViewController" customModule="MetacriticGameScoreViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mqU-B4-2VK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GameTodoey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q70-58-JDL">
+                                <rect key="frame" x="47" y="445" width="320" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
+                                <color key="textColor" red="0.16470588235294117" green="0.7803921568627451" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj7-8x-rhM" userLabel="LoginBtn">
+                                <rect key="frame" x="0.0" y="804" width="414" height="58"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="ZNx-IJ-4Gy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvd-xr-ktv" userLabel="RegisterBtn">
+                                <rect key="frame" x="0.0" y="738" width="414" height="58"/>
+                                <color key="backgroundColor" name="BrandLightPurple"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="n0t-VP-21k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" name="BrandBlue"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Hj7-8x-rhM" firstAttribute="leading" secondItem="Hdw-pd-B42" secondAttribute="leading" id="0fb-jX-PNp"/>
+                            <constraint firstItem="Hj7-8x-rhM" firstAttribute="bottom" secondItem="Hdw-pd-B42" secondAttribute="bottom" id="7Yc-L8-5sK"/>
+                            <constraint firstItem="Hj7-8x-rhM" firstAttribute="top" secondItem="jvd-xr-ktv" secondAttribute="bottom" constant="8" id="8Zm-o7-ycS"/>
+                            <constraint firstItem="Q70-58-JDL" firstAttribute="centerY" secondItem="Hdw-pd-B42" secondAttribute="centerY" id="EXi-Qg-k2f"/>
+                            <constraint firstItem="Hdw-pd-B42" firstAttribute="centerX" secondItem="Q70-58-JDL" secondAttribute="centerX" id="Qk3-6X-KNo"/>
+                            <constraint firstItem="Hj7-8x-rhM" firstAttribute="trailing" secondItem="Hdw-pd-B42" secondAttribute="trailing" id="UZM-2d-FWv"/>
+                            <constraint firstItem="jvd-xr-ktv" firstAttribute="leading" secondItem="Hdw-pd-B42" secondAttribute="leading" id="blY-Fi-Udi"/>
+                            <constraint firstItem="jvd-xr-ktv" firstAttribute="trailing" secondItem="Hdw-pd-B42" secondAttribute="trailing" id="fvK-lb-VpI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hdw-pd-B42"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8yc-L8-uOg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HdZ-14-qZH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49.275362318840585" y="68.973214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sRM-4n-mpD">
@@ -99,7 +157,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvq-Wf-ksF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="68.973214285714278"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="68.973214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CcB-2M-rE6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zjc-xB-I0G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j33-9c-YqC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yuP-M7-WEH" kind="relationship" relationship="rootViewController" id="Xqc-Xz-xLo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ruY-I9-ay3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1143" y="69"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="BrandBlue">
+            <color red="0.16500000000000001" green="0.78000000000000003" blue="0.996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BrandLightPurple">
+            <color red="0.92200000000000004" green="0.97999999999999998" blue="0.996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
