@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3507" y="69"/>
+            <point key="canvasLocation" x="2536" y="-64"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="aOn-M8-ZuF">
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-1v-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4449" y="69"/>
+            <point key="canvasLocation" x="3786" y="-64"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="x1O-yG-gQN">
@@ -232,6 +232,9 @@
                         <viewLayoutGuide key="safeArea" id="Oyz-N5-3gE"/>
                     </view>
                     <navigationItem key="navigationItem" id="AAm-TT-2E7"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" id="gqr-tb-T2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwF-sy-Amc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,28 +322,15 @@
                         <viewLayoutGuide key="safeArea" id="pt5-mh-KX9"/>
                     </view>
                     <navigationItem key="navigationItem" id="o0d-rb-Srv"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="C47-No-Ula" id="8eK-z6-eDV"/>
+                        <outlet property="passwordTextField" destination="oec-Yt-a2y" id="qIN-cV-ugu"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="Wal-wh-nS5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOi-VZ-DFy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198.5507246376812" y="-447.32142857142856"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sRM-4n-mpD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MwQ-LC-aut" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xsX-jg-MMK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xge-39-b4X"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lvq-Wf-ksF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2596" y="69"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CcB-2M-rE6">
@@ -374,4 +364,7 @@
             <color red="0.92199999094009399" green="0.98000001907348633" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gqr-tb-T2D"/>
+    </inferredMetricsTieBreakers>
 </document>
