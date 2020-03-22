@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B1F3BF72420DFB200E0698C /* MetacriticGameScoreViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetacriticGameScoreViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1F3BF72420DFB200E0698C /* GameTodoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTodoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1F3BFA2420DFB200E0698C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1F3BFC2420DFB200E0698C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		5B1F3BF82420DFB200E0698C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B1F3BF72420DFB200E0698C /* MetacriticGameScoreViewer.app */,
+				5B1F3BF72420DFB200E0698C /* GameTodoey.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			);
 			name = MetacriticGameScoreViewer;
 			productName = MetacriticGameScoreViewer;
-			productReference = 5B1F3BF72420DFB200E0698C /* MetacriticGameScoreViewer.app */;
+			productReference = 5B1F3BF72420DFB200E0698C /* GameTodoey.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -421,7 +421,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GameTodoey;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GameTodoey;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
