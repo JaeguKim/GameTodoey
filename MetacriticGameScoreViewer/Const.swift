@@ -12,4 +12,5 @@ struct Const {
     static let appName = "🎮Todoey🎮"
     static let registerSegue = "RegisterVCToSearchVC"
     static let loginSegue = "LoginVCToSearchVC"
+    static let searchToDescSegue = "SearchVCToDescVC"
 }

@@ -115,11 +115,13 @@ class SearchViewController: UIViewController {
                 let responseJSON : JSON = JSON(response.result.value!)
                 let score = responseJSON["result"]["score"].stringValue
                 let imageURL = responseJSON["result"]["image"].stringValue
+                let description = responseJSON["result"]["description"].stringValue
                 let gameScoreInfo = GameScoreInfo()
                 gameScoreInfo.imageURL = imageURL
                 gameScoreInfo.title = gameTitle
                 gameScoreInfo.platform = platform
                 gameScoreInfo.score = score
+                gameScoreInfo.gameDescription = description
                 gameScoreInfo.done = false
                 self.gameScoreInfoArray.append(gameScoreInfo)
                 DispatchQueue.main.async {
@@ -146,6 +148,13 @@ class SearchViewController: UIViewController {
             print("Error Saving context \(error)")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! DescriptionPopupViewController
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destVC.gameScoreData = gameScoreInfoArray[indexPath.row]
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -166,13 +175,14 @@ extension SearchViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        save(gameScoreInfo: gameScoreInfoArray[indexPath.row])
-        let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
-        present(alert, animated: true) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }
+//        save(gameScoreInfo: gameScoreInfoArray[indexPath.row])
+//        let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
+//        present(alert, animated: true) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                alert.dismiss(animated: true, completion: nil)
+//            }
+//        }
+        performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
