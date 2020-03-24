@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zjc-xB-I0G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -66,7 +66,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
                                 <rect key="frame" x="100" y="50" width="214" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                 <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -78,13 +78,13 @@
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xL8-Ok-nWN">
-                                <rect key="frame" x="20" y="269" width="374" height="396"/>
+                                <rect key="frame" x="20" y="341" width="374" height="416"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sz-KYk" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="426"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="420"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh" userLabel="Description">
-                                                <rect key="frame" x="20" y="20" width="334" height="406"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh" userLabel="Description">
+                                                <rect key="frame" x="20" y="14" width="334" height="406"/>
                                                 <mutableString key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity's only chance for survival. The Combine's control of the planet since the Black Mesa incident has only strengthened as they corral the remaining population in cities. Among them are some of Earth's greatest scientists: you and your father, Dr. Eli Vance. As founders of a fledgling resistance, you've continued your clandestine scientific activityperforming critical research, and building invaluable tools for the few humans brave enough to defy the Combine. Every day, you learn more about your enemy, and every day you work toward finding a weakness.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -93,7 +93,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eDK-p4-TLh" secondAttribute="trailing" constant="20" id="PdD-Jj-Qdl"/>
-                                            <constraint firstItem="eDK-p4-TLh" firstAttribute="top" secondItem="FQ9-sz-KYk" secondAttribute="top" constant="20" id="Sal-63-41O"/>
+                                            <constraint firstItem="eDK-p4-TLh" firstAttribute="top" secondItem="FQ9-sz-KYk" secondAttribute="top" constant="14" id="Sal-63-41O"/>
                                             <constraint firstAttribute="bottom" secondItem="eDK-p4-TLh" secondAttribute="bottom" id="YWJ-hG-FhR"/>
                                             <constraint firstItem="eDK-p4-TLh" firstAttribute="leading" secondItem="FQ9-sz-KYk" secondAttribute="leading" constant="20" id="sWs-er-JtP"/>
                                         </constraints>
@@ -109,9 +109,15 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="GJI-oD-CuF"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="wKr-ZG-AcX"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT2-0C-krD">
+                                <rect key="frame" x="158" y="284" width="98" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <color key="textColor" name="BrandBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcV-Hr-1lC">
-                                <rect key="frame" x="89" y="732" width="236" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="66" y="766" width="282" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                 <state key="normal" title="Save To Your Library">
                                     <color key="titleColor" name="BrandBlue"/>
                                 </state>
@@ -120,18 +126,21 @@
                         <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
                             <constraint firstItem="Rus-RX-3nk" firstAttribute="top" secondItem="Ihw-Ub-I2b" secondAttribute="bottom" constant="30" id="3Eh-rU-Qwm"/>
+                            <constraint firstItem="XT2-0C-krD" firstAttribute="top" secondItem="Rus-RX-3nk" secondAttribute="bottom" constant="33" id="5ut-Id-A2D"/>
                             <constraint firstItem="Rus-RX-3nk" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="158" id="86c-VV-2G8"/>
-                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="top" secondItem="xL8-Ok-nWN" secondAttribute="bottom" constant="67" id="FWn-KP-t9D"/>
-                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="89" id="Gvj-Nw-eoZ"/>
+                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="XT2-0C-krD" secondAttribute="trailing" constant="158" id="Eum-49-jwz"/>
+                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="top" secondItem="xL8-Ok-nWN" secondAttribute="bottom" constant="9" id="FWn-KP-t9D"/>
+                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="66" id="Gvj-Nw-eoZ"/>
                             <constraint firstItem="Ihw-Ub-I2b" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="100" id="HFH-UZ-jr3"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="bottom" secondItem="mcV-Hr-1lC" secondAttribute="bottom" constant="34" id="Hdp-ZH-dbB"/>
-                            <constraint firstItem="xL8-Ok-nWN" firstAttribute="top" secondItem="Rus-RX-3nk" secondAttribute="bottom" constant="18" id="MWK-qr-vGc"/>
+                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="bottom" secondItem="mcV-Hr-1lC" secondAttribute="bottom" id="Hdp-ZH-dbB"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="Rus-RX-3nk" secondAttribute="trailing" constant="158" id="mks-2a-4E7"/>
                             <constraint firstItem="xL8-Ok-nWN" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="n0u-7t-JA3"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="mcV-Hr-1lC" secondAttribute="trailing" constant="89" id="s1L-gh-dSl"/>
+                            <constraint firstItem="XT2-0C-krD" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="158" id="rV7-qH-cKe"/>
+                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="mcV-Hr-1lC" secondAttribute="trailing" constant="66" id="s1L-gh-dSl"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="Ihw-Ub-I2b" secondAttribute="trailing" constant="100" id="t7U-nS-0UB"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="xL8-Ok-nWN" secondAttribute="trailing" constant="20" id="t9i-ne-daw"/>
                             <constraint firstItem="Ihw-Ub-I2b" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="50" id="vXX-fd-Nos"/>
+                            <constraint firstItem="xL8-Ok-nWN" firstAttribute="top" secondItem="XT2-0C-krD" secondAttribute="bottom" constant="33" id="vtU-za-taE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tEE-Pd-D8j"/>
                     </view>
