@@ -78,11 +78,11 @@
                                 <rect key="frame" x="51" y="346" width="312" height="373"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sz-KYk" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="312" height="454"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="312" height="555.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh">
                                                 <rect key="frame" x="20" y="20" width="272" height="325"/>
-                                                <mutableString key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race </mutableString>
+                                                <mutableString key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity's only chance for survival. The Combine's control of the planet since the Black Mesa incident has only strengthened as they corral the remaining population in cities. Among them are some of Earth's greatest scientists: you and your father, Dr. Eli Vance. As founders of a fledgling resistance, you've continued your clandestine scientific activityperforming critical research, and building invaluable tools for the few humans brave enough to defy the Combine. Every day, you learn more about your enemy, and every day you work toward finding a weakness.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -258,7 +258,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cNk-xv-Wtz" secondAttribute="bottom" constant="82" id="2Pc-uL-Hj5"/>
-                                    <constraint firstItem="cNk-xv-Wtz" firstAttribute="leading" secondItem="vhn-2f-gkt" secondAttribute="leading" constant="48" id="Fee-9f-nEp"/>
+                                    <constraint firstItem="cNk-xv-Wtz" firstAttribute="left" secondItem="vhn-2f-gkt" secondAttribute="left" constant="48" id="Fee-9f-nEp"/>
                                     <constraint firstItem="r77-4d-gig" firstAttribute="leading" secondItem="vhn-2f-gkt" secondAttribute="leading" constant="20" symbolic="YES" id="FpD-At-LtR"/>
                                     <constraint firstAttribute="trailing" secondItem="cNk-xv-Wtz" secondAttribute="trailing" constant="48" id="Ucy-4U-esT"/>
                                     <constraint firstAttribute="height" constant="177" id="Xd4-ke-RXu"/>
@@ -297,7 +297,7 @@
                                     <constraint firstItem="uNW-zO-Ubf" firstAttribute="top" secondItem="qQo-Ry-kSa" secondAttribute="top" constant="20" id="C9F-di-a4A"/>
                                     <constraint firstItem="mcm-Ba-I2D" firstAttribute="top" secondItem="qQo-Ry-kSa" secondAttribute="top" constant="50" id="JME-Wz-B00"/>
                                     <constraint firstAttribute="bottom" secondItem="uNW-zO-Ubf" secondAttribute="bottom" constant="20" id="OKr-9s-a8o"/>
-                                    <constraint firstItem="mcm-Ba-I2D" firstAttribute="leading" secondItem="qQo-Ry-kSa" secondAttribute="leading" constant="49" id="Ota-HI-jyi"/>
+                                    <constraint firstItem="mcm-Ba-I2D" firstAttribute="left" secondItem="qQo-Ry-kSa" secondAttribute="left" constant="49" id="Ota-HI-jyi"/>
                                     <constraint firstAttribute="bottom" secondItem="mcm-Ba-I2D" secondAttribute="bottom" constant="82" id="ddK-5q-sgt"/>
                                     <constraint firstAttribute="trailing" secondItem="Fwf-5V-vo6" secondAttribute="trailing" id="gfr-HE-Oaf"/>
                                     <constraint firstItem="uNW-zO-Ubf" firstAttribute="leading" secondItem="qQo-Ry-kSa" secondAttribute="leading" constant="20" symbolic="YES" id="hFr-XG-PeK"/>
@@ -360,7 +360,7 @@
                                     <constraint firstItem="YJI-uU-vyO" firstAttribute="leading" secondItem="Fbm-jn-byq" secondAttribute="leading" constant="20" symbolic="YES" id="rHW-nz-GLE"/>
                                     <constraint firstAttribute="bottom" secondItem="C47-No-Ula" secondAttribute="bottom" constant="82" id="uEb-B1-TeS"/>
                                     <constraint firstItem="YJI-uU-vyO" firstAttribute="top" secondItem="Fbm-jn-byq" secondAttribute="top" constant="20" id="uIf-TE-SYY"/>
-                                    <constraint firstItem="C47-No-Ula" firstAttribute="leading" secondItem="Fbm-jn-byq" secondAttribute="leading" constant="48" id="zso-QB-Rod"/>
+                                    <constraint firstItem="C47-No-Ula" firstAttribute="left" secondItem="Fbm-jn-byq" secondAttribute="left" constant="48" id="zso-QB-Rod"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMx-V2-f5O" userLabel="PasswordView">
@@ -397,7 +397,7 @@
                                     <constraint firstAttribute="trailing" secondItem="NAy-Ou-40I" secondAttribute="trailing" constant="20" symbolic="YES" id="SJQ-Ss-kKI"/>
                                     <constraint firstAttribute="trailing" secondItem="oec-Yt-a2y" secondAttribute="trailing" constant="49" id="a2Q-kj-wqC"/>
                                     <constraint firstAttribute="height" constant="177" id="fnF-Vd-aDg"/>
-                                    <constraint firstItem="oec-Yt-a2y" firstAttribute="leading" secondItem="wMx-V2-f5O" secondAttribute="leading" constant="49" id="kVs-Mx-NwN"/>
+                                    <constraint firstItem="oec-Yt-a2y" firstAttribute="left" secondItem="wMx-V2-f5O" secondAttribute="left" constant="49" id="kVs-Mx-NwN"/>
                                     <constraint firstAttribute="trailing" secondItem="cuq-iv-SXC" secondAttribute="trailing" id="rBC-ZJ-kCG"/>
                                     <constraint firstItem="NAy-Ou-40I" firstAttribute="top" secondItem="wMx-V2-f5O" secondAttribute="top" constant="20" id="yed-5K-9Gk"/>
                                 </constraints>
