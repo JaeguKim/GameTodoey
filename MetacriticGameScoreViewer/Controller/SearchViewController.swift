@@ -69,6 +69,12 @@ class SearchViewController: UIViewController {
     
     func requestInfo(title:String){
         self.searchUIAlert = UIAlertController(title: "Searching...", message: "", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            self.cancelRequests()
+            self.gameScoreInfoArray.removeAll()
+            self.tableView.reloadData()
+        }
+        searchUIAlert?.addAction(cancelAction)
         self.present(self.searchUIAlert!, animated: true)
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
