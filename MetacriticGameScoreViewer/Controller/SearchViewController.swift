@@ -11,8 +11,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var requests : [Alamofire.Request] = []
-    let realm = try! Realm()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -139,20 +138,11 @@ class SearchViewController: UIViewController {
         requests.removeAll()
     }
     
-    func save(gameScoreInfo : GameScoreInfo) {
-        do {
-            try realm.write {
-                realm.add(gameScoreInfo)
-            }
-        } catch {
-            print("Error Saving context \(error)")
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as! DescriptionPopupViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destVC.gameScoreData = gameScoreInfoArray[indexPath.row]
+        if let destVC = segue.destination as? DescriptionPopupViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destVC.gameScoreInfo = gameScoreInfoArray[indexPath.row]
+            }
         }
     }
 }
@@ -175,13 +165,7 @@ extension SearchViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        save(gameScoreInfo: gameScoreInfoArray[indexPath.row])
-//        let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
-//        present(alert, animated: true) {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                alert.dismiss(animated: true, completion: nil)
-//            }
-//        }
+
         performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }

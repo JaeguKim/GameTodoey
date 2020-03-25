@@ -21,9 +21,10 @@
 		5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */; };
 		5B3E7C07242753410027BD1D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C06242753410027BD1D /* Const.swift */; };
 		5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */; };
+		5B9C092E242B561700F73F96 /* GameScoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameScoreInfo.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
-		5BE01E1524224474005DD70C /* GameScoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* GameScoreInfo.swift */; };
+		5BE01E1524224474005DD70C /* Realm_GameScoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameScoreInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +43,10 @@
 		5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B3E7C06242753410027BD1D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPopupViewController.swift; sourceTree = "<group>"; };
+		5B9C092D242B561700F73F96 /* GameScoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreInfo.swift; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
-		5BE01E1424224474005DD70C /* GameScoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreInfo.swift; sourceTree = "<group>"; };
+		5BE01E1424224474005DD70C /* Realm_GameScoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameScoreInfo.swift; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
 		8F1BC3CC1C92BD98CEF6B861 /* Pods_MetacriticGameScoreViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetacriticGameScoreViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.debug.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,7 +125,8 @@
 		5BE01E132422441A005DD70C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5BE01E1424224474005DD70C /* GameScoreInfo.swift */,
+				5BE01E1424224474005DD70C /* Realm_GameScoreInfo.swift */,
+				5B9C092D242B561700F73F96 /* GameScoreInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,10 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9C092E242B561700F73F96 /* GameScoreInfo.swift in Sources */,
 				5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */,
 				5B3E7C07242753410027BD1D /* Const.swift in Sources */,
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,
-				5BE01E1524224474005DD70C /* GameScoreInfo.swift in Sources */,
+				5BE01E1524224474005DD70C /* Realm_GameScoreInfo.swift in Sources */,
 				5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,
 				5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */,

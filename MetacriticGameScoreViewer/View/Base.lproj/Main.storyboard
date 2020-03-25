@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3801" y="70"/>
+            <point key="canvasLocation" x="2565" y="69"/>
         </scene>
         <!--Description Popup View Controller-->
         <scene sceneID="gBr-kL-JgF">
@@ -121,6 +121,9 @@
                                 <state key="normal" title="Save To Your Library">
                                     <color key="titleColor" name="BrandBlue"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="BrandLightBlue"/>
@@ -152,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX2-F0-4u2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5403" y="-698"/>
+            <point key="canvasLocation" x="4778" y="-708"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="aOn-M8-ZuF">
@@ -183,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-1v-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5404" y="69"/>
+            <point key="canvasLocation" x="4778" y="69"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="x1O-yG-gQN">
@@ -265,7 +268,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="r77-4d-gig">
                                         <rect key="frame" x="20" y="20" width="374" height="137"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-xv-Wtz" userLabel="Email TextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@b.com" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNk-xv-Wtz" userLabel="Email TextField">
                                         <rect key="frame" x="48" y="50" width="318" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -290,7 +293,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="uNW-zO-Ubf">
                                         <rect key="frame" x="20" y="20" width="374" height="137"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcm-Ba-I2D" userLabel="Password TextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcm-Ba-I2D" userLabel="Password TextField">
                                         <rect key="frame" x="49" y="50" width="316" height="45"/>
                                         <color key="textColor" name="BrandBlue"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -474,6 +477,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wal-wh-nS5"/>
+        <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>

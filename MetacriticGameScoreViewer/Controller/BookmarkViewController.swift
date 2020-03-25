@@ -5,7 +5,7 @@ import SwipeCellKit
 class BookmarkViewController: UIViewController {
     
     var realm = try! Realm()
-    var gameInfoList : Results<GameScoreInfo>?
+    var gameInfoList : Results<Realm_GameScoreInfo>?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class BookmarkViewController: UIViewController {
     }
     
     func loadGameScoreInfo() {
-        gameInfoList = realm.objects(GameScoreInfo.self)
+        gameInfoList = realm.objects(Realm_GameScoreInfo.self)
         tableView.reloadData()
     }
     
