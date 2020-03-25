@@ -83,7 +83,7 @@ class SearchViewController: UIViewController {
                 let responseJSON : JSON = JSON(response.result.value!)
                 if let jsonArray = responseJSON["result"].array {
                     self.totalRequests = jsonArray.count
-                  
+                    
                     for item in jsonArray {
                         let platform = item["platform"].stringValue
                         let title = item["title"].stringValue
@@ -95,12 +95,27 @@ class SearchViewController: UIViewController {
                         }
                     }
                     print("totalRequests : \(self.totalRequests)")
+                    // if there is no valid total request
+                    if self.totalRequests == 0 {
+                        self.searchUIAlert?.title = "No Results"
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.searchUIAlert?.dismiss(animated: true, completion: nil)
+                        }
+                    }
                 }
                 else {
+                    // if jsonarray has 0 elem
                     self.searchUIAlert?.title = "No Results"
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.searchUIAlert?.dismiss(animated: true, completion: nil)
                     }
+                }
+            }
+            else {
+                // if request is failed,
+                self.searchUIAlert?.title = "No Results"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.searchUIAlert?.dismiss(animated: true, completion: nil)
                 }
             }
         }
