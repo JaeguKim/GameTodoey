@@ -13,4 +13,5 @@ struct Const {
     static let registerSegue = "RegisterVCToSearchVC"
     static let loginSegue = "LoginVCToSearchVC"
     static let searchToDescSegue = "SearchVCToDescVC"
+    static let idStr = "id"
 }

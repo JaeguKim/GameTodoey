@@ -15,4 +15,9 @@ class GameScoreInfo {
     var score : String = ""
     var gameDescription : String = ""
     var done : Bool = false
+    var id : String {
+        get {
+            return title+platform
+        }
+    }
 }

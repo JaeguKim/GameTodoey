@@ -16,4 +16,9 @@ class Realm_GameScoreInfo : Object {
     @objc dynamic var score : String = ""
     @objc dynamic var gameDescription : String = ""
     @objc dynamic var done : Bool = false
+    @objc dynamic var id : String = ""
+    override static func primaryKey() -> String? {
+        return Const.idStr
+    }
+    
 }

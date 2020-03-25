@@ -31,20 +31,31 @@ class DescriptionPopupViewController: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
-        if let gameScoreData = gameScoreInfo {
+        guard let gameScoreData = gameScoreInfo else {return}
+        let gameThatExists = realm.object(ofType: Realm_GameScoreInfo.self, forPrimaryKey: gameScoreInfo?.id)
+        if gameThatExists == nil {
             let realmObj = Realm_GameScoreInfo()
             realmObj.title = gameScoreData.title
             realmObj.platform = gameScoreData.platform
             realmObj.gameDescription = gameScoreData.gameDescription
             realmObj.imageURL = gameScoreData.imageURL
             realmObj.score = gameScoreData.score
+            realmObj.id = gameScoreData.id
             realmObj.done = gameScoreData.done
             save(realmObj:realmObj)
-            let alert = UIAlertController(title: "Saved To Your Library", message: "", preferredStyle: .alert)
-            present(alert, animated: true) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    alert.dismiss(animated: true, completion: nil)
-                }
+            showAlertMessage(title: "Saved To Your Library")
+        }
+        else {
+            showAlertMessage(title: "Already Added To Library")
+        }
+        
+    }
+    
+    func showAlertMessage(title : String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                alert.dismiss(animated: true, completion: nil)
             }
         }
     }
