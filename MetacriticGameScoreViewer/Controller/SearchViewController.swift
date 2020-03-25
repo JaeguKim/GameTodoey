@@ -11,7 +11,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var requests : [Alamofire.Request] = []
-  
+    var searchUIAlert : UIAlertController?
+    var totalRequests : Int = 0
+    var requestsDone : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -27,7 +30,7 @@ class SearchViewController: UIViewController {
         case "PS4":
             return true
         case "PS3":
-             return true
+            return true
         case "PC":
             return true
         case "XONE":
@@ -35,9 +38,9 @@ class SearchViewController: UIViewController {
         case "X360":
             return true
         case "XBOX":
-             return true
+            return true
         case "Switch":
-             return true
+            return true
         default:
             return false
         }
@@ -65,6 +68,8 @@ class SearchViewController: UIViewController {
     }
     
     func requestInfo(title:String){
+        self.searchUIAlert = UIAlertController(title: "Searching...", message: "", preferredStyle: .alert)
+        self.present(self.searchUIAlert!, animated: true)
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
             "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
@@ -77,20 +82,24 @@ class SearchViewController: UIViewController {
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 if let jsonArray = responseJSON["result"].array {
+                    self.totalRequests = jsonArray.count
+                  
                     for item in jsonArray {
                         let platform = item["platform"].stringValue
                         let title = item["title"].stringValue
                         if self.isValidPlatform(platform) {
-                        self.requestInfo(platform: self.convertPlatformString(platform: platform), gameTitle: title)
+                            self.requestInfo(platform: self.convertPlatformString(platform: platform), gameTitle: title)
+                        }
+                        else {
+                            self.totalRequests-=1
                         }
                     }
+                    print("totalRequests : \(self.totalRequests)")
                 }
                 else {
-                    let alert = UIAlertController(title: "No Results", message: "", preferredStyle: .alert)
-                    self.present(alert, animated: true) {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            alert.dismiss(animated: true, completion: nil)
-                        }
+                    self.searchUIAlert?.title = "No Results"
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.searchUIAlert?.dismiss(animated: true, completion: nil)
                     }
                 }
             }
@@ -126,6 +135,16 @@ class SearchViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+            }
+            self.requestsDone += 1
+            print("requestsDone : \(self.requestsDone)")
+            let percent = (self.requestsDone * 100) / self.totalRequests
+            self.searchUIAlert?.title = "\(percent)% Loaded"
+            if self.requestsDone == self.totalRequests {
+                self.searchUIAlert?.dismiss(animated: true, completion: {
+                    self.requestsDone = 0
+                    self.totalRequests = 0
+                })
             }
         }
         requests.append(request)
@@ -165,7 +184,7 @@ extension SearchViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
