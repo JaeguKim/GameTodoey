@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2565" y="69"/>
+            <point key="canvasLocation" x="3301" y="-415"/>
         </scene>
         <!--Description Popup View Controller-->
         <scene sceneID="gBr-kL-JgF">
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX2-F0-4u2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4778" y="-708"/>
+            <point key="canvasLocation" x="5142" y="69"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="aOn-M8-ZuF">
@@ -182,11 +182,14 @@
                     <navigationItem key="navigationItem" id="MEX-RM-kKG"/>
                     <connections>
                         <outlet property="tableView" destination="ifZ-AP-b1J" id="QJt-2g-Fmm"/>
+                        <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="BookmarkVCToDescVC" popoverAnchorView="ifZ-AP-b1J" id="3L2-2G-OGq">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-1v-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4778" y="69"/>
+            <point key="canvasLocation" x="3300" y="492"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="x1O-yG-gQN">
@@ -477,6 +480,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="3L2-2G-OGq"/>
         <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>

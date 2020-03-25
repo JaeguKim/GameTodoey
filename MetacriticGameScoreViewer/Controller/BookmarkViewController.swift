@@ -35,6 +35,22 @@ class BookmarkViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? DescriptionPopupViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let realmObj = gameInfoList![indexPath.row]
+                let gameScoreInfo = GameScoreInfo()
+                gameScoreInfo.title = realmObj.title
+                gameScoreInfo.platform = realmObj.platform
+                gameScoreInfo.gameDescription = realmObj.gameDescription
+                gameScoreInfo.imageURL = realmObj.imageURL
+                gameScoreInfo.score = realmObj.score
+                gameScoreInfo.done = realmObj.done
+                destVC.gameScoreInfo = gameScoreInfo
+            }
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -59,17 +75,8 @@ extension BookmarkViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension BookmarkViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let gameScoreItem = gameInfoList?[indexPath.row] {
-            do {
-                try realm.write {
-                    gameScoreItem.done = !gameScoreItem.done
-                }
-            } catch {
-                print("Error saving done status. \(error)")
-            }
-            tableView.deselectRow(at: indexPath, animated: true)
-            tableView.reloadData()
-        }
+        performSegue(withIdentifier: Const.bookmarkToDescSegue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
