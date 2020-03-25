@@ -49,6 +49,7 @@ class BookmarkViewController: UIViewController {
                 gameScoreInfo.done = realmObj.done
                 destVC.gameScoreInfo = gameScoreInfo
             }
+            destVC.isBtnEnabled = false
         }
     }
 }

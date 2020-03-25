@@ -150,6 +150,7 @@
                     <connections>
                         <outlet property="gameDescLabel" destination="eDK-p4-TLh" id="iwc-fE-UM5"/>
                         <outlet property="gameImgView" destination="Rus-RX-3nk" id="O9y-oO-Qef"/>
+                        <outlet property="saveBtn" destination="mcV-Hr-1lC" id="4RC-Da-Tzc"/>
                         <outlet property="titleLabel" destination="Ihw-Ub-I2b" id="a1t-oe-Prs"/>
                     </connections>
                 </viewController>
