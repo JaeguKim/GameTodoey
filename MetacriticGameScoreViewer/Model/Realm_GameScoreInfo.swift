@@ -1,10 +1,3 @@
-//
-//  gameScoreInfo.swift
-//  MetacriticGameScoreViewer
-//
-//  Created by 김재구 on 2020/03/18.
-//  Copyright © 2020 jaeguKim. All rights reserved.
-//
 
 import Foundation
 import RealmSwift

@@ -18,7 +18,7 @@
 		5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884D242CA7060028BC17 /* LibraryViewController.swift */; };
 		5B2C8851242CA91D0028BC17 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884F242CA91D0028BC17 /* LibraryTableViewCell.swift */; };
 		5B2C8852242CA91D0028BC17 /* LibraryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C8850242CA91D0028BC17 /* LibraryTableViewCell.xib */; };
-		5B2C8854242CAC120028BC17 /* LibraryCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C8853242CAC120028BC17 /* LibraryCellInfo.swift */; };
+		5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C8853242CAC120028BC17 /* LibraryInfo.swift */; };
 		5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */; };
 		5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C00242728000027BD1D /* LoginViewController.swift */; };
 		5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C022427284B0027BD1D /* WelcomeViewController.swift */; };
@@ -44,7 +44,7 @@
 		5B2C884D242CA7060028BC17 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		5B2C884F242CA91D0028BC17 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		5B2C8850242CA91D0028BC17 /* LibraryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryTableViewCell.xib; sourceTree = "<group>"; };
-		5B2C8853242CAC120028BC17 /* LibraryCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCellInfo.swift; sourceTree = "<group>"; };
+		5B2C8853242CAC120028BC17 /* LibraryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInfo.swift; sourceTree = "<group>"; };
 		5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5B3E7C00242728000027BD1D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B3E7C022427284B0027BD1D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 				5B3E7C00242728000027BD1D /* LoginViewController.swift */,
 				5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */,
 				5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */,
-				5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */,
 				5B2C884D242CA7060028BC17 /* LibraryViewController.swift */,
+				5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,7 +138,7 @@
 			children = (
 				5BE01E1424224474005DD70C /* Realm_GameScoreInfo.swift */,
 				5B9C092D242B561700F73F96 /* GameScoreInfo.swift */,
-				5B2C8853242CAC120028BC17 /* LibraryCellInfo.swift */,
+				5B2C8853242CAC120028BC17 /* LibraryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				5B3E7C07242753410027BD1D /* Const.swift in Sources */,
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,
 				5BE01E1524224474005DD70C /* Realm_GameScoreInfo.swift in Sources */,
-				5B2C8854242CAC120028BC17 /* LibraryCellInfo.swift in Sources */,
+				5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */,
 				5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,
 				5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */,
