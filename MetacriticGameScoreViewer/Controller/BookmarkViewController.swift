@@ -14,7 +14,7 @@ class BookmarkViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
-        tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         loadGameScoreInfo()
     }
     
@@ -57,7 +57,7 @@ class BookmarkViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension BookmarkViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameInfoList?.count ?? 1
+        return gameInfoList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

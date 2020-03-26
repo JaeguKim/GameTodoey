@@ -16,8 +16,8 @@
 		5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */; };
 		5B24A8DF2425CAC800A12A96 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */; };
 		5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884D242CA7060028BC17 /* LibraryViewController.swift */; };
-		5B2C8851242CA91D0028BC17 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884F242CA91D0028BC17 /* LibraryTableViewCell.swift */; };
-		5B2C8852242CA91D0028BC17 /* LibraryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C8850242CA91D0028BC17 /* LibraryTableViewCell.xib */; };
+		5B2C8851242CA91D0028BC17 /* LibraryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884F242CA91D0028BC17 /* LibraryInfoCell.swift */; };
+		5B2C8852242CA91D0028BC17 /* LibraryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C8850242CA91D0028BC17 /* LibraryInfoCell.xib */; };
 		5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C8853242CAC120028BC17 /* LibraryInfo.swift */; };
 		5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */; };
 		5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C00242728000027BD1D /* LoginViewController.swift */; };
@@ -42,8 +42,8 @@
 		5B1F3C082420DFB200E0698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		5B2C884D242CA7060028BC17 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
-		5B2C884F242CA91D0028BC17 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
-		5B2C8850242CA91D0028BC17 /* LibraryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryTableViewCell.xib; sourceTree = "<group>"; };
+		5B2C884F242CA91D0028BC17 /* LibraryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInfoCell.swift; sourceTree = "<group>"; };
+		5B2C8850242CA91D0028BC17 /* LibraryInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryInfoCell.xib; sourceTree = "<group>"; };
 		5B2C8853242CAC120028BC17 /* LibraryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInfo.swift; sourceTree = "<group>"; };
 		5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5B3E7C00242728000027BD1D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 				5B1F3C002420DFB200E0698C /* Main.storyboard */,
 				5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */,
 				5BE01E1024222AAF005DD70C /* GameInfoCell.xib */,
-				5B2C884F242CA91D0028BC17 /* LibraryTableViewCell.swift */,
-				5B2C8850242CA91D0028BC17 /* LibraryTableViewCell.xib */,
+				5B2C884F242CA91D0028BC17 /* LibraryInfoCell.swift */,
+				5B2C8850242CA91D0028BC17 /* LibraryInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
 				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
-				5B2C8852242CA91D0028BC17 /* LibraryTableViewCell.xib in Resources */,
+				5B2C8852242CA91D0028BC17 /* LibraryInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9C092E242B561700F73F96 /* GameScoreInfo.swift in Sources */,
-				5B2C8851242CA91D0028BC17 /* LibraryTableViewCell.swift in Sources */,
+				5B2C8851242CA91D0028BC17 /* LibraryInfoCell.swift in Sources */,
 				5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */,
 				5B3E7C07242753410027BD1D /* Const.swift in Sources */,
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,

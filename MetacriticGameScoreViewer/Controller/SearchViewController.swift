@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
-        tableView.register(UINib(nibName: "GameInfoCell", bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
     }
     
     func isValidPlatform(_ platform : String) -> Bool {

@@ -16,5 +16,7 @@ struct Const {
     static let bookmarkToDescSegue = "BookmarkVCToDescVC"
     static let gameInfoCellIdentifier = "GameInfoCell"
     static let libraryCellIdentifier = "LibraryCell"
+    static let gameInfoCellNibName = "GameInfoCell"
+    static let LibraryCellNibName = "LibraryInfoCell"
     static let idStr = "id"
 }
