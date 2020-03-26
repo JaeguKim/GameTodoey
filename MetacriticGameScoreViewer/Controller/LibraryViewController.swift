@@ -7,6 +7,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var realm = try! Realm()
     var libraryInfoList : Results<LibraryInfo>?
+    var gameScoreInfo : GameScoreInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +18,8 @@ class LibraryViewController: UIViewController {
         tableView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellReuseIdentifier: Const.libraryCellIdentifier)
         loadLibraries()
     }
-   
-    @IBAction func plusBtnPressed(_ sender: UIBarButtonItem) {
-        
+    
+    @IBAction func addBtnPressed(_ sender: UIButton) {
         var textField = UITextField()
         let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
         alert.addTextField { (alertTextField) in
@@ -39,6 +39,11 @@ class LibraryViewController: UIViewController {
         alert.addAction(saveAction)
         present(alert,animated: true, completion: nil)
     }
+ 
+    
+    @IBAction func cancelBtnPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func loadLibraries() {
         libraryInfoList = realm.objects(LibraryInfo.self)
@@ -46,6 +51,16 @@ class LibraryViewController: UIViewController {
     }
     
     func save(realmObj : LibraryInfo) {
+        do {
+            try realm.write {
+                realm.add(realmObj)
+            }
+        } catch {
+            print("Error Saving context \(error)")
+        }
+    }
+    
+    func save(realmObj : Realm_GameScoreInfo) {
         do {
             try realm.write {
                 realm.add(realmObj)
@@ -68,6 +83,14 @@ class LibraryViewController: UIViewController {
           }
       }
     
+    func showAlertMessage(title : String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -91,7 +114,36 @@ extension LibraryViewController : UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 extension LibraryViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       guard let gameScoreData = gameScoreInfo else {return}
+        guard let selectedLibrary = libraryInfoList?[indexPath.row] else {return}
+        for item in selectedLibrary.gameScoreInfoList {
+            if gameScoreData.id == item.id {
+                showAlertMessage(title: "Already Added To Library")
+                return
+            }
+        }
+        do {
+            try self.realm.write {
+                let realmObj = Realm_GameScoreInfo()
+                realmObj.title = gameScoreData.title
+                realmObj.platform = gameScoreData.platform
+                realmObj.gameDescription = gameScoreData.gameDescription
+                realmObj.imageURL = gameScoreData.imageURL
+                realmObj.score = gameScoreData.score
+                realmObj.id = gameScoreData.id
+                realmObj.done = gameScoreData.done
+                selectedLibrary.gameScoreInfoList.append(realmObj)
+            }
+        } catch {
+            showAlertMessage(title: "Failed To Save To Your Library")
+            print("Error Occurred while saving context \(error)")
+            return
+        }
+        self.tableView.reloadData()
+        showAlertMessage(title: "Saved To Your Library")
+        //current VC dismiss
+    }
 }
 
 //MARK: - SwipeTableViewCellDelegate

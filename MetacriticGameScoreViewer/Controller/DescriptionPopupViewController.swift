@@ -36,7 +36,14 @@ class DescriptionPopupViewController: UIViewController {
         gameDescLabel.text = gameScoreInfo?.gameDescription
     }
  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let descVC = segue.destination as! LibraryViewController
+        descVC.gameScoreInfo = gameScoreInfo
+    }
+    
     @IBAction func saveBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: Const.DescToLibSegue, sender: self)
+        /*
         guard let gameScoreData = gameScoreInfo else {return}
         let gameThatExists = realm.object(ofType: Realm_GameScoreInfo.self, forPrimaryKey: gameScoreInfo?.id)
         if gameThatExists == nil {
@@ -53,7 +60,8 @@ class DescriptionPopupViewController: UIViewController {
         }
         else {
             showAlertMessage(title: "Already Added To Library")
-        }
+        }*/
+        
         
     }
     

@@ -10,6 +10,8 @@ class Realm_GameScoreInfo : Object {
     @objc dynamic var gameDescription : String = ""
     @objc dynamic var done : Bool = false
     @objc dynamic var id : String = ""
+    var parentLibrary = LinkingObjects(fromType: LibraryInfo.self, property: "gameScoreInfoList")
+    
     override static func primaryKey() -> String? {
         return Const.idStr
     }

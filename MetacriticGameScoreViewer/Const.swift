@@ -13,10 +13,12 @@ struct Const {
     static let registerSegue = "RegisterVCToSearchVC"
     static let loginSegue = "LoginVCToSearchVC"
     static let searchToDescSegue = "SearchVCToDescVC"
+    static let DescToLibSegue = "DescVCToLibVC"
     static let bookmarkToDescSegue = "BookmarkVCToDescVC"
     static let gameInfoCellIdentifier = "GameInfoCell"
     static let libraryCellIdentifier = "LibraryCell"
     static let gameInfoCellNibName = "GameInfoCell"
     static let LibraryCellNibName = "LibraryInfoCell"
     static let idStr = "id"
+    static let libraryTitleStr = "libraryTitle"
 }
