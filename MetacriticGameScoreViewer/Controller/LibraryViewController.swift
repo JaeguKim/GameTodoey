@@ -15,6 +15,7 @@ class LibraryViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellReuseIdentifier: Const.libraryCellIdentifier)
+        loadLibraries()
     }
    
     @IBAction func plusBtnPressed(_ sender: UIBarButtonItem) {
@@ -22,7 +23,7 @@ class LibraryViewController: UIViewController {
         var textField = UITextField()
         let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
         alert.addTextField { (alertTextField) in
-            textField.placeholder = "Title"
+            alertTextField.placeholder = "Title"
             textField = alertTextField
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
