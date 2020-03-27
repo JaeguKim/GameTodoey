@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,6 +32,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="BrandLightBlue"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="h6B-5X-kbJ" secondAttribute="bottom" constant="20" symbolic="YES" id="BhE-fa-1Yz"/>
                     <constraint firstItem="h6B-5X-kbJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="PGb-fT-9AT"/>
@@ -46,4 +48,9 @@
             <point key="canvasLocation" x="206.52173913043481" y="101.78571428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="BrandLightBlue">
+            <color red="0.92199999094009399" green="0.98000001907348633" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

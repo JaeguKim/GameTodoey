@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,13 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
+                            <searchBar contentMode="redraw" placeholder="Keywords" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
+                                <color key="tintColor" name="BrandLightBlue"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hV-SG-xJV">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -37,7 +39,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cvD-XP-wKZ">
+                    <navigationItem key="navigationItem" title="Search Game" id="cvD-XP-wKZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="ApF-kq-KBj">
                             <connections>
                                 <segue destination="Int-Zc-JIw" kind="show" id="14f-jl-t0M"/>
@@ -56,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="3301" y="-415"/>
         </scene>
-        <!--Library View Controller-->
+        <!--Library-->
         <scene sceneID="xg6-Dq-gNh">
             <objects>
                 <viewController id="Int-Zc-JIw" customClass="LibraryViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,13 +69,13 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpI-hc-Kmb">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="w2M-oQ-voX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0mO-o1-xp3">
+                    <navigationItem key="navigationItem" title="Library" id="0mO-o1-xp3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ufc-fu-yMp">
                             <connections>
                                 <action selector="addBtnPressed:" destination="Int-Zc-JIw" id="1gB-RF-scK"/>
@@ -204,7 +206,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-ti-cp7">
                                 <rect key="frame" x="0.0" y="78" width="414" height="764"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -259,7 +261,7 @@
             </objects>
             <point key="canvasLocation" x="7831.884057971015" y="68.973214285714278"/>
         </scene>
-        <!--Game List View Controller-->
+        <!--Game List-->
         <scene sceneID="aOn-M8-ZuF">
             <objects>
                 <viewController id="UgB-4U-jTg" customClass="GameListViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -269,7 +271,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ifZ-AP-b1J">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -281,7 +283,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H5N-vS-Miv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MEX-RM-kKG"/>
+                    <navigationItem key="navigationItem" title="Game List" id="MEX-RM-kKG"/>
                     <connections>
                         <outlet property="tableView" destination="ifZ-AP-b1J" id="QJt-2g-Fmm"/>
                         <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="BookmarkVCToDescVC" popoverAnchorView="ifZ-AP-b1J" id="3L2-2G-OGq">
@@ -582,7 +584,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3L2-2G-OGq"/>
+        <segue reference="bdL-xQ-QG3"/>
         <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>
