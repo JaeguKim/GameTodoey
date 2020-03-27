@@ -7,7 +7,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var realm = try! Realm()
     var libraryInfoList : Results<LibraryInfo>?
-    var gameScoreInfo : GameScoreInfo?
+    var selectedLibrary : LibraryInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,26 +40,12 @@ class LibraryViewController: UIViewController {
         present(alert,animated: true, completion: nil)
     }
 
-    @IBAction func cancelBtnPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     func loadLibraries() {
         libraryInfoList = realm.objects(LibraryInfo.self)
         tableView.reloadData()
     }
     
     func save(realmObj : LibraryInfo) {
-        do {
-            try realm.write {
-                realm.add(realmObj)
-            }
-        } catch {
-            print("Error Saving context \(error)")
-        }
-    }
-    
-    func save(realmObj : Realm_GameScoreInfo) {
         do {
             try realm.write {
                 realm.add(realmObj)
@@ -90,6 +76,11 @@ class LibraryViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! GameListViewController
+        destVC.gameInfoList = selectedLibrary?.gameScoreInfoList
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -114,34 +105,11 @@ extension LibraryViewController : UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension LibraryViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       guard let gameScoreData = gameScoreInfo else {return}
-        guard let selectedLibrary = libraryInfoList?[indexPath.row] else {return}
-        for item in selectedLibrary.gameScoreInfoList {
-            if gameScoreData.id == item.id {
-                showAlertMessage(title: "Already Added To Library")
-                return
-            }
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let libraryInfo = libraryInfoList?[indexPath.row] {
+            selectedLibrary = libraryInfo
+            performSegue(withIdentifier: Const.libraryVCToGameListVCSegue, sender: self)
         }
-        do {
-            try self.realm.write {
-                let realmObj = Realm_GameScoreInfo()
-                realmObj.title = gameScoreData.title
-                realmObj.platform = gameScoreData.platform
-                realmObj.gameDescription = gameScoreData.gameDescription
-                realmObj.imageURL = gameScoreData.imageURL
-                realmObj.score = gameScoreData.score
-                realmObj.id = gameScoreData.id
-                realmObj.done = gameScoreData.done
-                selectedLibrary.gameScoreInfoList.append(realmObj)
-            }
-        } catch {
-            showAlertMessage(title: "Failed To Save To Your Library")
-            print("Error Occurred while saving context \(error)")
-            return
-        }
-        self.tableView.reloadData()
-        showAlertMessage(title: "Saved To Your Library")
-        //current VC dismiss
     }
 }
 

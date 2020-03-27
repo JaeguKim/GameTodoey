@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="7831.884057971015" y="68.973214285714278"/>
         </scene>
-        <!--Bookmark View Controller-->
+        <!--Game List View Controller-->
         <scene sceneID="aOn-M8-ZuF">
             <objects>
-                <viewController id="UgB-4U-jTg" customClass="BookmarkViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UgB-4U-jTg" customClass="GameListViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aG2-W2-dYF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -582,7 +582,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bdL-xQ-QG3"/>
+        <segue reference="3L2-2G-OGq"/>
         <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>

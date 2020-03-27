@@ -2,10 +2,10 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 
-class BookmarkViewController: UIViewController {
+class GameListViewController: UIViewController {
     
     var realm = try! Realm()
-    var gameInfoList : Results<Realm_GameScoreInfo>?
+    var gameInfoList : List<Realm_GameScoreInfo>?
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -15,14 +15,8 @@ class BookmarkViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
-        loadGameScoreInfo()
     }
-    
-    func loadGameScoreInfo() {
-        gameInfoList = realm.objects(Realm_GameScoreInfo.self)
-        tableView.reloadData()
-    }
-    
+
     func updateModel(at indexPath: IndexPath) {
         if let itemForDeletion = self.gameInfoList?[indexPath.row]
         {
@@ -55,7 +49,7 @@ class BookmarkViewController: UIViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension BookmarkViewController: UITableViewDataSource {
+extension GameListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gameInfoList?.count ?? 0
     }
@@ -74,7 +68,7 @@ extension BookmarkViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension BookmarkViewController: UITableViewDelegate {
+extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Const.bookmarkToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
@@ -82,7 +76,7 @@ extension BookmarkViewController: UITableViewDelegate {
 }
 
 //MARK: - SwipeTableViewCellDelegate
-extension BookmarkViewController: SwipeTableViewCellDelegate {
+extension GameListViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in

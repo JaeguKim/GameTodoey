@@ -14,7 +14,7 @@
 		5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C002420DFB200E0698C /* Main.storyboard */; };
 		5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C032420DFB200E0698C /* Assets.xcassets */; };
 		5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */; };
-		5B24A8DF2425CAC800A12A96 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */; };
+		5B24A8DF2425CAC800A12A96 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24A8DE2425CAC800A12A96 /* GameListViewController.swift */; };
 		5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884D242CA7060028BC17 /* LibraryViewController.swift */; };
 		5B2C8851242CA91D0028BC17 /* LibraryInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884F242CA91D0028BC17 /* LibraryInfoCell.swift */; };
 		5B2C8852242CA91D0028BC17 /* LibraryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2C8850242CA91D0028BC17 /* LibraryInfoCell.xib */; };
@@ -41,7 +41,7 @@
 		5B1F3C032420DFB200E0698C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B1F3C062420DFB200E0698C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B1F3C082420DFB200E0698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		5B24A8DE2425CAC800A12A96 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		5B2C884D242CA7060028BC17 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		5B2C884F242CA91D0028BC17 /* LibraryInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInfoCell.swift; sourceTree = "<group>"; };
 		5B2C8850242CA91D0028BC17 /* LibraryInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryInfoCell.xib; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				5B3E7BFE242727EF0027BD1D /* RegisterViewController.swift */,
 				5B3E7C00242728000027BD1D /* LoginViewController.swift */,
 				5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */,
-				5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */,
+				5B24A8DE2425CAC800A12A96 /* GameListViewController.swift */,
 				5B2C884D242CA7060028BC17 /* LibraryViewController.swift */,
 				5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */,
 				5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */,
@@ -294,7 +294,7 @@
 				5B3E7C01242728000027BD1D /* LoginViewController.swift in Sources */,
 				5B1F3BFD2420DFB200E0698C /* SceneDelegate.swift in Sources */,
 				5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */,
-				5B24A8DF2425CAC800A12A96 /* BookmarkViewController.swift in Sources */,
+				5B24A8DF2425CAC800A12A96 /* GameListViewController.swift in Sources */,
 				5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */,
 				5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */,
 			);
