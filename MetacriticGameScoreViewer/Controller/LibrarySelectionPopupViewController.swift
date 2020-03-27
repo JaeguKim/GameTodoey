@@ -98,7 +98,11 @@ extension LibrarySelectionPopupViewController: UITableViewDataSource {
             cell.libraryTitle.text = "New Library..."
         }else {
             if let libraryInfo = libraryInfoList?[indexPath.row - 1] {
+                if libraryInfo.imageURL == "" {
+                    cell.libraryImgView.image = UIImage(named: "default.jpg")
+                } else{
                 cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
+                }
                 cell.libraryTitle.text = libraryInfo.libraryTitle
             }
         }
@@ -131,6 +135,7 @@ extension LibrarySelectionPopupViewController: UITableViewDelegate {
                 realmObj.score = gameScoreData.score
                 realmObj.id = gameScoreData.id
                 realmObj.done = gameScoreData.done
+                selectedLibrary.imageURL = gameScoreData.imageURL
                 selectedLibrary.gameScoreInfoList.append(realmObj)
             }
         } catch {
@@ -140,7 +145,6 @@ extension LibrarySelectionPopupViewController: UITableViewDelegate {
         }
         self.tableView.reloadData()
         showAlertMessage(title: "Saved To Your Library")
-        //current VC dismiss
     }
 }
 

@@ -92,8 +92,12 @@ extension LibraryViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.libraryCellIdentifier,for: indexPath) as! LibraryInfoCell
           cell.delegate = self
-          if let libraryInfo = libraryInfoList?[indexPath.row] {
-            cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
+        if let libraryInfo = libraryInfoList?[indexPath.row] {
+            if libraryInfo.imageURL == "" {
+                cell.libraryImgView.image = UIImage(named: "default.jpg")
+            } else{
+                cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
+            }
             cell.libraryTitle.text = libraryInfo.libraryTitle
           }
           return cell

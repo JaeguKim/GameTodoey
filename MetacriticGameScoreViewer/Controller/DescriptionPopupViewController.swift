@@ -1,11 +1,3 @@
-//
-//  DescriptionPopupViewController.swift
-//  MetacriticGameScoreViewer
-//
-//  Created by 김재구 on 2020/03/24.
-//  Copyright © 2020 jaeguKim. All rights reserved.
-//
-
 import UIKit
 import SDWebImage
 import RealmSwift
@@ -43,26 +35,6 @@ class DescriptionPopupViewController: UIViewController {
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Const.DescToLibSegue, sender: self)
-        /*
-        guard let gameScoreData = gameScoreInfo else {return}
-        let gameThatExists = realm.object(ofType: Realm_GameScoreInfo.self, forPrimaryKey: gameScoreInfo?.id)
-        if gameThatExists == nil {
-            let realmObj = Realm_GameScoreInfo()
-            realmObj.title = gameScoreData.title
-            realmObj.platform = gameScoreData.platform
-            realmObj.gameDescription = gameScoreData.gameDescription
-            realmObj.imageURL = gameScoreData.imageURL
-            realmObj.score = gameScoreData.score
-            realmObj.id = gameScoreData.id
-            realmObj.done = gameScoreData.done
-            save(realmObj:realmObj)
-            showAlertMessage(title: "Saved To Your Library")
-        }
-        else {
-            showAlertMessage(title: "Already Added To Library")
-        }*/
-        
-        
     }
     
     func showAlertMessage(title : String) {
