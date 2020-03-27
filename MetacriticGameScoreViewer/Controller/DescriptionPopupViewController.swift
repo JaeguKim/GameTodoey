@@ -37,7 +37,7 @@ class DescriptionPopupViewController: UIViewController {
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let descVC = segue.destination as! LibraryViewController
+        let descVC = segue.destination as! LibrarySelectionPopupViewController
         descVC.gameScoreInfo = gameScoreInfo
     }
     

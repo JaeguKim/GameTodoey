@@ -40,7 +40,7 @@
                     <navigationItem key="navigationItem" id="cvD-XP-wKZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="ApF-kq-KBj">
                             <connections>
-                                <segue destination="UgB-4U-jTg" kind="show" id="f1L-4W-cdE"/>
+                                <segue destination="Int-Zc-JIw" kind="show" id="14f-jl-t0M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,7 +61,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" customClass="LibraryViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpI-hc-Kmb">
@@ -69,33 +69,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJv-4s-4fK">
-                                <rect key="frame" x="331" y="20" width="63" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelBtnPressed:" destination="Int-Zc-JIw" eventType="touchUpInside" id="nZf-JH-k93"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="et4-2L-Szn" userLabel="Add">
-                                <rect key="frame" x="35" y="34" width="18" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus" catalog="system"/>
-                                <connections>
-                                    <action selector="addBtnPressed:" destination="Int-Zc-JIw" eventType="touchUpInside" id="UAc-rq-1ah"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="w2M-oQ-voX"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0mO-o1-xp3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ufc-fu-yMp">
+                            <connections>
+                                <action selector="addBtnPressed:" destination="Int-Zc-JIw" id="1gB-RF-scK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IpI-hc-Kmb" id="luG-ZZ-Yfi"/>
+                        <segue destination="UgB-4U-jTg" kind="show" identifier="LibVCToGameListVC" id="gSy-8j-onz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jK-2e-5U8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6502.898550724638" y="68.973214285714278"/>
+            <point key="canvasLocation" x="4610" y="-743"/>
         </scene>
         <!--Description Popup View Controller-->
         <scene sceneID="gBr-kL-JgF">
@@ -193,14 +185,79 @@
                         <outlet property="gameImgView" destination="Rus-RX-3nk" id="O9y-oO-Qef"/>
                         <outlet property="saveBtn" destination="mcV-Hr-1lC" id="4RC-Da-Tzc"/>
                         <outlet property="titleLabel" destination="Ihw-Ub-I2b" id="a1t-oe-Prs"/>
-                        <segue destination="Int-Zc-JIw" kind="popoverPresentation" identifier="DescVCToLibVC" popoverAnchorView="aVL-9k-6cT" id="Ej0-yT-Jc8">
+                        <segue destination="xde-an-NAK" kind="popoverPresentation" identifier="DescVCToLibPopupVC" popoverAnchorView="aVL-9k-6cT" id="FWq-kl-IKg">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX2-F0-4u2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5142" y="69"/>
+            <point key="canvasLocation" x="6643" y="69"/>
+        </scene>
+        <!--Library Selection Popup View Controller-->
+        <scene sceneID="2cY-fr-vTT">
+            <objects>
+                <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-ti-cp7">
+                                <rect key="frame" x="0.0" y="78" width="414" height="764"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add To Library" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGP-Fa-jjP">
+                                        <rect key="frame" x="116" y="20" width="181" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                        <color key="textColor" name="BrandBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhS-H7-Sm4">
+                                        <rect key="frame" x="337" y="20" width="69" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" name="BrandBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelBtnPressed:" destination="xde-an-NAK" eventType="touchUpInside" id="xB3-R6-31a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EhS-H7-Sm4" secondAttribute="trailing" constant="8" id="9Bu-PK-TGQ"/>
+                                    <constraint firstItem="hGP-Fa-jjP" firstAttribute="leading" secondItem="6Xa-kq-HuS" secondAttribute="leading" constant="116" id="Exu-UU-8dS"/>
+                                    <constraint firstItem="EhS-H7-Sm4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hGP-Fa-jjP" secondAttribute="trailing" constant="8" symbolic="YES" id="Hra-hT-rxC"/>
+                                    <constraint firstAttribute="bottom" secondItem="EhS-H7-Sm4" secondAttribute="bottom" constant="11" id="YOT-tn-ajK"/>
+                                    <constraint firstAttribute="trailing" secondItem="hGP-Fa-jjP" secondAttribute="trailing" constant="117" id="gjW-k7-rR8"/>
+                                    <constraint firstItem="EhS-H7-Sm4" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="top" constant="20" id="kfu-cS-Id0"/>
+                                    <constraint firstAttribute="bottom" secondItem="hGP-Fa-jjP" secondAttribute="bottom" constant="20" id="lVF-Jf-F8H"/>
+                                    <constraint firstItem="hGP-Fa-jjP" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="top" constant="20" id="s4z-O5-OrD"/>
+                                    <constraint firstAttribute="height" constant="70" id="x9e-QK-c3i"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="BrandLightBlue"/>
+                        <constraints>
+                            <constraint firstItem="6Xa-kq-HuS" firstAttribute="top" secondItem="N6H-Fd-nHV" secondAttribute="top" id="B0h-Ey-3ay"/>
+                            <constraint firstItem="6Xa-kq-HuS" firstAttribute="trailing" secondItem="N6H-Fd-nHV" secondAttribute="trailing" id="JwY-iA-JhB"/>
+                            <constraint firstAttribute="bottom" secondItem="lmI-ti-cp7" secondAttribute="bottom" id="Sjl-uu-vlh"/>
+                            <constraint firstItem="6Xa-kq-HuS" firstAttribute="leading" secondItem="N6H-Fd-nHV" secondAttribute="leading" id="d0c-ps-igh"/>
+                            <constraint firstItem="lmI-ti-cp7" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="bottom" constant="8" symbolic="YES" id="fLJ-Mt-8nP"/>
+                            <constraint firstItem="lmI-ti-cp7" firstAttribute="leading" secondItem="N6H-Fd-nHV" secondAttribute="leading" id="hT6-If-bWu"/>
+                            <constraint firstItem="lmI-ti-cp7" firstAttribute="trailing" secondItem="N6H-Fd-nHV" secondAttribute="trailing" id="lkl-DS-jSQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N6H-Fd-nHV"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="lmI-ti-cp7" id="iSq-Rc-epr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qn-CP-eif" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7831.884057971015" y="68.973214285714278"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="aOn-M8-ZuF">
@@ -234,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nde-1v-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3300" y="492"/>
+            <point key="canvasLocation" x="5870" y="-743"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="x1O-yG-gQN">
@@ -513,7 +570,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="textfield" width="298" height="93"/>
         <namedColor name="BrandBlue">
             <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -526,7 +582,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3L2-2G-OGq"/>
+        <segue reference="bdL-xQ-QG3"/>
         <segue reference="gqr-tb-T2D"/>
     </inferredMetricsTieBreakers>
 </document>

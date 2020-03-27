@@ -13,7 +13,7 @@ struct Const {
     static let registerSegue = "RegisterVCToSearchVC"
     static let loginSegue = "LoginVCToSearchVC"
     static let searchToDescSegue = "SearchVCToDescVC"
-    static let DescToLibSegue = "DescVCToLibVC"
+    static let DescToLibSegue = "DescVCToLibPopupVC"
     static let bookmarkToDescSegue = "BookmarkVCToDescVC"
     static let gameInfoCellIdentifier = "GameInfoCell"
     static let libraryCellIdentifier = "LibraryCell"

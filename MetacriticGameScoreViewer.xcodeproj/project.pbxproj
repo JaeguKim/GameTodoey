@@ -25,6 +25,7 @@
 		5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */; };
 		5B3E7C07242753410027BD1D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C06242753410027BD1D /* Const.swift */; };
 		5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */; };
+		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
 		5B9C092E242B561700F73F96 /* GameScoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameScoreInfo.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
@@ -51,6 +52,7 @@
 		5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B3E7C06242753410027BD1D /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionPopupViewController.swift; sourceTree = "<group>"; };
+		5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionPopupViewController.swift; sourceTree = "<group>"; };
 		5B9C092D242B561700F73F96 /* GameScoreInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreInfo.swift; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				5B24A8DE2425CAC800A12A96 /* BookmarkViewController.swift */,
 				5B2C884D242CA7060028BC17 /* LibraryViewController.swift */,
 				5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */,
+				5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				5B9C092E242B561700F73F96 /* GameScoreInfo.swift in Sources */,
 				5B2C8851242CA91D0028BC17 /* LibraryInfoCell.swift in Sources */,
+				5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */,
 				5B3E7C032427284B0027BD1D /* WelcomeViewController.swift in Sources */,
 				5B3E7C07242753410027BD1D /* Const.swift in Sources */,
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,
