@@ -362,7 +362,7 @@
             </objects>
             <point key="canvasLocation" x="-49.275362318840585" y="68.973214285714278"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="RWr-Kv-CkK">
             <objects>
                 <viewController id="hlC-Mq-inT" customClass="LoginViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -446,7 +446,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oyz-N5-3gE"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AAm-TT-2E7"/>
+                    <navigationItem key="navigationItem" title="Login" id="AAm-TT-2E7"/>
                     <connections>
                         <outlet property="emailTextField" destination="cNk-xv-Wtz" id="YFh-F9-0Cn"/>
                         <outlet property="passwordTextField" destination="mcm-Ba-I2D" id="MSm-XX-W4q"/>
@@ -457,7 +457,7 @@
             </objects>
             <point key="canvasLocation" x="1199" y="492"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register-->
         <scene sceneID="ge3-nP-Jbf">
             <objects>
                 <viewController id="XNk-ql-FkC" customClass="RegisterViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -541,7 +541,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pt5-mh-KX9"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o0d-rb-Srv"/>
+                    <navigationItem key="navigationItem" title="Register" id="o0d-rb-Srv"/>
                     <connections>
                         <outlet property="emailTextField" destination="C47-No-Ula" id="8eK-z6-eDV"/>
                         <outlet property="passwordTextField" destination="oec-Yt-a2y" id="qIN-cV-ugu"/>

@@ -11,16 +11,13 @@ class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        parent?.navigationItem.title = "Library"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellReuseIdentifier: Const.libraryCellIdentifier)
         loadLibraries()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Library";
     }
     
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
