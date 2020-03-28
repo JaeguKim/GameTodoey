@@ -21,7 +21,7 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
-        searchManager.searchManagerDelegate = self
+        searchManager.delegate = self
     }
     
     func showNoResultAlert(){
@@ -46,22 +46,13 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
-        let gameScoreInfoArray = searchManager.gameInfoArrary
-        cell.gameImgView.sd_setImage(with: URL(string: gameScoreInfoArray[indexPath.row].imageURL))
-        cell.titleLabel.text = gameScoreInfoArray[indexPath.row].title
-        if let score = Int(gameScoreInfoArray[indexPath.row].score){
-            let color : UIColor?
-            if score >= 80 {
-                color = UIColor.green
-            } else if score >= 70 {
-                color = UIColor.yellow
-            } else {
-                color = UIColor.red
-            }
-            cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
-            cell.scoreBackgroundView.backgroundColor = color
+        let gameInfo = searchManager.gameInfoArrary[indexPath.row]
+        cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
+        cell.titleLabel.text = gameInfo.title
+        if let score = Int(gameInfo.score){
+            cell.scoreLabel.text = String(gameInfo.score)
+            cell.setViewBackgroundColor(score: score)
         }
-        
         return cell
     }
 }
@@ -94,7 +85,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-//MARK: - searchManagerDelegate
+//MARK: - SearchManagerDelegate
 extension SearchViewController: SearchManagerDelegate {
     func didTitleSearchRequestFail() {
         showNoResultAlert()

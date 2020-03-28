@@ -13,11 +13,9 @@ class SearchManager {
     var requests : [Alamofire.Request] = []
     var totalRequests : Int = 0
     var requestsDone : Int = 0
-    
-    var searchManagerDelegate : SearchManagerDelegate?
+    var delegate : SearchManagerDelegate?
     
     func requestInfo(title:String){
-       
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
             "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
@@ -44,15 +42,15 @@ class SearchManager {
                     }
                     print("totalRequests : \(self.totalRequests)")
                     if self.totalRequests == 0 {
-                        self.searchManagerDelegate?.didTitleSearchRequestFail()
+                        self.delegate?.didTitleSearchRequestFail()
                     }
                 }
                 else {
-                     self.searchManagerDelegate?.didTitleSearchRequestFail()
+                     self.delegate?.didTitleSearchRequestFail()
                 }
             }
             else {
-                self.searchManagerDelegate?.didTitleSearchRequestFail()
+                self.delegate?.didTitleSearchRequestFail()
             }
         }
         requests.append(request)
@@ -86,7 +84,7 @@ class SearchManager {
             }
             self.requestsDone += 1
             print("requestsDone : \(self.requestsDone)")
-            self.searchManagerDelegate?.didUpdateGameInfo(gameInfoArrary: self.gameInfoArrary)
+            self.delegate?.didUpdateGameInfo(gameInfoArrary: self.gameInfoArrary)
         }
         requests.append(request)
     }

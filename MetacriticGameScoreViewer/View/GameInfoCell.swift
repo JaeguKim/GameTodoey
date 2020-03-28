@@ -21,7 +21,19 @@ class GameInfoCell: SwipeTableViewCell {
         scoreBackgroundView.layer.cornerRadius = scoreBackgroundView.frame.height / 5
         // Initialization code
     }
-
+    
+    func setViewBackgroundColor(score : Int) {
+        let color : UIColor?
+        if score >= 80 {
+            color = UIColor.green
+        } else if score >= 70 {
+            color = UIColor.yellow
+        } else {
+            color = UIColor.red
+        }
+        scoreBackgroundView.backgroundColor = color
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
