@@ -7,7 +7,7 @@ class LibrarySelectionPopupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var realm = try! Realm()
     var libraryInfoList : Results<LibraryInfo>?
-    var gameScoreInfo : GameScoreInfo?
+    var gameScoreInfo : GameInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -4,7 +4,7 @@ import RealmSwift
 
 class DescriptionPopupViewController: UIViewController {
     
-    var gameScoreInfo : GameScoreInfo?
+    var gameScoreInfo : GameInfo?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!

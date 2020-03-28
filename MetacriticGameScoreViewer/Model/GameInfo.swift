@@ -1,7 +1,7 @@
 
 import Foundation
 
-class GameScoreInfo {
+class GameInfo {
     var imageURL : String = ""
     var title : String = ""
     var platform : String = ""

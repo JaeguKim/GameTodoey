@@ -34,7 +34,7 @@ class GameListViewController: UIViewController {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let realmObj = gameInfoList![indexPath.row]
-                let gameScoreInfo = GameScoreInfo()
+                let gameScoreInfo = GameInfo()
                 gameScoreInfo.title = realmObj.title
                 gameScoreInfo.platform = realmObj.platform
                 gameScoreInfo.gameDescription = realmObj.gameDescription
