@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Game-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="gtd-Rt-br3"/>
-                    <navigationItem key="navigationItem" title="Search Game" id="cvD-XP-wKZ">
+                    <navigationItem key="navigationItem" id="cvD-XP-wKZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="ApF-kq-KBj">
                             <connections>
                                 <segue destination="Int-Zc-JIw" kind="show" id="14f-jl-t0M"/>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="4210.144927536232" y="-415.17857142857139"/>
         </scene>
-        <!--Library-->
+        <!--Library View Controller-->
         <scene sceneID="xg6-Dq-gNh">
             <objects>
                 <viewController id="Int-Zc-JIw" customClass="LibraryViewController" customModule="GameTodoey" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="w2M-oQ-voX"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="ib5-o8-09I"/>
-                    <navigationItem key="navigationItem" title="Library" id="0mO-o1-xp3">
+                    <navigationItem key="navigationItem" id="0mO-o1-xp3">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ufc-fu-yMp">
                             <connections>
                                 <action selector="addBtnPressed:" destination="Int-Zc-JIw" id="1gB-RF-scK"/>
@@ -574,56 +574,6 @@
             </objects>
             <point key="canvasLocation" x="-1143" y="69"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="GcI-ye-mtP">
-            <objects>
-                <viewController id="NVs-wU-aSv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fGm-5i-lJP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Ob1-Xg-nA4"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="DCw-5Q-Y3u"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gm7-r2-rfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3555" y="-1193"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="Yer-W3-bvl">
-            <objects>
-                <viewController id="KQ9-Ll-l4c" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="90f-iw-RC6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="tMx-1Q-Q1a"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="gD7-85-LtU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Esb-dI-4Hv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3555" y="-1842"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="fgX-cI-GXT">
-            <objects>
-                <tabBarController id="PQN-Q2-qSe" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4BZ-Qg-WVh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="KQ9-Ll-l4c" kind="relationship" relationship="viewControllers" id="9lw-PK-Ev2"/>
-                        <segue destination="NVs-wU-aSv" kind="relationship" relationship="viewControllers" id="22U-E3-u1Q"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hso-Cm-EXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2639" y="-1517"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aZx-em-LXM">
             <objects>
@@ -631,6 +581,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y1k-Wv-pUS"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FiB-Xc-rs6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

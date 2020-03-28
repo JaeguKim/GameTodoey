@@ -19,6 +19,10 @@ class LibraryViewController: UIViewController {
         loadLibraries()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Library";
+    }
+    
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
