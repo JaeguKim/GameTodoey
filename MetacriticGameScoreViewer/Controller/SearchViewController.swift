@@ -197,7 +197,19 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.gameImgView.sd_setImage(with: URL(string: gameScoreInfoArray[indexPath.row].imageURL))
         cell.titleLabel.text = gameScoreInfoArray[indexPath.row].title
-        cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
+        if let score = Int(gameScoreInfoArray[indexPath.row].score){
+            let color : UIColor?
+            if score >= 80 {
+                color = UIColor.green
+            } else if score >= 70 {
+                color = UIColor.yellow
+            } else {
+                color = UIColor.red
+            }
+            cell.scoreLabel.text = String(gameScoreInfoArray[indexPath.row].score)
+            cell.scoreBackgroundView.backgroundColor = color
+        }
+        
         return cell
     }
 }

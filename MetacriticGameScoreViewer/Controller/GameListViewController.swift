@@ -60,8 +60,18 @@ extension GameListViewController: UITableViewDataSource {
         if let gameInfo = gameInfoList?[indexPath.row] {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
-            cell.scoreLabel.text = String(gameInfo.score)
-            cell.accessoryType = gameInfo.done == true ? .checkmark : .none
+            if let score = Int(gameInfo.score){
+                let color : UIColor?
+                if score >= 80 {
+                    color = UIColor.green
+                } else if score >= 70 {
+                    color = UIColor.yellow
+                } else {
+                    color = UIColor.red
+                }
+                cell.scoreLabel.text = String(gameInfo.score)
+                cell.scoreBackgroundView.backgroundColor = color
+            }
         }
         return cell        
     }
