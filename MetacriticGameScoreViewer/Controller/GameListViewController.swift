@@ -4,9 +4,9 @@ import SwipeCellKit
 
 class GameListViewController: UIViewController {
     
-    var realm = try! Realm()
     var gameInfoList : List<Realm_GameScoreInfo>?
     @IBOutlet weak var tableView: UITableView!
+    let realmManager = RealmManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,19 +15,6 @@ class GameListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
-    }
-
-    func updateModel(at indexPath: IndexPath) {
-        if let itemForDeletion = self.gameInfoList?[indexPath.row]
-        {
-            do {
-                try self.realm.write() {
-                    self.realm.delete(itemForDeletion)
-                }
-            } catch {
-                print("Error occurred when deleting item \(error)")
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,7 +69,9 @@ extension GameListViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            self.updateModel(at: indexPath)
+            if let gameInfo = self.gameInfoList?[indexPath.row] {
+                self.realmManager.deleteGameInfo(gameInfo: gameInfo)
+            }
         }
         deleteAction.image = UIImage(named: "delete-icon")
         return [deleteAction]

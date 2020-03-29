@@ -55,7 +55,6 @@ class LibraryViewController: UIViewController {
                 let newLibrary = LibraryInfo()
                 newLibrary.libraryTitle = textField.text!
                 self.realmManager.save(realmObj: newLibrary)
-                self.collectionView.reloadData()
             }
         }
         alert.addAction(cancelAction)
@@ -138,12 +137,12 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-      return sectionInsets
+        return sectionInsets
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-      return sectionInsets.left
+        return sectionInsets.left
     }
 }

@@ -68,4 +68,16 @@ struct RealmManager {
         }
         delegate?.didSaved()
     }
+    
+    func deleteGameInfo(gameInfo : Realm_GameScoreInfo) {
+//        if let itemForDeletion = self.gameInfoList?[indexPath.row]
+//        {
+        do {
+            try self.realm.write() {
+                self.realm.delete(gameInfo)
+            }
+        } catch {
+            print("Error occurred when deleting item \(error)")
+        }
+    }
 }
