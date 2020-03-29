@@ -1,24 +1,23 @@
 import UIKit
 import RealmSwift
-import SwipeCellKit
 
 class LibrarySelectionPopupViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var realm = try! Realm()
     var libraryInfoList : Results<LibraryInfo>?
-    let realmManager = RealmManager()
+    var realmManager = RealmManager()
     var gameScoreInfo : GameInfo?
-    
+    private let sectionInsets = UIEdgeInsets(top: 50.0,
+                                              left: 20.0,
+                                              bottom: 50.0,
+                                              right: 20.0)
+
     override func viewDidLoad() {
-        super.viewDidLoad()
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Const.libraryCellIdentifier)
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 150
-//        tableView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellReuseIdentifier: Const.libraryCellIdentifier)
+        realmManager.delegate = self
+        self.collectionView!.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellWithReuseIdentifier: Const.libraryCellIdentifier)
         libraryInfoList = realmManager.loadLibraries()
         collectionView.reloadData()
     }
@@ -35,28 +34,6 @@ class LibrarySelectionPopupViewController: UIViewController {
     @IBAction func cancelBtnPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    func addLibraryBtnPressed() {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Title"
-            textField = alertTextField
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-        let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
-            let newLibrary = LibraryInfo()
-            newLibrary.libraryTitle = textField.text!
-            self.realmManager.save(realmObj: newLibrary)
-            self.collectionView.reloadData()
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        present(alert,animated: true, completion: nil)
-    }
-    
 }
 
 //MARK: - UICollectionViewDataSource
@@ -75,6 +52,7 @@ extension LibrarySelectionPopupViewController : UICollectionViewDataSource {
                  cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
              }
              cell.libraryTitle.text = libraryInfo.libraryTitle
+            cell.countOfGames.text = String(libraryInfo.gameScoreInfoList.count)
            }
            return cell
      }
@@ -82,97 +60,53 @@ extension LibrarySelectionPopupViewController : UICollectionViewDataSource {
 
 //MARK: - UICollectionViewDelegate
 extension LibrarySelectionPopupViewController : UICollectionViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        if let libraryInfo = libraryInfoList?[indexPath.row] {
-//            selectedLibrary = libraryInfo
-//            performSegue(withIdentifier: Const.libraryVCToGameListVCSegue, sender: self)
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let gameScoreData = gameScoreInfo else {return}
+        guard let selectedLibrary = libraryInfoList?[indexPath.row] else {return}
+        for item in selectedLibrary.gameScoreInfoList {
+            if gameScoreData.id == item.id {
+                showAlertMessage(title: "Already Added To Library")
+                return
+            }
+        }
+        realmManager.save(gameInfo: gameScoreData, selectedLibrary: selectedLibrary)
+    }
 }
-//extension LibrarySelectionPopupViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if let libraryList = libraryInfoList {
-//            return libraryList.count + 1
-//        }
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withReuseIdentifier: Const.libraryCellIdentifier,for: indexPath) as! LibraryInfoCell
-//        if indexPath.row == 0 {
-//            cell.libraryTitle.text = "New Library..."
-//        }else {
-//            if let libraryInfo = libraryInfoList?[indexPath.row - 1] {
-//                if libraryInfo.imageURL == "" {
-//                    cell.libraryImgView.image = UIImage(named: "default.jpg")
-//                } else{
-//                cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
-//                }
-//                cell.libraryTitle.text = libraryInfo.libraryTitle
-//            }
-//        }
-//        return cell
-//    }
-//}
 
-//extension LibrarySelectionPopupViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        guard let gameScoreData = gameScoreInfo else {return}
-//        if indexPath.row == 0 {
-//            addLibraryBtnPressed()
-//            return
-//        }
-//        guard let selectedLibrary = libraryInfoList?[indexPath.row - 1] else {return}
-//        for item in selectedLibrary.gameScoreInfoList {
-//            if gameScoreData.id == item.id {
-//                showAlertMessage(title: "Already Added To Library")
-//                return
-//            }
-//        }
-//        do {
-//            try self.realm.write {
-//                let realmObj = Realm_GameScoreInfo()
-//                realmObj.title = gameScoreData.title
-//                realmObj.platform = gameScoreData.platform
-//                realmObj.gameDescription = gameScoreData.gameDescription
-//                realmObj.imageURL = gameScoreData.imageURL
-//                realmObj.score = gameScoreData.score
-//                realmObj.id = gameScoreData.id
-//                realmObj.done = gameScoreData.done
-//                selectedLibrary.imageURL = gameScoreData.imageURL
-//                selectedLibrary.gameScoreInfoList.append(realmObj)
-//            }
-//        } catch {
-//            showAlertMessage(title: "Failed To Save To Your Library")
-//            print("Error Occurred while saving context \(error)")
-//            return
-//        }
-//        self.collectionView.reloadData()
-//        showAlertMessage(title: "Saved To Your Library")
-//    }
-//}
+extension LibrarySelectionPopupViewController : RealmManagerDelegate {
+    func didSaved() {
+        self.collectionView.reloadData()
+        showAlertMessage(title: "Saved To Your Library")
+    }
+     
+    func didSaveFailed(error: Error) {
+         showAlertMessage(title: "Failed To Save To Your Library")
+         print("Error Occurred while saving context \(error)")
+    }
+}
 
-////MARK: - SwipeTableViewCellDelegate
-//extension LibrarySelectionPopupViewController : SwipeTableViewCellDelegate {
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else {return nil}
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            if let libraryInfo = self.libraryInfoList?[indexPath.row] {
-//                self.realmManager.deleteLibrary(libraryInfo: libraryInfo)
-//            }
-//        }
-//        deleteAction.image = UIImage(named: "delete-icon")
-//        return [deleteAction]
-//    }
-//
-//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-//        var options = SwipeOptions()
-//        options.expansionStyle = .destructive
-//        return options
-//    }
-//}
-
-
+//MARK: - UICollectionViewDelegateFlowLayout
+extension LibrarySelectionPopupViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemsPerRow = 2
+        let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = Int(availableWidth) / itemsPerRow
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+      return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+      return sectionInsets.left
+    }
+}
 

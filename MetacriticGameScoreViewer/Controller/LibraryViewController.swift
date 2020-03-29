@@ -1,5 +1,4 @@
 import UIKit
-import SwipeCellKit
 import RealmSwift
 
 class LibraryViewController: UIViewController {
@@ -94,6 +93,7 @@ extension LibraryViewController : UICollectionViewDataSource {
                  cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
              }
              cell.libraryTitle.text = libraryInfo.libraryTitle
+            cell.countOfGames.text = String(libraryInfo.gameScoreInfoList.count)
            }
            return cell
      }
@@ -110,6 +110,7 @@ extension LibraryViewController : UICollectionViewDelegate {
     }
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
 extension LibraryViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -117,7 +118,6 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
         let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = Int(availableWidth) / itemsPerRow
-        print(widthPerItem)
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
@@ -133,23 +133,3 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
       return sectionInsets.left
     }
 }
-//
-////MARK: - SwipeTableViewCellDelegate
-//extension LibraryViewController : SwipeTableViewCellDelegate {
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else {return nil}
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            if let libraryInfo = self.libraryInfoList?[indexPath.row] {
-//                self.realmManager.deleteLibrary(libraryInfo: libraryInfo)
-//            }
-//        }
-//        deleteAction.image = UIImage(named: "delete-icon")
-//        return [deleteAction]
-//    }
-//
-//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-//        var options = SwipeOptions()
-//        options.expansionStyle = .destructive
-//        return options
-//    }
-
