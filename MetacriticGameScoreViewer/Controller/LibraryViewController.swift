@@ -13,7 +13,9 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         parent?.navigationItem.title = "Library"
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed(_:)))
+        parent?.navigationItem.rightBarButtonItem = rightButton
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
