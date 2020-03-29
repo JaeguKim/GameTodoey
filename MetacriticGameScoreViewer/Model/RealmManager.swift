@@ -13,21 +13,19 @@ struct RealmManager {
     var realm = try! Realm()
     
     func loadLibraries() -> Results<LibraryInfo> {
-        //  libraryInfoList = realm.objects(LibraryInfo.self)
-         //
         return realm.objects(LibraryInfo.self)
-      }
-      
-      func save(realmObj : LibraryInfo) {
-          do {
-              try realm.write {
-                  realm.add(realmObj)
-              }
-          } catch {
-              print("Error Saving context \(error)")
-          }
-      }
-      
+    }
+         
+    func save(realmObj : LibraryInfo) {
+        do {
+            try realm.write {
+                realm.add(realmObj)
+            }
+        } catch {
+            print("Error Saving context \(error)")
+        }
+    }
+    
     func deleteLibrary(libraryInfo : LibraryInfo) {
         do {
             try self.realm.write() {

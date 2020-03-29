@@ -12,7 +12,6 @@ class LibraryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -62,8 +61,6 @@ class LibraryViewController: UIViewController {
         alert.addAction(saveAction)
         present(alert,animated: true, completion: nil)
     }
-
-  
     
     func showAlertMessage(title : String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
@@ -99,8 +96,6 @@ extension LibraryViewController : UITableViewDataSource {
           }
           return cell
     }
-    
-    
 }
 
 //MARK: - UITableViewDelegate

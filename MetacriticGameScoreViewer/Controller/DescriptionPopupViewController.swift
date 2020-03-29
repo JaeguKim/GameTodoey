@@ -10,7 +10,6 @@ class DescriptionPopupViewController: UIViewController {
     @IBOutlet weak var gameImgView: UIImageView!
     @IBOutlet weak var gameDescLabel: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
-    let realm = try! Realm()
     var isBtnEnabled = true
     
     override func viewDidLoad() {
@@ -35,14 +34,5 @@ class DescriptionPopupViewController: UIViewController {
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Const.DescToLibSegue, sender: self)
-    }
-    
-    func showAlertMessage(title : String) {
-        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
-        present(alert, animated: true) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }
     }
 }
