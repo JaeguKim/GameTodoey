@@ -39,10 +39,24 @@ class LibraryViewController: UIViewController {
             alert.dismiss(animated: true, completion: nil)
         }
         let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
-            let newLibrary = LibraryInfo()
-            newLibrary.libraryTitle = textField.text!
-            self.realmManager.save(realmObj: newLibrary)
-            self.tableView.reloadData()
+            guard let libraryTitle = textField.text else {return}
+            if libraryTitle == ""
+            {
+                self.showAlertMessage(title: "library name should not be blank")
+                return
+            }
+            if let libraryList = self.libraryInfoList {
+                for item in libraryList {
+                    if  item.libraryTitle == libraryTitle {
+                        self.showAlertMessage(title: "library name is duplicated")
+                        return
+                    }
+                }
+                let newLibrary = LibraryInfo()
+                newLibrary.libraryTitle = textField.text!
+                self.realmManager.save(realmObj: newLibrary)
+                self.tableView.reloadData()
+            }
         }
         alert.addAction(cancelAction)
         alert.addAction(saveAction)

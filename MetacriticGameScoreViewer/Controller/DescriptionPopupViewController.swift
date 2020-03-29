@@ -45,14 +45,4 @@ class DescriptionPopupViewController: UIViewController {
             }
         }
     }
-    
-    func save(realmObj : Realm_GameScoreInfo) {
-        do {
-            try realm.write {
-                realm.add(realmObj)
-            }
-        } catch {
-            print("Error Saving context \(error)")
-        }
-    }
 }
