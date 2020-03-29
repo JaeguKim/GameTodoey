@@ -17,6 +17,7 @@ protocol RealmManagerDelegate {
 struct RealmManager {
     var realm = try! Realm()
     var delegate : RealmManagerDelegate?
+    
     func loadLibraries() -> Results<LibraryInfo> {
         return realm.objects(LibraryInfo.self)
     }
@@ -49,7 +50,10 @@ struct RealmManager {
             }
         } catch {
             print("Error Saving context \(error)")
+            delegate?.didSaveFailed(error: error)
+            return
         }
+        delegate?.didSaved()
     }
     
     func deleteLibrary(libraryInfo : LibraryInfo) {
@@ -59,6 +63,9 @@ struct RealmManager {
             }
         } catch {
             print("Error occurred when deleting library \(error)")
+            delegate?.didSaveFailed(error: error)
+            return
         }
+        delegate?.didSaved()
     }
 }

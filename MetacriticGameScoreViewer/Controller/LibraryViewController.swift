@@ -6,7 +6,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var libraryInfoList : Results<LibraryInfo>?
     var selectedLibrary : LibraryInfo?
-    let realmManager = RealmManager()
+    var realmManager = RealmManager()
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
                                              bottom: 50.0,
@@ -16,6 +16,7 @@ class LibraryViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        realmManager.delegate = self
         self.collectionView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellWithReuseIdentifier: Const.libraryCellIdentifier)
         libraryInfoList = realmManager.loadLibraries()
         collectionView.reloadData()
@@ -74,6 +75,19 @@ class LibraryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! GameListViewController
         destVC.gameInfoList = selectedLibrary?.gameScoreInfoList
+    }
+}
+
+//MARK: - RealmManagerDelegate
+extension LibraryViewController : RealmManagerDelegate {
+    @objc func didSaved() {
+        self.collectionView.reloadData()
+        showAlertMessage(title: "Saved To Your Library")
+    }
+     
+    @objc func didSaveFailed(error: Error) {
+         showAlertMessage(title: "Failed To Save To Your Library")
+         print("Error Occurred while saving context \(error)")
     }
 }
 
