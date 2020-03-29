@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.parent?.navigationItem.title = "Search Game"
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
@@ -22,6 +21,11 @@ class SearchViewController: UIViewController {
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         searchManager.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.parent?.navigationItem.title = "Search Game"
+        self.parent?.navigationItem.rightBarButtonItem = nil
     }
     
     func showNoResultAlert(){
