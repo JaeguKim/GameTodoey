@@ -19,7 +19,7 @@ struct Const {
     static let gameInfoCellIdentifier = "GameInfoCell"
     static let libraryCellIdentifier = "LibraryCell"
     static let gameInfoCellNibName = "GameInfoCell"
-    static let LibraryCellNibName = "LibraryInfoCell"
+    static let LibraryCellNibName = "LibraryCollectionViewCell"
     static let idStr = "id"
     static let libraryTitleStr = "libraryTitle"
 }
