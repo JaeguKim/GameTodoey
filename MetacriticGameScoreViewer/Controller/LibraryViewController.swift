@@ -18,9 +18,6 @@ class LibraryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         self.collectionView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellWithReuseIdentifier: Const.libraryCellIdentifier)
-//        collectionView.rowHeight = UITableView.automaticDimension
-//        collectionView.estimatedRowHeight = 150
-//        collectionView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellReuseIdentifier: Const.libraryCellIdentifier)
         libraryInfoList = realmManager.loadLibraries()
         collectionView.reloadData()
     }
@@ -104,8 +101,8 @@ extension LibraryViewController : UICollectionViewDataSource {
 
 //MARK: - UICollectionViewDelegate
 extension LibraryViewController : UICollectionViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         if let libraryInfo = libraryInfoList?[indexPath.row] {
             selectedLibrary = libraryInfo
             performSegue(withIdentifier: Const.libraryVCToGameListVCSegue, sender: self)
@@ -120,6 +117,7 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
         let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace
         let widthPerItem = Int(availableWidth) / itemsPerRow
+        print(widthPerItem)
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
