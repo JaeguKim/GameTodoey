@@ -26,6 +26,7 @@ class RegisterViewController: UIViewController {
                 }
                 else {
                     UserDefaults.standard.set(true, forKey: "isLogIn")
+                    UserDefaults.standard.set(email, forKey: "email")
                     alert.dismiss(animated: true, completion: nil)
                     self.performSegue(withIdentifier: Const.registerSegue, sender: self)
                 }
