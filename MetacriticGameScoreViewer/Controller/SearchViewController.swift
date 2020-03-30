@@ -3,6 +3,7 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 import RealmSwift
+import FirebaseAuth
 
 class SearchViewController: UIViewController {
     
@@ -24,9 +25,23 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.parent?.navigationItem.title = "Search Game"
-        self.parent?.navigationItem.rightBarButtonItem = nil
-        self.parent?.navigationItem.hidesBackButton = true
+      parent?.navigationItem.title = "Search Game"
+       parent?.navigationItem.hidesBackButton = true
+//        let btn = UIButton(type: .custom)
+//        btn.setTitle("Log Out", for: .normal)
+//        btn.titleLabel?.font = UIFont(name: "System-Medium", size: 18)
+//        btn.setTitleColor(UIColor.white, for: .normal)
+//        let rightButton = UIBarButtonItem(customView: btn)
+        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+    }
+    
+    @objc func logOut(){
+        do {
+            try Auth.auth().signOut()
+            parent?.navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     
     func showNoResultAlert(){
