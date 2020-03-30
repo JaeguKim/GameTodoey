@@ -10,13 +10,15 @@ import UIKit
 
 class LibraryCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var libContentView: UIView!
     @IBOutlet weak var libraryImgView: UIImageView!
     @IBOutlet weak var libraryTitle: UILabel!
     @IBOutlet weak var countOfGames: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        libraryImgView.layer.cornerRadius = libraryImgView.frame.height / 5
+        libContentView.layer.cornerRadius = libContentView.frame.height / 5
+        //libraryImgView.layer.cornerRadius = libraryImgView.frame.height / 5
         // Initialization code
     }
 
