@@ -384,6 +384,7 @@
                     <navigationItem key="navigationItem" id="8yc-L8-uOg"/>
                     <connections>
                         <outlet property="titleLabel" destination="Q70-58-JDL" id="gp3-dg-JAa"/>
+                        <segue destination="HOR-Pz-gDB" kind="show" identifier="WelcomeVCToSearchVC" id="aHy-NL-BqK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdZ-14-qZH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -636,7 +637,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wal-wh-nS5"/>
+        <segue reference="gqr-tb-T2D"/>
         <segue reference="bdL-xQ-QG3"/>
     </inferredMetricsTieBreakers>
 </document>

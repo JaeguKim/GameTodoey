@@ -26,6 +26,7 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.parent?.navigationItem.title = "Search Game"
         self.parent?.navigationItem.rightBarButtonItem = nil
+        self.parent?.navigationItem.hidesBackButton = true
     }
     
     func showNoResultAlert(){

@@ -23,6 +23,7 @@ class LibraryViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.title = "Library"
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed(_:)))
               parent?.navigationItem.rightBarButtonItem = rightButton

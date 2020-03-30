@@ -15,6 +15,9 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = Const.appName
+        if UserDefaults.standard.bool(forKey: "isLogIn") == true {
+            performSegue(withIdentifier: Const.welcomeVCToSearchVCSegue, sender: self)
+        }
     }
 
 }

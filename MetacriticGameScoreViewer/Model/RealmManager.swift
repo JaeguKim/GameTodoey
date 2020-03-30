@@ -70,8 +70,6 @@ struct RealmManager {
     }
     
     func deleteGameInfo(gameInfo : Realm_GameScoreInfo) {
-//        if let itemForDeletion = self.gameInfoList?[indexPath.row]
-//        {
         do {
             try self.realm.write() {
                 self.realm.delete(gameInfo)
