@@ -20,7 +20,7 @@ extension LibrarySelectionPopupViewController  {
         collectionView.deselectItem(at: indexPath, animated: true)
         guard let gameScoreData = gameScoreInfo else {return}
         guard let selectedLibrary = libraryInfoList?[indexPath.row] else {return}
-        for item in selectedLibrary.gameScoreInfoList {
+        for item in selectedLibrary.gameInfoList {
             if gameScoreData.id == item.id {
                 showAlertMessage(title: "Already Added To Library")
                 return

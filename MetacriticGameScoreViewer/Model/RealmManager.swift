@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol RealmManagerDelegate {
     func didSaved()
+    func didDeleted()
     func didSaveFailed(error : Error)
 }
 
@@ -25,7 +26,7 @@ struct RealmManager {
     func save(gameInfo : GameInfo, selectedLibrary : LibraryInfo) {
         do {
             try self.realm.write {
-                let realmObj = Realm_GameScoreInfo()
+                let realmObj = Realm_GameInfo()
                 realmObj.title = gameInfo.title
                 realmObj.platform = gameInfo.platform
                 realmObj.gameDescription = gameInfo.gameDescription
@@ -34,7 +35,7 @@ struct RealmManager {
                 realmObj.id = gameInfo.id
                 realmObj.done = gameInfo.done
                 selectedLibrary.imageURL = gameInfo.imageURL
-                selectedLibrary.gameScoreInfoList.append(realmObj)
+                selectedLibrary.gameInfoList.append(realmObj)
             }
         } catch {
             delegate?.didSaveFailed(error: error)
@@ -69,10 +70,11 @@ struct RealmManager {
         delegate?.didSaved()
     }
     
-    func deleteGameInfo(gameInfo : Realm_GameScoreInfo) {
+    func deleteGameInfo(gameInfo : Realm_GameInfo) {
         do {
             try self.realm.write() {
                 self.realm.delete(gameInfo)
+                delegate?.didDeleted()
             }
         } catch {
             print("Error occurred when deleting item \(error)")

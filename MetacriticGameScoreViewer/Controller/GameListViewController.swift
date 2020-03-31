@@ -3,10 +3,10 @@ import RealmSwift
 import SwipeCellKit
 
 class GameListViewController: UIViewController {
-    
-    var gameInfoList : List<Realm_GameScoreInfo>?
+
+    var libraryInfo : LibraryInfo?
     @IBOutlet weak var tableView: UITableView!
-    let realmManager = RealmManager()
+    var realmManager = RealmManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,12 +15,13 @@ class GameListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        realmManager.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let realmObj = gameInfoList![indexPath.row]
+                let realmObj = libraryInfo!.gameInfoList[indexPath.row]
                 let gameScoreInfo = GameInfo()
                 gameScoreInfo.title = realmObj.title
                 gameScoreInfo.platform = realmObj.platform
@@ -38,13 +39,13 @@ class GameListViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension GameListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gameInfoList?.count ?? 0
+        return libraryInfo?.gameInfoList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
-        if let gameInfo = gameInfoList?[indexPath.row] {
+        if let gameInfo = libraryInfo?.gameInfoList[indexPath.row] {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
             if let score = Int(gameInfo.score){
@@ -69,7 +70,7 @@ extension GameListViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            if let gameInfo = self.gameInfoList?[indexPath.row] {
+            if let gameInfo = self.libraryInfo?.gameInfoList[indexPath.row] {
                 self.realmManager.deleteGameInfo(gameInfo: gameInfo)
             }
         }
@@ -82,4 +83,14 @@ extension GameListViewController: SwipeTableViewCellDelegate {
         options.expansionStyle = .destructive
         return options
     }
+}
+
+//MARK: - RealmMangerDelegate
+extension GameListViewController : RealmManagerDelegate {
+    func didSaved() {}
+    func didSaveFailed(error: Error) {}
+    func didDeleted() {
+        libraryInfo?.imageURL = libraryInfo?.gameInfoList.last?.imageURL ?? ""
+    }
+ 
 }

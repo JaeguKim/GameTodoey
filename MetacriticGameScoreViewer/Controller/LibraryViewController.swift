@@ -26,7 +26,8 @@ class LibraryViewController: UIViewController {
         self.parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.title = "Library"
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed(_:)))
-              parent?.navigationItem.rightBarButtonItem = rightButton
+        parent?.navigationItem.rightBarButtonItem = rightButton
+        collectionView.reloadData()
     }
 
     @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
@@ -74,12 +75,16 @@ class LibraryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! GameListViewController
-        destVC.gameInfoList = selectedLibrary?.gameScoreInfoList
+        destVC.libraryInfo = selectedLibrary
     }
 }
 
 //MARK: - RealmManagerDelegate
 extension LibraryViewController : RealmManagerDelegate {
+    func didDeleted() {
+        
+    }
+    
     @objc func didSaved() {
         self.collectionView.reloadData()
         showAlertMessage(title: "Saved To Your Library")
@@ -107,7 +112,7 @@ extension LibraryViewController : UICollectionViewDataSource {
                  cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
              }
              cell.libraryTitle.text = libraryInfo.libraryTitle
-            cell.countOfGames.text = String(libraryInfo.gameScoreInfoList.count)
+            cell.countOfGames.text = String(libraryInfo.gameInfoList.count)
            }
            return cell
      }
