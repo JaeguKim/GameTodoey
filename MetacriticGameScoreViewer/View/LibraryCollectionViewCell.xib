@@ -46,6 +46,15 @@
                                     <constraint firstAttribute="width" constant="98" id="bik-5a-Tc7"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5u-cd-12F">
+                                <rect key="frame" x="0.0" y="0.5" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteBtnPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="MOi-io-Xx0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
@@ -70,6 +79,7 @@
             <size key="customSize" width="189" height="308"/>
             <connections>
                 <outlet property="countOfGames" destination="XGX-MD-qUj" id="jIu-x0-LuT"/>
+                <outlet property="deleteButton" destination="v5u-cd-12F" id="vMF-Ll-9Xw"/>
                 <outlet property="libContentView" destination="tfc-aK-rVQ" id="cqg-cn-Hs9"/>
                 <outlet property="libraryImgView" destination="kPj-UO-3Jj" id="UWc-A5-R7J"/>
                 <outlet property="libraryTitle" destination="tNW-ym-Fk4" id="lWs-h0-c0B"/>
@@ -78,6 +88,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="minus.circle.fill" catalog="system" width="64" height="60"/>
         <namedColor name="BrandBlue">
             <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -87,10 +87,11 @@ extension GameListViewController: SwipeTableViewCellDelegate {
 
 //MARK: - RealmMangerDelegate
 extension GameListViewController : RealmManagerDelegate {
-    func didSaved() {}
-    func didSaveFailed(error: Error) {}
-    func didDeleted() {
+    func didSave() {}
+    
+    func didDelete() {
         libraryInfo?.imageURL = libraryInfo?.gameInfoList.last?.imageURL ?? ""
     }
- 
+    func didFail(error: Error) {}
+    
 }

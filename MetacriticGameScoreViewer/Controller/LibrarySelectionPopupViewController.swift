@@ -32,12 +32,12 @@ extension LibrarySelectionPopupViewController  {
 
 //MARK: - RealmManagerDelegate
 extension LibrarySelectionPopupViewController {
-    override func didSaved() {
+    override func didSave() {
         self.collectionView.reloadData()
         showAlertMessage(title: "Saved To Your Library")
     }
     
-    override func didSaveFailed(error: Error) {
+    override func didFail(error: Error) {
         showAlertMessage(title: "Failed To Save To Your Library")
         print("Error Occurred while saving context \(error)")
     }

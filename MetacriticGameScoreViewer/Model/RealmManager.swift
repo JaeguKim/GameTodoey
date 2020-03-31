@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 protocol RealmManagerDelegate {
-    func didSaved()
-    func didDeleted()
-    func didSaveFailed(error : Error)
+    func didSave()
+    func didDelete()
+    func didFail(error : Error)
 }
 
 struct RealmManager {
@@ -38,10 +38,10 @@ struct RealmManager {
                 selectedLibrary.gameInfoList.append(realmObj)
             }
         } catch {
-            delegate?.didSaveFailed(error: error)
+            delegate?.didFail(error: error)
             return
         }
-        delegate?.didSaved()
+        delegate?.didSave()
     }
     
     func save(realmObj : LibraryInfo) {
@@ -51,10 +51,10 @@ struct RealmManager {
             }
         } catch {
             print("Error Saving context \(error)")
-            delegate?.didSaveFailed(error: error)
+            delegate?.didFail(error: error)
             return
         }
-        delegate?.didSaved()
+        delegate?.didSave()
     }
     
     func deleteLibrary(libraryInfo : LibraryInfo) {
@@ -64,17 +64,17 @@ struct RealmManager {
             }
         } catch {
             print("Error occurred when deleting library \(error)")
-            delegate?.didSaveFailed(error: error)
+            delegate?.didFail(error: error)
             return
         }
-        delegate?.didSaved()
+        delegate?.didDelete()
     }
     
     func deleteGameInfo(gameInfo : Realm_GameInfo) {
         do {
             try self.realm.write() {
                 self.realm.delete(gameInfo)
-                delegate?.didDeleted()
+                delegate?.didDelete()
             }
         } catch {
             print("Error occurred when deleting item \(error)")

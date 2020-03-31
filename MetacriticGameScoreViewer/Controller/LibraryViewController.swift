@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 
 class LibraryViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var libraryInfoList : Results<LibraryInfo>?
     var selectedLibrary : LibraryInfo?
@@ -27,7 +27,7 @@ class LibraryViewController: UIViewController {
         parent?.navigationItem.title = "Library"
         collectionView.reloadData()
     }
-
+    
     @objc func addBtnPressed() {
         var textField = UITextField()
         let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
@@ -67,10 +67,20 @@ class LibraryViewController: UIViewController {
         let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         parent?.navigationItem.leftBarButtonItem = leftButton
         parent?.navigationItem.rightBarButtonItem = rightButton
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
+            cell.isInEditMode = true
+        }
     }
     
     @objc func doneButtonPressed(){
-       initNavigationItem()
+        initNavigationItem()
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
+            cell.isInEditMode = false
+        }
     }
     
     func initNavigationItem(){
@@ -96,41 +106,45 @@ class LibraryViewController: UIViewController {
 
 //MARK: - RealmManagerDelegate
 extension LibraryViewController : RealmManagerDelegate {
-    func didDeleted() {
-        
-    }
     
-    @objc func didSaved() {
+    @objc func didSave() {
         self.collectionView.reloadData()
         showAlertMessage(title: "Saved To Your Library")
     }
-     
-    @objc func didSaveFailed(error: Error) {
-         showAlertMessage(title: "Failed To Save To Your Library")
-         print("Error Occurred while saving context \(error)")
+    
+    func didDelete() {
+        self.collectionView.reloadData()
+        showAlertMessage(title: "Deleted from your Library")
+    }
+    
+    @objc func didFail(error: Error) {
+        showAlertMessage(title: "Failed To Save To Your Library")
+        print("Error Occurred while saving context \(error)")
     }
 }
 
 //MARK: - UICollectionViewDataSource
 extension LibraryViewController : UICollectionViewDataSource {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return libraryInfoList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.libraryCellIdentifier,for: indexPath) as! LibraryCollectionViewCell
-         if let libraryInfo = libraryInfoList?[indexPath.row] {
-             if libraryInfo.imageURL == "" {
+        cell.delegate = self
+        cell.indexPath = indexPath
+        if let libraryInfo = libraryInfoList?[indexPath.row] {
+            if libraryInfo.imageURL == "" {
                 cell.libraryImgView.image = UIImage(named: "default.jpg")
-             } else{
-                 cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
-             }
-             cell.libraryTitle.text = libraryInfo.libraryTitle
+            } else{
+                cell.libraryImgView.sd_setImage(with: URL(string: libraryInfo.imageURL))
+            }
+            cell.libraryTitle.text = libraryInfo.libraryTitle
             cell.countOfGames.text = String(libraryInfo.gameInfoList.count)
-           }
-           return cell
-     }
+        }
+        return cell
+    }
 }
 
 //MARK: - UICollectionViewDelegate
@@ -165,5 +179,12 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+extension LibraryViewController : LibraryCollectionViewCellDelegate {
+    func deleteBtnPressed(indexPath : IndexPath) {
+        if let libraryInfo = libraryInfoList?[indexPath.row]{        realmManager.deleteLibrary(libraryInfo: libraryInfo)
+        }
     }
 }
