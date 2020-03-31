@@ -23,14 +23,12 @@ class LibraryViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.parent?.navigationItem.hidesBackButton = true
+        initNavigationItem()
         parent?.navigationItem.title = "Library"
-        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed(_:)))
-        parent?.navigationItem.rightBarButtonItem = rightButton
         collectionView.reloadData()
     }
 
-    @IBAction func addBtnPressed(_ sender: UIBarButtonItem) {
+    @objc func addBtnPressed() {
         var textField = UITextField()
         let alert = UIAlertController(title: "New Library", message: "Enter a name for this library", preferredStyle: .alert)
         alert.addTextField { (alertTextField) in
@@ -62,6 +60,23 @@ class LibraryViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         present(alert,animated: true, completion: nil)
+    }
+    
+    @objc func editButtonPressed(){
+        let leftButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBtnPressed))
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
+        parent?.navigationItem.leftBarButtonItem = leftButton
+        parent?.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func doneButtonPressed(){
+       initNavigationItem()
+    }
+    
+    func initNavigationItem(){
+        self.parent?.navigationItem.hidesBackButton = true
+        parent?.navigationItem.leftBarButtonItem = nil
+        parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
     }
     
     func showAlertMessage(title : String) {
