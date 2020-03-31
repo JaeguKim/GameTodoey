@@ -76,17 +76,17 @@ class LibraryViewController: UIViewController {
     
     @objc func doneButtonPressed(){
         initNavigationItem()
-        let indexPaths = collectionView.indexPathsForVisibleItems
-        for indexPath in indexPaths {
-            let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
-            cell.isInEditMode = false
-        }
     }
     
     func initNavigationItem(){
         self.parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.leftBarButtonItem = nil
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
+            cell.isInEditMode = false
+        }
     }
     
     func showAlertMessage(title : String) {
