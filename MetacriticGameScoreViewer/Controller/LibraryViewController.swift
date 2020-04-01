@@ -26,6 +26,7 @@ class LibraryViewController: UIViewController {
         initNavigationItem()
         parent?.navigationItem.title = "Library"
         collectionView.reloadData()
+        collectionView.allowsSelection = true
     }
     
     @objc func addBtnPressed() {
@@ -72,10 +73,12 @@ class LibraryViewController: UIViewController {
             let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
             cell.isInEditMode = true
         }
+        collectionView.allowsSelection = false
     }
     
     @objc func doneButtonPressed(){
         initNavigationItem()
+        collectionView.allowsSelection = true
     }
     
     func initNavigationItem(){
@@ -184,7 +187,18 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
 
 extension LibraryViewController : LibraryCollectionViewCellDelegate {
     func deleteBtnPressed(indexPath : IndexPath) {
-        if let libraryInfo = libraryInfoList?[indexPath.row]{        realmManager.deleteLibrary(libraryInfo: libraryInfo)
+        if let libraryInfo = libraryInfoList?[indexPath.row]{
+            let optionMenu = UIAlertController(title: "Delete \"\(libraryInfo.libraryTitle)\"", message: "Are you sure you want to delete the library \"\(libraryInfo.libraryTitle)\"?\nThe game lists will be deleted", preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+                self.realmManager.deleteLibrary(libraryInfo: libraryInfo)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                optionMenu.dismiss(animated: true, completion: nil)
+            }
+            optionMenu.addAction(deleteAction)
+            optionMenu.addAction(cancelAction)
+            self.present(optionMenu, animated: true, completion: nil)
+           
         }
     }
 }
