@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 protocol RealmManagerDelegate {
-    func didSave()
+    func didSave(title : String)
     func didDelete()
     func didFail(error : Error)
 }
@@ -41,7 +41,7 @@ struct RealmManager {
             delegate?.didFail(error: error)
             return
         }
-        delegate?.didSave()
+        delegate?.didSave(title: "")
     }
     
     func save(realmObj : LibraryInfo) {
@@ -54,7 +54,7 @@ struct RealmManager {
             delegate?.didFail(error: error)
             return
         }
-        delegate?.didSave()
+        delegate?.didSave(title: realmObj.libraryTitle)
     }
     
     func deleteLibrary(libraryInfo : LibraryInfo) {

@@ -11,6 +11,8 @@ class LibraryViewController: UIViewController {
                                              left: 20.0,
                                              bottom: 50.0,
                                              right: 20.0)
+    let defaultLibraryTitles = ["Recents","Favorite👍"]
+    var isEditMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,27 @@ class LibraryViewController: UIViewController {
         realmManager.delegate = self
         self.collectionView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellWithReuseIdentifier: Const.libraryCellIdentifier)
         libraryInfoList = realmManager.loadLibraries()
+        AddDefaultCollection()
         collectionView.reloadData()
+    }
+    
+    func AddDefaultCollection(){
+        if let libraryList = self.libraryInfoList {
+            for title in defaultLibraryTitles{
+                var isAdd = true
+                for item in libraryList{
+                    if title == item.libraryTitle{
+                        isAdd = false
+                        break
+                    }
+                }
+                if isAdd{
+                    let newLibrary = LibraryInfo()
+                    newLibrary.libraryTitle = title
+                    self.realmManager.save(realmObj: newLibrary)
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,12 +90,9 @@ class LibraryViewController: UIViewController {
         let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         parent?.navigationItem.leftBarButtonItem = leftButton
         parent?.navigationItem.rightBarButtonItem = rightButton
-        let indexPaths = collectionView.indexPathsForVisibleItems
-        for indexPath in indexPaths {
-            let cell = collectionView.cellForItem(at: indexPath) as! LibraryCollectionViewCell
-            cell.isInEditMode = true
-        }
         collectionView.allowsSelection = false
+        isEditMode = true
+        collectionView.reloadData()
     }
     
     @objc func doneButtonPressed(){
@@ -110,9 +129,11 @@ class LibraryViewController: UIViewController {
 //MARK: - RealmManagerDelegate
 extension LibraryViewController : RealmManagerDelegate {
     
-    @objc func didSave() {
+    @objc func didSave(title : String) {
         self.collectionView.reloadData()
-        showAlertMessage(title: "Saved To Your Library")
+        if defaultLibraryTitles.contains(title) == false{
+            showAlertMessage(title: "Saved To Your Library")
+        }
     }
     
     func didDelete() {
@@ -138,6 +159,8 @@ extension LibraryViewController : UICollectionViewDataSource {
         cell.delegate = self
         cell.indexPath = indexPath
         if let libraryInfo = libraryInfoList?[indexPath.row] {
+            cell.canDelete = defaultLibraryTitles.contains(libraryInfo.libraryTitle) ? false : true
+            cell.isInEditMode = isEditMode
             if libraryInfo.imageURL == "" {
                 cell.libraryImgView.image = UIImage(named: "default.jpg")
             } else{
@@ -185,6 +208,7 @@ extension LibraryViewController : UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: - LibraryCollectionViewCellDelegate
 extension LibraryViewController : LibraryCollectionViewCellDelegate {
     func deleteBtnPressed(indexPath : IndexPath) {
         if let libraryInfo = libraryInfoList?[indexPath.row]{

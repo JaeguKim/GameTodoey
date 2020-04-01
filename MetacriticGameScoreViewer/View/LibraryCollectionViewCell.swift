@@ -21,17 +21,25 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     var indexPath : IndexPath?
     var delegate : LibraryCollectionViewCellDelegate?
-
+    var canDelete : Bool = true {
+        didSet {
+            if canDelete == false{
+                deleteButton.isHidden = true
+            }
+        }
+    }
+    
     var isInEditMode : Bool = false {
         didSet {
-            deleteButton.isHidden = !isInEditMode
+            if canDelete {
+                deleteButton.isHidden = !isInEditMode
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         libContentView.layer.cornerRadius = libContentView.frame.height / 5
-        deleteButton.isHidden = true
     }
     
     @IBAction func deleteBtnPressed(_ sender: UIButton) {

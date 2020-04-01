@@ -32,7 +32,7 @@ extension LibrarySelectionPopupViewController  {
 
 //MARK: - RealmManagerDelegate
 extension LibrarySelectionPopupViewController {
-    override func didSave() {
+    override func didSave(title: String) {
         self.collectionView.reloadData()
         showAlertMessage(title: "Saved To Your Library")
     }
