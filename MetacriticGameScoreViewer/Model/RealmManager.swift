@@ -57,6 +57,19 @@ struct RealmManager {
         delegate?.didSave(title: realmObj.libraryTitle)
     }
     
+    func reorderGameList(gameInfoList : List<Realm_GameInfo>, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath){
+        do {
+            try realm.write {
+                let movedObj = gameInfoList[sourceIndexPath.row]
+                gameInfoList.remove(at: sourceIndexPath.row)
+                gameInfoList.insert(movedObj, at: destinationIndexPath.row)
+            }
+        } catch {
+            print("Error Reordering context \(error)")
+            return
+        }
+    }
+
     func deleteLibrary(libraryInfo : LibraryInfo) {
         do {
             try self.realm.write() {
