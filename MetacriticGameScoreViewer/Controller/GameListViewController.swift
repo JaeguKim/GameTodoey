@@ -10,6 +10,7 @@ class GameListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = libraryInfo?.libraryTitle
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -17,7 +18,7 @@ class GameListViewController: UIViewController {
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         realmManager.delegate = self
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {

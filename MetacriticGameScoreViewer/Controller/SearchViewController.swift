@@ -25,13 +25,8 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      parent?.navigationItem.title = "Search Game"
-       parent?.navigationItem.hidesBackButton = true
-//        let btn = UIButton(type: .custom)
-//        btn.setTitle("Log Out", for: .normal)
-//        btn.titleLabel?.font = UIFont(name: "System-Medium", size: 18)
-//        btn.setTitleColor(UIColor.white, for: .normal)
-//        let rightButton = UIBarButtonItem(customView: btn)
+        parent?.navigationItem.title = "Search Game"
+        parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
     }
     
