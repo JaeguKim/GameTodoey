@@ -29,7 +29,7 @@ class DescriptionPopupViewController: UIViewController {
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let descVC = segue.destination as! LibrarySelectionPopupViewController
-        descVC.gameScoreInfo = gameScoreInfo
+        descVC.gameInfo = gameScoreInfo
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {

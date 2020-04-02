@@ -23,4 +23,5 @@ struct Const {
     static let LibraryCellNibName = "LibraryCollectionViewCell"
     static let idStr = "id"
     static let libraryTitleStr = "libraryTitle"
+    static let defaultLibraryTitles = ["Recents","Favorite👍"]
 }

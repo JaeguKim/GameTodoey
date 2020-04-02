@@ -3,7 +3,7 @@ import RealmSwift
 
 class LibrarySelectionPopupViewController: LibraryViewController {
     
-    var gameScoreInfo : GameInfo?
+    var gameInfo : GameInfo?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +18,15 @@ class LibrarySelectionPopupViewController: LibraryViewController {
 extension LibrarySelectionPopupViewController  {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        guard let gameScoreData = gameScoreInfo else {return}
+        guard let gameData = gameInfo else {return}
         guard let selectedLibrary = libraryInfoList?[indexPath.row] else {return}
         for item in selectedLibrary.gameInfoList {
-            if gameScoreData.id == item.id {
+            if gameData.id == item.id {
                 showAlertMessage(title: "Already Added To Library")
                 return
             }
         }
-        realmManager.save(gameInfo: gameScoreData, selectedLibrary: selectedLibrary)
+        realmManager.save(gameInfo: gameData, selectedLibrary: selectedLibrary)
     }
 }
 

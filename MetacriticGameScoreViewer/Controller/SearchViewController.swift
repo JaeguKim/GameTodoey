@@ -12,6 +12,8 @@ class SearchViewController: UIViewController {
     
     var searchUIAlert : UIAlertController?
     var searchManager = SearchManager()
+    var realmManager = RealmManager()
+    var libraryInfoList : Results<LibraryInfo>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class SearchViewController: UIViewController {
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         searchManager.delegate = self
+        libraryInfoList = realmManager.loadLibraries()
+        AddDefaultCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +42,26 @@ class SearchViewController: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+     func AddDefaultCollection(){
+         if let libraryList = self.libraryInfoList {
+            for title in Const.defaultLibraryTitles{
+                 var isAdd = true
+                 for item in libraryList{
+                     if title == item.libraryTitle{
+                         isAdd = false
+                         break
+                     }
+                 }
+                 if isAdd{
+                     let newLibrary = LibraryInfo()
+                     newLibrary.libraryTitle = title
+                     self.realmManager.save(realmObj: newLibrary)
+                 }
+             }
+         }
+     }
+     
     
     func showNoResultAlert(){
         self.searchUIAlert?.title = "No Results"
@@ -110,6 +134,7 @@ extension SearchViewController: SearchManagerDelegate {
         if searchManager.isRequestsDone() {
             searchUIAlert?.dismiss(animated: true, completion: nil)
             searchManager.initValue()
+            realmManager.save(gameInfoArray: gameInfoArrary)
             tableView.reloadData()
         }
     }

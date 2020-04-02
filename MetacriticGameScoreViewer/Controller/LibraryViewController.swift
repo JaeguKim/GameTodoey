@@ -11,7 +11,6 @@ class LibraryViewController: UIViewController {
                                              left: 20.0,
                                              bottom: 50.0,
                                              right: 20.0)
-    let defaultLibraryTitles = ["Recents","Favorite👍"]
     var isEditMode = false
     
     override func viewDidLoad() {
@@ -21,29 +20,9 @@ class LibraryViewController: UIViewController {
         realmManager.delegate = self
         self.collectionView.register(UINib(nibName: Const.LibraryCellNibName, bundle: nil), forCellWithReuseIdentifier: Const.libraryCellIdentifier)
         libraryInfoList = realmManager.loadLibraries()
-        AddDefaultCollection()
         collectionView.reloadData()
     }
-    
-    func AddDefaultCollection(){
-        if let libraryList = self.libraryInfoList {
-            for title in defaultLibraryTitles{
-                var isAdd = true
-                for item in libraryList{
-                    if title == item.libraryTitle{
-                        isAdd = false
-                        break
-                    }
-                }
-                if isAdd{
-                    let newLibrary = LibraryInfo()
-                    newLibrary.libraryTitle = title
-                    self.realmManager.save(realmObj: newLibrary)
-                }
-            }
-        }
-    }
-    
+ 
     override func viewWillAppear(_ animated: Bool) {
         initNavigationItem()
         parent?.navigationItem.title = "Library"
@@ -128,9 +107,7 @@ extension LibraryViewController : RealmManagerDelegate {
     
     @objc func didSave(title : String) {
         self.collectionView.reloadData()
-        if defaultLibraryTitles.contains(title) == false{
-            showAlertMessage(title: "Saved To Your Library")
-        }
+        showAlertMessage(title: "Saved To Your Library")
     }
     
     func didDelete() {
@@ -156,7 +133,7 @@ extension LibraryViewController : UICollectionViewDataSource {
         cell.delegate = self
         cell.indexPath = indexPath
         if let libraryInfo = libraryInfoList?[indexPath.row] {
-            cell.canDelete = defaultLibraryTitles.contains(libraryInfo.libraryTitle) ? false : true
+            cell.canDelete = Const.defaultLibraryTitles.contains(libraryInfo.libraryTitle) ? false : true
             cell.isInEditMode = isEditMode
             if libraryInfo.imageURL == "" {
                 cell.libraryImgView.image = UIImage(named: "default.jpg")

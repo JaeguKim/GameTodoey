@@ -19,7 +19,6 @@ class GameListViewController: UIViewController {
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         tableView.reorder.delegate = self
         realmManager.delegate = self
-        //tableView.isEditing = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,20 +61,6 @@ extension GameListViewController: UITableViewDataSource {
         }
         return cell        
     }
-    
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        .none
-//    }
-//
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        false
-//    }
-//
-//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        if let gameInfoList = libraryInfo?.gameInfoList{
-//            realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
-//        }
-//    }
 }
 
 //MARK: - UITableViewDelegate

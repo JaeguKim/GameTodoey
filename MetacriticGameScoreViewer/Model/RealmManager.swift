@@ -23,6 +23,24 @@ struct RealmManager {
         return realm.objects(LibraryInfo.self)
     }
     
+    func save(gameInfoArray : [GameInfo]){
+        let libraryInfoList = loadLibraries()
+        let recentLibrary = libraryInfoList[0]
+        let recentGameList = recentLibrary.gameInfoList
+        for gameInfo in gameInfoArray{
+            var isFound = false
+            for item in recentGameList{
+                if gameInfo.id == item.id {
+                    isFound = true
+                    break
+                }
+            }
+            if isFound == false{
+                save(gameInfo: gameInfo, selectedLibrary: recentLibrary)
+            }
+        }
+    }
+    
     func save(gameInfo : GameInfo, selectedLibrary : LibraryInfo) {
         do {
             try self.realm.write {
@@ -41,7 +59,7 @@ struct RealmManager {
             delegate?.didFail(error: error)
             return
         }
-        delegate?.didSave(title: "")
+        delegate?.didSave(title: selectedLibrary.libraryTitle)
     }
     
     func save(realmObj : LibraryInfo) {
