@@ -1,6 +1,7 @@
 import UIKit
 import RealmSwift
 import SwipeCellKit
+import SwiftReorder
 
 class GameListViewController: UIViewController {
 
@@ -16,8 +17,9 @@ class GameListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        tableView.reorder.delegate = self
         realmManager.delegate = self
-        tableView.isEditing = true
+        //tableView.isEditing = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,6 +47,9 @@ extension GameListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let spacer = tableView.reorder.spacerCell(for: indexPath){
+            return spacer
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
         if let gameInfo = libraryInfo?.gameInfoList[indexPath.row] {
@@ -58,19 +63,19 @@ extension GameListViewController: UITableViewDataSource {
         return cell        
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        .none
-    }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        false
-    }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        if let gameInfoList = libraryInfo?.gameInfoList{
-            realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
-        }
-    }
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        .none
+//    }
+//
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        false
+//    }
+//
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        if let gameInfoList = libraryInfo?.gameInfoList{
+//            realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+//        }
+//    }
 }
 
 //MARK: - UITableViewDelegate
@@ -110,4 +115,13 @@ extension GameListViewController : RealmManagerDelegate {
     }
     func didFail(error: Error) {}
     
+}
+
+//MARK: - TableViewReorderDelegate
+extension GameListViewController: TableViewReorderDelegate{
+    func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        if let gameInfoList = libraryInfo?.gameInfoList{
+            realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+        }
+    }
 }
