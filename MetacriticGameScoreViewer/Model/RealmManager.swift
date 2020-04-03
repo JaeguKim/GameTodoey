@@ -18,6 +18,7 @@ protocol RealmManagerDelegate {
 struct RealmManager {
     var realm = try! Realm()
     var delegate : RealmManagerDelegate?
+    let maxRecentsCount = 20
     
     func loadLibraries() -> Results<LibraryInfo> {
         return realm.objects(LibraryInfo.self)
@@ -27,17 +28,21 @@ struct RealmManager {
         let libraryInfoList = loadLibraries()
         let recentLibrary = libraryInfoList[0]
         let recentGameList = recentLibrary.gameInfoList
-        for gameInfo in gameInfoArray{
-            var isFound = false
-            for item in recentGameList{
-                if gameInfo.id == item.id {
-                    isFound = true
-                    break
+        if recentGameList.count + gameInfoArray.count > maxRecentsCount{
+            let numOfDelete = recentGameList.count + gameInfoArray.count - maxRecentsCount
+            for _ in 0..<numOfDelete{
+                do
+                {
+                    try realm.write {
+                        recentGameList.removeFirst()
+                    }
+                }catch {
+                    print("Error Occurred while deleting game from Recents Library : \(error)")
                 }
             }
-            if isFound == false{
-                save(gameInfo: gameInfo, selectedLibrary: recentLibrary)
-            }
+        }
+        for gameInfo in gameInfoArray{
+            save(gameInfo: gameInfo, selectedLibrary: recentLibrary)
         }
     }
     
