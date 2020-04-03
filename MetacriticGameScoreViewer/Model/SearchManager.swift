@@ -89,8 +89,8 @@ class SearchManager {
         requests.append(request)
     }
     
-    func getCompletionPercent() -> Int{
-         return (self.requestsDone * 100) / self.totalRequests
+    func getCompletionRate() -> Float{
+         return Float(self.requestsDone) / Float(self.totalRequests)
     }
     
     func isRequestsDone() -> Bool{

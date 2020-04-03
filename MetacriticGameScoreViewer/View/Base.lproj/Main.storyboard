@@ -26,12 +26,61 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4t-cW-uHm">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-eC-WkG" userLabel="Guide Label">
+                                        <rect key="frame" x="144" y="20" width="125" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                        <color key="textColor" name="BrandBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
+                                <constraints>
+                                    <constraint firstItem="Vfe-eC-WkG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u4t-cW-uHm" secondAttribute="leading" constant="20" symbolic="YES" id="8fa-9t-iFf"/>
+                                    <constraint firstItem="Vfe-eC-WkG" firstAttribute="top" secondItem="u4t-cW-uHm" secondAttribute="top" constant="20" id="irK-uI-OXJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vfe-eC-WkG" secondAttribute="trailing" constant="145" id="s6h-wJ-iGu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" id="iQO-Px-PlB">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpW-AD-t0F">
+                                        <rect key="frame" x="148" y="320" width="119" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                        <color key="textColor" name="BrandBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kam-7z-MG0">
+                                        <rect key="frame" x="40" y="508" width="334" height="2"/>
+                                        <color key="progressTintColor" name="BrandBlue"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" name="BrandLightBlue"/>
+                                <constraints>
+                                    <constraint firstItem="wpW-AD-t0F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iQO-Px-PlB" secondAttribute="leading" constant="20" symbolic="YES" id="9Zf-xe-KVX"/>
+                                    <constraint firstItem="Kam-7z-MG0" firstAttribute="top" secondItem="wpW-AD-t0F" secondAttribute="bottom" constant="160" id="EjD-V8-9Xa"/>
+                                    <constraint firstItem="wpW-AD-t0F" firstAttribute="top" secondItem="iQO-Px-PlB" secondAttribute="top" constant="320" id="ILH-l3-Up4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kam-7z-MG0" secondAttribute="trailing" constant="40" id="ODD-wB-vKD"/>
+                                    <constraint firstItem="Kam-7z-MG0" firstAttribute="leading" secondItem="iQO-Px-PlB" secondAttribute="leading" constant="40" id="Rfh-F4-aqh"/>
+                                    <constraint firstAttribute="trailing" secondItem="wpW-AD-t0F" secondAttribute="trailing" constant="147" id="UAo-bc-XBK"/>
+                                    <constraint firstAttribute="bottom" secondItem="wpW-AD-t0F" secondAttribute="bottom" constant="321" id="VDy-Lb-xbW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kam-7z-MG0" secondAttribute="bottom" constant="159" id="eHm-VR-FRH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u4t-cW-uHm" secondAttribute="trailing" id="4Ry-P7-qqD"/>
                             <constraint firstItem="dk9-ov-R3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5H2-oc-hAz"/>
                             <constraint firstAttribute="bottom" secondItem="3hV-SG-xJV" secondAttribute="bottom" id="7N8-HN-NOy"/>
                             <constraint firstItem="3hV-SG-xJV" firstAttribute="top" secondItem="dk9-ov-R3a" secondAttribute="bottom" id="AMa-pR-SUJ"/>
+                            <constraint firstItem="u4t-cW-uHm" firstAttribute="top" secondItem="dk9-ov-R3a" secondAttribute="bottom" symbolic="YES" id="Jqc-w0-kRd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u4t-cW-uHm" secondAttribute="bottom" id="WRc-ga-xFD"/>
+                            <constraint firstItem="u4t-cW-uHm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e8W-lz-Ohf"/>
+                            <constraint firstItem="iQO-Px-PlB" firstAttribute="top" secondItem="dk9-ov-R3a" secondAttribute="bottom" symbolic="YES" id="jeK-ya-exU"/>
                             <constraint firstItem="dk9-ov-R3a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rKo-Dg-ayJ"/>
                             <constraint firstItem="3hV-SG-xJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sjb-G9-BSJ"/>
                             <constraint firstItem="3hV-SG-xJV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u9K-hm-D3V"/>
@@ -42,6 +91,10 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="gtd-Rt-br3"/>
                     <navigationItem key="navigationItem" title="Search Game" id="cvD-XP-wKZ"/>
                     <connections>
+                        <outlet property="guideLabel" destination="Vfe-eC-WkG" id="S3q-hx-lgJ"/>
+                        <outlet property="idleView" destination="u4t-cW-uHm" id="wdg-Cs-4q0"/>
+                        <outlet property="progressUIView" destination="iQO-Px-PlB" id="di0-0a-YSp"/>
+                        <outlet property="progressView" destination="Kam-7z-MG0" id="o0Y-xL-NIM"/>
                         <outlet property="searchBar" destination="dk9-ov-R3a" id="igK-UG-bqZ"/>
                         <outlet property="tableView" destination="3hV-SG-xJV" id="GY3-u3-Jsb"/>
                         <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="SearchVCToDescVC" popoverAnchorView="3hV-SG-xJV" id="bdL-xQ-QG3">
@@ -51,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912" y="-447"/>
+            <point key="canvasLocation" x="3911.594202898551" y="-447.32142857142856"/>
         </scene>
         <!--Library View Controller Scene-->
         <scene sceneID="xg6-Dq-gNh">

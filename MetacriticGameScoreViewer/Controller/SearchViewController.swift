@@ -9,12 +9,15 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var progressUIView: UIView!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var idleView: UIView!
+    @IBOutlet weak var guideLabel: UILabel!
     
-    var searchUIAlert : UIAlertController?
     var searchManager = SearchManager()
     var realmManager = RealmManager()
     var libraryInfoList : Results<LibraryInfo>?
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -24,6 +27,7 @@ class SearchViewController: UIViewController {
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         searchManager.delegate = self
+        searchBar.showsCancelButton = true
         libraryInfoList = realmManager.loadLibraries()
         AddDefaultCollection()
     }
@@ -32,6 +36,28 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+        showIdleView()
+        
+    }
+    
+    func showIdleView(){
+        guideLabel.text = ""
+        idleView.isHidden = false
+        tableView.isHidden = true
+        progressUIView.isHidden = true
+    }
+    
+    func showTableView(){
+        progressView.progress = 0.0
+        tableView.isHidden = false
+        idleView.isHidden = true
+        progressUIView.isHidden = true
+    }
+    
+    func showProgressView(){
+        progressUIView.isHidden = false
+        idleView.isHidden = true
+        tableView.isHidden = true
     }
     
     @objc func logOut(){
@@ -61,13 +87,7 @@ class SearchViewController: UIViewController {
              }
          }
      }
-     
-    
-    func showNoResultAlert(){
-        self.searchUIAlert?.title = "No Results"
-        self.searchUIAlert?.dismiss(animated: true, completion: nil)
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -110,29 +130,26 @@ extension SearchViewController: UISearchBarDelegate {
         if let title = searchBar.searchTextField.text {
             searchManager.cancelRequests()
             tableView.reloadData()
-            self.searchUIAlert = UIAlertController(title: "Searching...", message: "", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
-                self.searchManager.cancelRequests()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-            searchUIAlert?.addAction(cancelAction)
-            self.present(self.searchUIAlert!, animated: true)
+            showProgressView()
             searchManager.requestInfo(title: title)
         }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchManager.cancelRequests()
+        showIdleView()
     }
 }
 
 //MARK: - SearchManagerDelegate
 extension SearchViewController: SearchManagerDelegate {
     func didTitleSearchRequestFail() {
-        showNoResultAlert()
+        showIdleView()
+        guideLabel.text = "No Results"
     }
     func didUpdateGameInfo(gameInfoArrary : [GameInfo] ) {
-        self.searchUIAlert?.title = "\(searchManager.getCompletionPercent())% Loaded"
+        progressView.progress = searchManager.getCompletionRate()
         if searchManager.isRequestsDone() {
-            searchUIAlert?.dismiss(animated: true, completion: nil)
+            showTableView()
             searchManager.initValue()
             realmManager.save(gameInfoArray: gameInfoArrary)
             tableView.reloadData()
