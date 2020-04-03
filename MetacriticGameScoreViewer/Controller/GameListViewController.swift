@@ -51,7 +51,7 @@ extension GameListViewController: UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
-        if let gameInfo = libraryInfo?.gameInfoList[indexPath.row] {
+        if let gameInfo = libraryInfo?.gameInfoList.sorted(byKeyPath: "date", ascending: false)[indexPath.row] {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
             if let score = Int(gameInfo.score){

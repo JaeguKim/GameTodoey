@@ -10,5 +10,6 @@ class Realm_GameInfo : Object {
     @objc dynamic var gameDescription : String = ""
     @objc dynamic var done : Bool = false
     @objc dynamic var id : String = ""
+    @objc dynamic var date = Date()
     var parentLibrary = LinkingObjects(fromType: LibraryInfo.self, property: "gameInfoList")
 }

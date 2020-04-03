@@ -73,14 +73,14 @@ class SearchManager {
                 let score = responseJSON["result"]["score"].stringValue
                 let imageURL = responseJSON["result"]["image"].stringValue
                 let description = responseJSON["result"]["description"].stringValue
-                let gameScoreInfo = GameInfo()
-                gameScoreInfo.imageURL = imageURL
-                gameScoreInfo.title = gameTitle
-                gameScoreInfo.platform = platform
-                gameScoreInfo.score = score
-                gameScoreInfo.gameDescription = description
-                gameScoreInfo.done = false
-                self.gameInfoArrary.append(gameScoreInfo)
+                let gameInfo = GameInfo()
+                gameInfo.imageURL = imageURL
+                gameInfo.title = gameTitle
+                gameInfo.platform = platform
+                gameInfo.score = score
+                gameInfo.gameDescription = description
+                gameInfo.done = false
+                self.gameInfoArrary.append(gameInfo)
             }
             self.requestsDone += 1
             print("requestsDone : \(self.requestsDone)")
