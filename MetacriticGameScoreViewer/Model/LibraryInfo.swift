@@ -10,4 +10,12 @@ class LibraryInfo : Object {
     override static func primaryKey() -> String? {
         return Const.libraryTitleStr
     }
+    
+    func updateLibraryImage(){
+        if libraryTitle == "Recents"{
+            imageURL = gameInfoList.first!.imageURL
+        } else {
+            imageURL = gameInfoList.last!.imageURL
+        }
+    }
 }

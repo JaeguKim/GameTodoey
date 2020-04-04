@@ -98,7 +98,7 @@ extension GameListViewController : RealmManagerDelegate {
     func didSave(title: String) {}
     
     func didDelete() {
-        libraryInfo?.imageURL = libraryInfo?.gameInfoList.last?.imageURL ?? ""
+        libraryInfo?.updateLibraryImage()
     }
     func didFail(error: Error) {}
     
