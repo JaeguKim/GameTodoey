@@ -17,10 +17,12 @@ class GameListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
-        tableView.reorder.delegate = self
         realmManager.delegate = self
+        if libraryInfo?.libraryTitle != "Recents"{
+            tableView.reorder.delegate = self
+        }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -51,7 +53,7 @@ extension GameListViewController: UITableViewDataSource {
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
-        if let gameInfo = libraryInfo?.gameInfoList.sorted(byKeyPath: "date", ascending: false)[indexPath.row] {
+        if let gameInfo = libraryInfo?.gameInfoList[indexPath.row] {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             cell.titleLabel.text = gameInfo.title
             if let score = Int(gameInfo.score){

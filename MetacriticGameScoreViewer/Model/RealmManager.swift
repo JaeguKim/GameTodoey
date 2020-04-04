@@ -25,23 +25,24 @@ struct RealmManager {
     }
     
     func save(gameInfoArray : [GameInfo]){
+        let slicedGameInfoArray = gameInfoArray.prefix(maxRecentsCount)
         let libraryInfoList = loadLibraries()
         let recentLibrary = libraryInfoList[0]
         let recentGameList = recentLibrary.gameInfoList
-        if recentGameList.count + gameInfoArray.count > maxRecentsCount{
+        if recentGameList.count + slicedGameInfoArray.count > maxRecentsCount{
             let numOfDelete = recentGameList.count + gameInfoArray.count - maxRecentsCount
             for _ in 0..<numOfDelete{
                 do
                 {
                     try realm.write {
-                        recentGameList.removeFirst()
+                        recentGameList.removeLast()
                     }
                 }catch {
                     print("Error Occurred while deleting game from Recents Library : \(error)")
                 }
             }
         }
-        for gameInfo in gameInfoArray{
+        for gameInfo in slicedGameInfoArray{
             save(gameInfo: gameInfo, selectedLibrary: recentLibrary)
         }
     }
@@ -58,7 +59,8 @@ struct RealmManager {
                 realmObj.id = gameInfo.id
                 realmObj.done = gameInfo.done
                 selectedLibrary.imageURL = gameInfo.imageURL
-                selectedLibrary.gameInfoList.append(realmObj)
+                selectedLibrary.libraryTitle == "Recents" ?
+                    selectedLibrary.gameInfoList.insert(realmObj, at: 0) : selectedLibrary.gameInfoList.append(realmObj)
             }
         } catch {
             delegate?.didFail(error: error)
@@ -86,13 +88,14 @@ struct RealmManager {
                 let movedObj = gameInfoList[sourceIndexPath.row]
                 gameInfoList.remove(at: sourceIndexPath.row)
                 gameInfoList.insert(movedObj, at: destinationIndexPath.row)
+                delegate?.didSave(title: "")
             }
         } catch {
             print("Error Reordering context \(error)")
             return
         }
     }
-
+    
     func deleteLibrary(libraryInfo : LibraryInfo) {
         do {
             try self.realm.write() {

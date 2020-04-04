@@ -4,7 +4,7 @@ import SwiftyJSON
 
 protocol SearchManagerDelegate {
     func didTitleSearchRequestFail()
-    func didUpdateGameInfo(gameInfoArrary : [GameInfo])
+    func didUpdateGameInfo(gameInfoArray : [GameInfo])
 }
 
 class SearchManager {
@@ -84,7 +84,7 @@ class SearchManager {
             }
             self.requestsDone += 1
             print("requestsDone : \(self.requestsDone)")
-            self.delegate?.didUpdateGameInfo(gameInfoArrary: self.gameInfoArrary)
+            self.delegate?.didUpdateGameInfo(gameInfoArray: self.gameInfoArrary)
         }
         requests.append(request)
     }

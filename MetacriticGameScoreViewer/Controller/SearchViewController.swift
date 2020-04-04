@@ -30,14 +30,14 @@ class SearchViewController: UIViewController {
         searchBar.showsCancelButton = true
         libraryInfoList = realmManager.loadLibraries()
         AddDefaultCollection()
+        showIdleView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
-        showIdleView()
-        
+        guideLabel.text = ""
     }
     
     func showIdleView(){
@@ -146,12 +146,12 @@ extension SearchViewController: SearchManagerDelegate {
         showIdleView()
         guideLabel.text = "No Results"
     }
-    func didUpdateGameInfo(gameInfoArrary : [GameInfo] ) {
+    func didUpdateGameInfo(gameInfoArray : [GameInfo] ) {
         progressView.progress = searchManager.getCompletionRate()
         if searchManager.isRequestsDone() {
             showTableView()
             searchManager.initValue()
-            realmManager.save(gameInfoArray: gameInfoArrary)
+            realmManager.save(gameInfoArray: gameInfoArray)
             tableView.reloadData()
         }
     }
