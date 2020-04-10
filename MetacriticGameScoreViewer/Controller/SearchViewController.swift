@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     var searchManager = SearchManager()
     var realmManager = RealmManager()
     var libraryInfoList : Results<LibraryInfo>?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -30,6 +30,16 @@ class SearchViewController: UIViewController {
         libraryInfoList = realmManager.loadLibraries()
         AddDefaultCollection()
         showLoadingView(isIdle: true)
+        addGestureRecognizer()
+    }
+    
+    func addGestureRecognizer(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        searchBar.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +71,7 @@ class SearchViewController: UIViewController {
         tableView.isHidden = false
         loadingView.isHidden = true
     }
-
+    
     @objc func logOut(){
         do {
             try Auth.auth().signOut()
@@ -71,25 +81,25 @@ class SearchViewController: UIViewController {
         }
     }
     
-     func AddDefaultCollection(){
-         if let libraryList = self.libraryInfoList {
+    func AddDefaultCollection(){
+        if let libraryList = self.libraryInfoList {
             for title in Const.defaultLibraryTitles{
-                 var isAdd = true
-                 for item in libraryList{
-                     if title == item.libraryTitle{
-                         isAdd = false
-                         break
-                     }
-                 }
-                 if isAdd{
-                     let newLibrary = LibraryInfo()
-                     newLibrary.libraryTitle = title
-                     self.realmManager.save(realmObj: newLibrary)
-                 }
-             }
-         }
-     }
-
+                var isAdd = true
+                for item in libraryList{
+                    if title == item.libraryTitle{
+                        isAdd = false
+                        break
+                    }
+                }
+                if isAdd{
+                    let newLibrary = LibraryInfo()
+                    newLibrary.libraryTitle = title
+                    self.realmManager.save(realmObj: newLibrary)
+                }
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
