@@ -13,13 +13,14 @@ class GameInfoCell: SwipeTableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreBackgroundView: UIView!
+    @IBOutlet weak var view: UIView!
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         scoreBackgroundView.layer.cornerRadius = scoreBackgroundView.frame.height / 5
-        // Initialization code
+        view.layer.cornerRadius = view.frame.height / 5
     }
     
     func setViewBackgroundColor(score : Int) {
