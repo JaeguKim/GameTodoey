@@ -108,7 +108,11 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         let gameInfo = searchManager.gameInfoArrary[indexPath.row]
-        cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
+        if gameInfo.imageURL == ""{
+            cell.gameImgView.image = UIImage(named: "default.jpg")
+        } else {
+            cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
+        }
         cell.titleLabel.text = gameInfo.title
         if let score = Int(gameInfo.score){
             cell.scoreLabel.text = String(gameInfo.score)
