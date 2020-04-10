@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E47C3430979FCF81F07575B /* Pods_MetacriticGameScoreViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1BC3CC1C92BD98CEF6B861 /* Pods_MetacriticGameScoreViewer.framework */; };
 		5B031FA324386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */; };
 		5B11C0D6242F96E20092A40E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B11C0D5242F96E20092A40E /* RealmManager.swift */; };
 		5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F3BFA2420DFB200E0698C /* AppDelegate.swift */; };
@@ -26,6 +25,7 @@
 		5B3E7C07242753410027BD1D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C06242753410027BD1D /* Const.swift */; };
 		5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */; };
 		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
+		5B8BBD2688DE0F2A220D7AE1 /* Pods_MetacriticGameScoreViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */; };
 		5B9C092E242B561700F73F96 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameInfo.swift */; };
 		5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA134EE242F6FCC00202088 /* SearchManager.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
@@ -36,9 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetacriticGameScoreViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTodoeyLaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B11C0D5242F96E20092A40E /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		5B1F3BF72420DFB200E0698C /* GameTodoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTodoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1F3BF72420DFB200E0698C /* GamePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1F3BFA2420DFB200E0698C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1F3BFC2420DFB200E0698C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
-		8F1BC3CC1C92BD98CEF6B861 /* Pods_MetacriticGameScoreViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetacriticGameScoreViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.debug.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E47C3430979FCF81F07575B /* Pods_MetacriticGameScoreViewer.framework in Frameworks */,
+				5B8BBD2688DE0F2A220D7AE1 /* Pods_MetacriticGameScoreViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 		5B1F3BF82420DFB200E0698C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B1F3BF72420DFB200E0698C /* GameTodoey.app */,
+				5B1F3BF72420DFB200E0698C /* GamePlanner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 		BBF86556C3A436F5ACFB793B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F1BC3CC1C92BD98CEF6B861 /* Pods_MetacriticGameScoreViewer.framework */,
+				3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				5B1F3BF32420DFB200E0698C /* Sources */,
 				5B1F3BF42420DFB200E0698C /* Frameworks */,
 				5B1F3BF52420DFB200E0698C /* Resources */,
-				EF8F6C4428B6EF333C2C8D6E /* [CP] Embed Pods Frameworks */,
+				70E15D8B56A365CCF3C5063B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,7 +191,7 @@
 			);
 			name = MetacriticGameScoreViewer;
 			productName = MetacriticGameScoreViewer;
-			productReference = 5B1F3BF72420DFB200E0698C /* GameTodoey.app */;
+			productReference = 5B1F3BF72420DFB200E0698C /* GamePlanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -245,6 +245,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		70E15D8B56A365CCF3C5063B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D52F1AAE377FB356506F5B7B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,23 +282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF8F6C4428B6EF333C2C8D6E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -453,15 +453,18 @@
 			baseConfigurationReference = F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
 				INFOPLIST_FILE = MetacriticGameScoreViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
-				PRODUCT_NAME = GameTodoey;
+				PRODUCT_NAME = GamePlanner;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,15 +475,18 @@
 			baseConfigurationReference = 7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
 				INFOPLIST_FILE = MetacriticGameScoreViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
-				PRODUCT_NAME = GameTodoey;
+				PRODUCT_NAME = GamePlanner;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

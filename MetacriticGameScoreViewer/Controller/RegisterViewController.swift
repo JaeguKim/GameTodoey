@@ -13,6 +13,8 @@ class RegisterViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             let alert = UIAlertController(title: "Registering...", message: "", preferredStyle: .alert)
             self.present(alert, animated: true)
+             
+            
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                 if let e = error {
                     print(e.localizedDescription)

@@ -9,10 +9,9 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var progressUIView: UIView!
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var idleView: UIView!
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var guideLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var searchManager = SearchManager()
     var realmManager = RealmManager()
@@ -30,36 +29,39 @@ class SearchViewController: UIViewController {
         searchBar.showsCancelButton = true
         libraryInfoList = realmManager.loadLibraries()
         AddDefaultCollection()
-        showIdleView()
+        showLoadingView(isIdle: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
-        guideLabel.text = ""
+        showLoadingView(isIdle: true)
     }
     
-    func showIdleView(){
-        guideLabel.text = ""
-        idleView.isHidden = false
+    override func viewWillDisappear(_ animated: Bool) {
+        searchManager.cancelRequests()
+    }
+    
+    func showLoadingView(isIdle:Bool){
+        guideLabel.text = isIdle == true ? "" : "Searching"
+        loadingView.isHidden = false
+        activityIndicator.isHidden = true
         tableView.isHidden = true
-        progressUIView.isHidden = true
+    }
+    
+    func showError(){
+        guideLabel.text = "No Results"
+        loadingView.isHidden = false
+        activityIndicator.isHidden = true
+        tableView.isHidden = true
     }
     
     func showTableView(){
-        progressView.progress = 0.0
         tableView.isHidden = false
-        idleView.isHidden = true
-        progressUIView.isHidden = true
+        loadingView.isHidden = true
     }
-    
-    func showProgressView(){
-        progressUIView.isHidden = false
-        idleView.isHidden = true
-        tableView.isHidden = true
-    }
-    
+
     @objc func logOut(){
         do {
             try Auth.auth().signOut()
@@ -130,24 +132,24 @@ extension SearchViewController: UISearchBarDelegate {
         if let title = searchBar.searchTextField.text {
             searchManager.cancelRequests()
             tableView.reloadData()
-            showProgressView()
+            showLoadingView(isIdle: false)
+            activityIndicator.isHidden = false
+            searchBar.endEditing(true)
             searchManager.requestInfo(title: title)
         }
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchManager.cancelRequests()
-        showIdleView()
+        showLoadingView(isIdle: true)
     }
 }
 
 //MARK: - SearchManagerDelegate
 extension SearchViewController: SearchManagerDelegate {
     func didTitleSearchRequestFail() {
-        showIdleView()
-        guideLabel.text = "No Results"
+        showError()
     }
     func didUpdateGameInfo(gameInfoArray : [GameInfo] ) {
-        progressView.progress = searchManager.getCompletionRate()
         if searchManager.isRequestsDone() {
             showTableView()
             searchManager.initValue()
