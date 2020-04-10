@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Keywords" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Keywords" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <color key="barTintColor" name="BrandLightBlue"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hV-SG-xJV">
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
@@ -670,7 +670,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aHy-NL-BqK"/>
-        <segue reference="3L2-2G-OGq"/>
+        <segue reference="bdL-xQ-QG3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

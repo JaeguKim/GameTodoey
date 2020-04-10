@@ -36,6 +36,7 @@ class SearchViewController: UIViewController {
     func addGestureRecognizer(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        tap.delegate = self
     }
     
     @objc func dismissKeyboard(){
@@ -46,6 +47,7 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+        searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
         showLoadingView(isIdle: true)
     }
     
@@ -170,5 +172,15 @@ extension SearchViewController: SearchManagerDelegate {
             realmManager.save(gameInfoArray: gameInfoArray)
             tableView.reloadData()
         }
+    }
+}
+
+//MARK: - UIGestureRecognizerDelegate
+extension SearchViewController: UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: tableView))! {
+            return false
+        }
+        return true
     }
 }
