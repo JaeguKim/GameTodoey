@@ -16,6 +16,8 @@ class SearchManager {
     var delegate : SearchManagerDelegate?
     
     func requestInfo(title:String){
+        gameInfoArrary.removeAll()
+        
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
             "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
@@ -107,7 +109,6 @@ class SearchManager {
             request.cancel()
         }
         requests.removeAll()
-        gameInfoArrary.removeAll()
     }
     
     func isValidPlatform(_ platform : String) -> Bool {

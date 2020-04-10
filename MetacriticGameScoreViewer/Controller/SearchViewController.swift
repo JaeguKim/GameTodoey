@@ -48,7 +48,6 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
-        showLoadingView(isIdle: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,7 +146,6 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.searchTextField.text {
             searchManager.cancelRequests()
-            tableView.reloadData()
             showLoadingView(isIdle: false)
             activityIndicator.isHidden = false
             searchBar.endEditing(true)
