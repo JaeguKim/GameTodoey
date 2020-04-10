@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -89,7 +89,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -142,11 +142,11 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
-                                <rect key="frame" x="100" y="50" width="214" height="30"/>
+                                <rect key="frame" x="167" y="50" width="80" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                 <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
@@ -162,13 +162,13 @@
                                 <rect key="frame" x="20" y="341" width="374" height="416"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sz-KYk" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="420"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="440.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh" userLabel="Description">
-                                                <rect key="frame" x="20" y="14" width="334" height="406"/>
+                                                <rect key="frame" x="20" y="14" width="334" height="426.5"/>
                                                 <string key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity's only chance for survival. The Combine's control of the planet since the Black Mesa incident has only strengthened as they corral the remaining population in cities. Among them are some of Earth's greatest scientists: you and your father, Dr. Eli Vance. As founders of a fledgling resistance, you've continued your clandestine scientific activityperforming critical research, and building invaluable tools for the few humans brave enough to defy the Combine. Every day, you learn more about your enemy, and every day you work toward finding a weakness.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -180,6 +180,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
                                     <constraint firstItem="FQ9-sz-KYk" firstAttribute="trailing" secondItem="GJI-oD-CuF" secondAttribute="trailing" id="4k1-7I-md3"/>
                                     <constraint firstItem="FQ9-sz-KYk" firstAttribute="bottom" secondItem="GJI-oD-CuF" secondAttribute="bottom" id="L1K-pZ-6i5"/>
@@ -211,20 +212,17 @@
                         <constraints>
                             <constraint firstItem="Rus-RX-3nk" firstAttribute="top" secondItem="Ihw-Ub-I2b" secondAttribute="bottom" constant="30" id="3Eh-rU-Qwm"/>
                             <constraint firstItem="XT2-0C-krD" firstAttribute="top" secondItem="Rus-RX-3nk" secondAttribute="bottom" constant="33" id="5ut-Id-A2D"/>
-                            <constraint firstItem="Rus-RX-3nk" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="158" id="86c-VV-2G8"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="XT2-0C-krD" secondAttribute="trailing" constant="158" id="Eum-49-jwz"/>
                             <constraint firstItem="mcV-Hr-1lC" firstAttribute="top" secondItem="xL8-Ok-nWN" secondAttribute="bottom" constant="9" id="FWn-KP-t9D"/>
                             <constraint firstItem="mcV-Hr-1lC" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="66" id="Gvj-Nw-eoZ"/>
-                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="100" id="HFH-UZ-jr3"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="bottom" secondItem="mcV-Hr-1lC" secondAttribute="bottom" id="Hdp-ZH-dbB"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="Rus-RX-3nk" secondAttribute="trailing" constant="158" id="mks-2a-4E7"/>
+                            <constraint firstItem="XT2-0C-krD" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="ch4-8s-xUm"/>
                             <constraint firstItem="xL8-Ok-nWN" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="n0u-7t-JA3"/>
-                            <constraint firstItem="XT2-0C-krD" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="158" id="rV7-qH-cKe"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="mcV-Hr-1lC" secondAttribute="trailing" constant="66" id="s1L-gh-dSl"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="Ihw-Ub-I2b" secondAttribute="trailing" constant="100" id="t7U-nS-0UB"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="xL8-Ok-nWN" secondAttribute="trailing" constant="20" id="t9i-ne-daw"/>
                             <constraint firstItem="Ihw-Ub-I2b" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="50" id="vXX-fd-Nos"/>
                             <constraint firstItem="xL8-Ok-nWN" firstAttribute="top" secondItem="XT2-0C-krD" secondAttribute="bottom" constant="33" id="vtU-za-taE"/>
+                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="wq8-Wv-IXa"/>
+                            <constraint firstItem="Rus-RX-3nk" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="xnC-1D-sV6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tEE-Pd-D8j"/>
                     </view>
@@ -232,6 +230,7 @@
                         <outlet property="gameDescLabel" destination="eDK-p4-TLh" id="iwc-fE-UM5"/>
                         <outlet property="gameImgView" destination="Rus-RX-3nk" id="O9y-oO-Qef"/>
                         <outlet property="saveBtn" destination="mcV-Hr-1lC" id="4RC-Da-Tzc"/>
+                        <outlet property="scrollView" destination="xL8-Ok-nWN" id="qT0-Md-KvI"/>
                         <outlet property="titleLabel" destination="Ihw-Ub-I2b" id="a1t-oe-Prs"/>
                         <segue destination="xde-an-NAK" kind="popoverPresentation" identifier="DescVCToLibPopupVC" popoverAnchorView="aVL-9k-6cT" id="FWq-kl-IKg">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -247,7 +246,7 @@
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">

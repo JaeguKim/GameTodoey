@@ -10,6 +10,7 @@ class DescriptionPopupViewController: UIViewController {
     @IBOutlet weak var gameImgView: UIImageView!
     @IBOutlet weak var gameDescLabel: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     var isBtnEnabled = true
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class DescriptionPopupViewController: UIViewController {
             saveBtn.isEnabled = isBtnEnabled
             saveBtn.alpha = 0.0
         }
+        scrollView.layer.cornerRadius = scrollView.frame.height / 10
     }
     
     func setData(){
