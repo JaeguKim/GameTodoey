@@ -26,6 +26,8 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         initNavigationItem()
         parent?.navigationItem.title = "Library"
+         navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         collectionView.reloadData()
         collectionView.allowsSelection = true
     }

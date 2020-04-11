@@ -364,8 +364,8 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q70-58-JDL" customClass="CLTypingLabel" customModule="CLTypingLabel">
                                 <rect key="frame" x="207" y="475" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
-                                <color key="textColor" red="0.16470588235294117" green="0.7803921568627451" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj7-8x-rhM" userLabel="LoginBtn">
@@ -374,7 +374,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="ZNx-IJ-4Gy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -388,7 +388,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="n0t-VP-21k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" name="BrandBlue"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -398,7 +398,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="leading" secondItem="Hdw-pd-B42" secondAttribute="leading" id="0fb-jX-PNp"/>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="bottom" secondItem="Hdw-pd-B42" secondAttribute="bottom" id="7Yc-L8-5sK"/>
@@ -467,7 +467,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwf-5V-vo6">
-                                        <rect key="frame" x="20" y="126" width="394" height="31"/>
+                                        <rect key="frame" x="0.0" y="126" width="414" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -478,9 +478,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Fwf-5V-vo6" firstAttribute="leading" secondItem="qQo-Ry-kSa" secondAttribute="leading" constant="20" symbolic="YES" id="2cC-SI-3lh"/>
                                     <constraint firstAttribute="trailing" secondItem="mcm-Ba-I2D" secondAttribute="trailing" constant="49" id="8jN-aj-9KF"/>
                                     <constraint firstItem="uNW-zO-Ubf" firstAttribute="top" secondItem="qQo-Ry-kSa" secondAttribute="top" constant="20" id="C9F-di-a4A"/>
+                                    <constraint firstItem="Fwf-5V-vo6" firstAttribute="centerX" secondItem="qQo-Ry-kSa" secondAttribute="centerX" id="FJ9-mt-WLv"/>
                                     <constraint firstItem="mcm-Ba-I2D" firstAttribute="top" secondItem="qQo-Ry-kSa" secondAttribute="top" constant="50" id="JME-Wz-B00"/>
                                     <constraint firstAttribute="bottom" secondItem="uNW-zO-Ubf" secondAttribute="bottom" constant="20" id="OKr-9s-a8o"/>
                                     <constraint firstItem="mcm-Ba-I2D" firstAttribute="left" secondItem="qQo-Ry-kSa" secondAttribute="left" constant="49" id="Ota-HI-jyi"/>
@@ -562,7 +562,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-iv-SXC">
-                                        <rect key="frame" x="20" y="126" width="394" height="31"/>
+                                        <rect key="frame" x="0.0" y="126" width="414" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" name="BrandBlue"/>
@@ -578,9 +578,9 @@
                                     <constraint firstAttribute="bottom" secondItem="NAy-Ou-40I" secondAttribute="bottom" constant="20" id="DdR-t8-Fxz"/>
                                     <constraint firstItem="oec-Yt-a2y" firstAttribute="top" secondItem="wMx-V2-f5O" secondAttribute="top" constant="50" id="FB5-fI-PSh"/>
                                     <constraint firstAttribute="bottom" secondItem="cuq-iv-SXC" secondAttribute="bottom" constant="20" symbolic="YES" id="FcH-9c-A8w"/>
-                                    <constraint firstItem="cuq-iv-SXC" firstAttribute="leading" secondItem="wMx-V2-f5O" secondAttribute="leading" constant="20" symbolic="YES" id="Gnf-cZ-MZ0"/>
                                     <constraint firstAttribute="bottom" secondItem="oec-Yt-a2y" secondAttribute="bottom" constant="82" id="Qpr-34-1y4"/>
                                     <constraint firstAttribute="trailing" secondItem="NAy-Ou-40I" secondAttribute="trailing" constant="20" symbolic="YES" id="SJQ-Ss-kKI"/>
+                                    <constraint firstItem="cuq-iv-SXC" firstAttribute="centerX" secondItem="wMx-V2-f5O" secondAttribute="centerX" id="UxD-0V-9Ay"/>
                                     <constraint firstAttribute="trailing" secondItem="oec-Yt-a2y" secondAttribute="trailing" constant="49" id="a2Q-kj-wqC"/>
                                     <constraint firstAttribute="height" constant="177" id="fnF-Vd-aDg"/>
                                     <constraint firstItem="oec-Yt-a2y" firstAttribute="left" secondItem="wMx-V2-f5O" secondAttribute="left" constant="49" id="kVs-Mx-NwN"/>
@@ -619,10 +619,17 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j33-9c-YqC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="BrandBlue"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="0.0"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="0.0"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

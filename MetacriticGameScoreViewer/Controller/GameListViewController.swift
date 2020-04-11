@@ -23,6 +23,10 @@ class GameListViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {

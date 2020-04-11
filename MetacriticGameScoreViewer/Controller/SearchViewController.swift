@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
         showLoadingView(isIdle: true)
         addGestureRecognizer()
     }
-    
+
     func addGestureRecognizer(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -47,6 +47,7 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
+         navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
     }
     

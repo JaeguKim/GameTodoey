@@ -9,7 +9,7 @@
 import Foundation
 
 struct Const {
-    static let appName = "🎮Todoey🎮"
+    static let appName = "🎮GamePlanner🎮"
     static let registerSegue = "RegisterVCToSearchVC"
     static let loginSegue = "LoginVCToSearchVC"
     static let searchToDescSegue = "SearchVCToDescVC"

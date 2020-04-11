@@ -9,6 +9,11 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+     }
+    
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             let alert = UIAlertController(title: "Registering...", message: "", preferredStyle: .alert)

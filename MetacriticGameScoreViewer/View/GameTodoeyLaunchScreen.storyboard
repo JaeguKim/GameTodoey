@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮Todoey🎮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-jU-wex">
-                                <rect key="frame" x="103" y="427" width="208" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮GamePlanner🎮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-jU-wex">
+                                <rect key="frame" x="48.5" y="432" width="317" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
                                 <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
@@ -32,11 +32,10 @@
                         <color key="backgroundColor" red="0.92156862745098034" green="0.98039215686274506" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="8" id="6vi-cV-rZD"/>
-                            <constraint firstItem="t9C-jU-wex" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="383" id="Teq-5i-QLI"/>
+                            <constraint firstItem="t9C-jU-wex" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="GUP-RR-kaW"/>
+                            <constraint firstItem="t9C-jU-wex" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="PQD-IT-pCM"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" id="WRI-lA-5Vc"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="obG-Y5-kRd" secondAttribute="trailing" constant="8" id="ccc-zb-XJa"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="t9C-jU-wex" secondAttribute="trailing" constant="103" id="owt-hH-dkd"/>
-                            <constraint firstItem="t9C-jU-wex" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="103" id="rXC-hW-UJ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
