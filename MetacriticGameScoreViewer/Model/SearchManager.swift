@@ -9,15 +9,18 @@ protocol SearchManagerDelegate {
 
 class SearchManager {
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
-    var gameInfoArrary : [GameInfo] = []
+    var gameInfoArray : [GameInfo] = []
     var requests : [Alamofire.Request] = []
     var totalRequests : Int = 0
     var requestsDone : Int = 0
+    var failCnt : Int = 0
+    var titleFailCnt : Int = 0
+    let maxFailCnt : Int = 5
     var delegate : SearchManagerDelegate?
     
     func requestInfo(title:String){
-        gameInfoArrary.removeAll()
-        
+        gameInfoArray.removeAll()
+        initValue()
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
             "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
@@ -29,9 +32,10 @@ class SearchManager {
         let request = Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
+                print(responseJSON)
                 if let jsonArray = responseJSON["result"].array {
+                    self.failCnt = 0
                     self.totalRequests = jsonArray.count
-                    
                     for item in jsonArray {
                         let platform = item["platform"].stringValue
                         let title = item["title"].stringValue
@@ -48,11 +52,23 @@ class SearchManager {
                     }
                 }
                 else {
-                     self.delegate?.didTitleSearchRequestFail()
+                    self.failCnt += 1
+                    if self.failCnt < self.maxFailCnt {
+                        self.requestInfo(title: title)
+                    } else {
+                        self.failCnt = 0
+                        self.delegate?.didTitleSearchRequestFail()
+                    }
                 }
             }
             else {
-                self.delegate?.didTitleSearchRequestFail()
+                self.failCnt += 1
+                if self.failCnt < self.maxFailCnt {
+                    self.requestInfo(title: title)
+                } else {
+                    self.failCnt = 0
+                    self.delegate?.didTitleSearchRequestFail()
+                }
             }
         }
         requests.append(request)
@@ -76,17 +92,32 @@ class SearchManager {
                 let imageURL = responseJSON["result"]["image"].stringValue
                 let description = responseJSON["result"]["description"].stringValue
                 let gameInfo = GameInfo()
+                if self.titleFailCnt < self.maxFailCnt && (score == "" || imageURL == "") {
+                    self.titleFailCnt += 1
+                    self.requestInfo(platform: platform, gameTitle: gameTitle)
+                    return
+                }
                 gameInfo.imageURL = imageURL
                 gameInfo.title = gameTitle
                 gameInfo.platform = platform
                 gameInfo.score = score
                 gameInfo.gameDescription = description
                 gameInfo.done = false
-                self.gameInfoArrary.append(gameInfo)
+                self.gameInfoArray.append(gameInfo)
+                self.requestsDone += 1
+                print("requestsDone : \(self.requestsDone)")
             }
-            self.requestsDone += 1
-            print("requestsDone : \(self.requestsDone)")
-            self.delegate?.didUpdateGameInfo(gameInfoArray: self.gameInfoArrary)
+            else {
+                self.requestInfo(platform: platform, gameTitle: gameTitle)
+//                if self.failCnt < self.maxFailCnt {
+//                    self.failCnt += 1
+//                    self.requestInfo(platform: platform, gameTitle: gameTitle)
+//                    return
+//                }
+            }
+            if self.isRequestsDone(){
+                self.delegate?.didUpdateGameInfo(gameInfoArray: self.gameInfoArray)
+            }
         }
         requests.append(request)
     }
@@ -108,7 +139,11 @@ class SearchManager {
         for request in requests {
             request.cancel()
         }
+        
+        failCnt = 0
+        titleFailCnt = 0
         requests.removeAll()
+        
     }
     
     func isValidPlatform(_ platform : String) -> Bool {

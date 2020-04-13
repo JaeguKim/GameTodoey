@@ -105,7 +105,7 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                destVC.gameScoreInfo = searchManager.gameInfoArrary[indexPath.row]
+                destVC.gameScoreInfo = searchManager.gameInfoArray[indexPath.row]
             }
         }
     }
@@ -114,12 +114,12 @@ class SearchViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchManager.gameInfoArrary.count
+        return searchManager.gameInfoArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
-        let gameInfo = searchManager.gameInfoArrary[indexPath.row]
+        let gameInfo = searchManager.gameInfoArray[indexPath.row]
         if gameInfo.imageURL == ""{
             cell.gameImgView.image = UIImage(named: "default.jpg")
         } else {
@@ -166,12 +166,10 @@ extension SearchViewController: SearchManagerDelegate {
         showError()
     }
     func didUpdateGameInfo(gameInfoArray : [GameInfo] ) {
-        if searchManager.isRequestsDone() {
-            showTableView()
-            searchManager.initValue()
-            realmManager.save(gameInfoArray: gameInfoArray)
-            tableView.reloadData()
-        }
+        showTableView()
+        searchManager.initValue()
+        realmManager.save(gameInfoArray: gameInfoArray)
+        tableView.reloadData()
     }
 }
 
