@@ -156,6 +156,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchManager.cancelRequests()
         showLoadingView(isIdle: true)
+        searchBar.endEditing(true)
     }
 }
 
