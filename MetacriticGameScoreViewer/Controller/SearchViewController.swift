@@ -150,7 +150,7 @@ extension SearchViewController: UISearchBarDelegate {
             showLoadingView(isIdle: false)
             activityIndicator.isHidden = false
             searchBar.endEditing(true)
-            searchManager.requestInfo(title: title)
+            searchManager.launchSerach(title: title)
         }
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

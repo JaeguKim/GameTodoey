@@ -16,7 +16,16 @@ class SearchManager {
     var failCnt : Int = 0
     var titleFailCnt : Int = 0
     let maxFailCnt : Int = 5
+    var isAlreadyRequested : Bool = false
     var delegate : SearchManagerDelegate?
+    
+    func launchSerach(title:String){
+        if isAlreadyRequested {
+            return
+        }
+        isAlreadyRequested = true
+        requestInfo(title: title)
+    }
     
     func requestInfo(title:String){
         gameInfoArray.removeAll()
@@ -117,6 +126,7 @@ class SearchManager {
             }
             if self.isRequestsDone(){
                 self.delegate?.didUpdateGameInfo(gameInfoArray: self.gameInfoArray)
+                self.isAlreadyRequested = false
             }
         }
         requests.append(request)
