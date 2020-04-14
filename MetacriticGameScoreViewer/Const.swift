@@ -16,7 +16,7 @@ struct Const {
     static let descToLibSegue = "DescVCToLibPopupVC"
     static let welcomeVCToSearchVCSegue = "WelcomeVCToSearchVC"
     static let libraryVCToGameListVCSegue = "LibVCToGameListVC"
-    static let bookmarkToDescSegue = "BookmarkVCToDescVC"
+    static let GameListVCToDescVCSegue = "GameListVCToDescVC"
     static let gameInfoCellIdentifier = "GameInfoCell"
     static let libraryCellIdentifier = "LibraryCell"
     static let gameInfoCellNibName = "GameInfoCell"

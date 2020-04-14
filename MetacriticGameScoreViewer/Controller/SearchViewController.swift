@@ -170,6 +170,7 @@ extension SearchViewController: SearchManagerDelegate {
         searchManager.initValue()
         realmManager.save(gameInfoArray: gameInfoArray)
         tableView.reloadData()
+        searchBar.endEditing(true)
     }
 }
 

@@ -345,7 +345,7 @@
                     <navigationItem key="navigationItem" title="Game List" id="MEX-RM-kKG"/>
                     <connections>
                         <outlet property="tableView" destination="ifZ-AP-b1J" id="QJt-2g-Fmm"/>
-                        <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="BookmarkVCToDescVC" popoverAnchorView="ifZ-AP-b1J" id="3L2-2G-OGq">
+                        <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="GameListVCToDescVC" popoverAnchorView="ifZ-AP-b1J" id="3L2-2G-OGq">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -675,14 +675,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Wal-wh-nS5"/>
-        <segue reference="bdL-xQ-QG3"/>
+        <segue reference="3L2-2G-OGq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
         <image name="textfield" width="298" height="93"/>
         <namedColor name="BrandBlue">
-            <color red="0.16470588235294117" green="0.7803921568627451" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BrandLightBlue">
             <color red="0.92199999094009399" green="0.98000001907348633" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

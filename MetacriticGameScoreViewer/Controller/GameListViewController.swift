@@ -37,17 +37,16 @@ class GameListViewController: UIViewController {
                 gameScoreInfo.gameDescription = realmObj.gameDescription
                 gameScoreInfo.imageURL = realmObj.imageURL
                 gameScoreInfo.score = realmObj.score
-                gameScoreInfo.done = realmObj.done
                 destVC.gameScoreInfo = gameScoreInfo
             }
-            destVC.isBtnEnabled = false
+            //            destVC.isBtnEnabled = false
         }
     }
 }
-
-//MARK: - UITableViewDataSource
-extension GameListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    //MARK: - UITableViewDataSource
+    extension GameListViewController: UITableViewDataSource {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return libraryInfo?.gameInfoList.count ?? 0
     }
     
@@ -76,7 +75,7 @@ extension GameListViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Const.bookmarkToDescSegue, sender: self)
+        performSegue(withIdentifier: Const.GameListVCToDescVCSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
