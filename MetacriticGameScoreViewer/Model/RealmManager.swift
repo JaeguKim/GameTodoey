@@ -24,13 +24,13 @@ struct RealmManager {
         return realm.objects(LibraryInfo.self)
     }
     
-    func save(gameInfoArray : [GameInfo]){
-        let slicedGameInfoArray = gameInfoArray.prefix(maxRecentsCount)
+    func save(gameInfoDict : [String:GameInfo]){
+        let slicedGameInfoDict = gameInfoDict.prefix(maxRecentsCount)
         let libraryInfoList = loadLibraries()
         let recentLibrary = libraryInfoList[0]
         let recentGameList = recentLibrary.gameInfoList
-        if recentGameList.count + slicedGameInfoArray.count > maxRecentsCount{
-            let numOfDelete = recentGameList.count + gameInfoArray.count - maxRecentsCount
+        if recentGameList.count + slicedGameInfoDict.count > maxRecentsCount{
+            let numOfDelete = recentGameList.count + gameInfoDict.count - maxRecentsCount
             for _ in 0..<numOfDelete{
                 do
                 {
@@ -42,8 +42,8 @@ struct RealmManager {
                 }
             }
         }
-        for gameInfo in slicedGameInfoArray{
-            save(gameInfo: gameInfo, selectedLibrary: recentLibrary)
+        for gameInfo in slicedGameInfoDict{
+            save(gameInfo: gameInfo.value, selectedLibrary: recentLibrary)
         }
     }
     

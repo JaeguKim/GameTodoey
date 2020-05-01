@@ -48,12 +48,18 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="paP-LT-9bM">
+                                                        <rect key="frame" x="93" y="20" width="20" height="20"/>
+                                                        <color key="color" name="BrandBlue"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="H1W-3p-60d" secondAttribute="trailing" id="9Bb-R8-uhm"/>
                                                     <constraint firstAttribute="bottom" secondItem="H1W-3p-60d" secondAttribute="bottom" id="Tfu-LA-3DF"/>
                                                     <constraint firstItem="H1W-3p-60d" firstAttribute="top" secondItem="lZn-nP-kMg" secondAttribute="top" id="ddH-YG-GbP"/>
                                                     <constraint firstAttribute="width" secondItem="lZn-nP-kMg" secondAttribute="height" multiplier="11:11" id="ek8-7n-84K"/>
+                                                    <constraint firstItem="paP-LT-9bM" firstAttribute="centerX" secondItem="lZn-nP-kMg" secondAttribute="centerX" id="kH0-y5-rjp"/>
+                                                    <constraint firstItem="paP-LT-9bM" firstAttribute="centerY" secondItem="lZn-nP-kMg" secondAttribute="centerY" id="oeI-rV-KRF"/>
                                                     <constraint firstItem="H1W-3p-60d" firstAttribute="leading" secondItem="lZn-nP-kMg" secondAttribute="leading" id="xNN-NE-Dwj"/>
                                                 </constraints>
                                             </view>
@@ -81,6 +87,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="paP-LT-9bM" id="k9O-Tp-02V"/>
                 <outlet property="gameImgView" destination="9Nc-rF-okP" id="Imd-Uc-V7b"/>
                 <outlet property="scoreBackgroundView" destination="lZn-nP-kMg" id="1Vf-NU-eh4"/>
                 <outlet property="scoreLabel" destination="H1W-3p-60d" id="Fy3-Id-B41"/>

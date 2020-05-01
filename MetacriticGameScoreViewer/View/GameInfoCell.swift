@@ -14,9 +14,11 @@ class GameInfoCell: SwipeTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreBackgroundView: UIView!
     @IBOutlet weak var view: UIView!
-    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var key = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         scoreBackgroundView.layer.cornerRadius = scoreBackgroundView.frame.height / 5
@@ -33,6 +35,27 @@ class GameInfoCell: SwipeTableViewCell {
             color = UIColor.red
         }
         scoreBackgroundView.backgroundColor = color
+    }
+    
+    func showLoadingIndicator()
+    {
+        scoreLabel.text = ""
+        scoreBackgroundView.backgroundColor = UIColor.clear
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+    }
+    
+    func hideLoadingIndicator()
+    {
+        activityIndicator.isHidden = true
+    }
+    
+    func setKey(key : String){
+        self.key = key
+    }
+    
+    func getKey() -> String {
+        return key
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -105,7 +105,8 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                destVC.gameScoreInfo = searchManager.gameInfoArray[indexPath.row]
+                let key = searchManager.keyList[indexPath.row]
+                destVC.gameScoreInfo = searchManager.gameInfoDict[key]
             }
         }
     }
@@ -114,31 +115,31 @@ class SearchViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchManager.gameInfoArray.count
+        return searchManager.gameInfoDict.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
-        let gameInfo = searchManager.gameInfoArray[indexPath.row]
-       /*
-        if gameInfo.imageURL == ""{
-            cell.gameImgView.image = UIImage(named: "default.jpg")
-        } else {
-            cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
-        }
- */
-        cell.titleLabel.text = gameInfo.title
-        cell.scoreLabel.text = gameInfo.platform
-        /*
-        if let score = Int(gameInfo.score){
-            var text = "?"
-            if score != 0{
-                text = String(score)
+        let key = searchManager.keyList[indexPath.row]
+        cell.showLoadingIndicator()
+        if let gameInfo =  searchManager.gameInfoDict[key]{
+            if gameInfo.imageURL == ""{
+                cell.gameImgView.image = UIImage(named: "default.jpg")
+            } else {
+                cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             }
-            cell.scoreLabel.text = text
-            cell.setViewBackgroundColor(score: score)
+            cell.titleLabel.text = gameInfo.title
+            
+            if let score = Int(gameInfo.score){
+                cell.hideLoadingIndicator()
+                var text = "?"
+                if score != 0{
+                    text = String(score)
+                }
+                cell.scoreLabel.text = text
+                cell.setViewBackgroundColor(score: score)
+            }
         }
- */
         return cell
     }
 }
@@ -161,8 +162,7 @@ extension SearchViewController: UISearchBarDelegate {
                 showLoadingView(isIdle: false)
                 activityIndicator.isHidden = false
                 searchBar.endEditing(true)
-                searchManager.requestPlatform(with: title)
-                //searchManager.launchSerach(title: title)
+                searchManager.launchSerach(title: title)
             }
             searchBar.endEditing(true)
         }
@@ -180,21 +180,12 @@ extension SearchViewController: SearchManagerDelegate {
     func didTitleSearchRequestFail() {
         showError()
     }
-    func didUpdateGameInfo(gameInfoArray : [GameInfo] ) {
+    func didUpdateGameInfo(gameInfoDict : [String:GameInfo] ) {
         showTableView()
-        searchManager.initValue()
-        realmManager.save(gameInfoArray: gameInfoArray)
+        //searchManager.initValue()
+        realmManager.save(gameInfoDict: gameInfoDict)
         tableView.reloadData()
         searchBar.endEditing(true)
-    }
-    
-    func didUpdateGamePlatformInfo(gameInfoArray: [GameInfo]) {
-        showTableView()
-        searchManager.initValue()
-        tableView.reloadData()
-        searchBar.endEditing(true)
-        //realmManager.save(gameInfoArray: gameInfoArray)
-        
     }
 }
 
