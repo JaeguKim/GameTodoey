@@ -14,7 +14,6 @@
 		5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */; };
 		5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C002420DFB200E0698C /* Main.storyboard */; };
 		5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C032420DFB200E0698C /* Assets.xcassets */; };
-		5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */; };
 		5B24A8DF2425CAC800A12A96 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24A8DE2425CAC800A12A96 /* GameListViewController.swift */; };
 		5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C884D242CA7060028BC17 /* LibraryViewController.swift */; };
 		5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C8853242CAC120028BC17 /* LibraryInfo.swift */; };
@@ -45,7 +44,6 @@
 		5B1F3BFE2420DFB200E0698C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5B1F3C012420DFB200E0698C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B1F3C032420DFB200E0698C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5B1F3C062420DFB200E0698C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B1F3C082420DFB200E0698C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B24A8DE2425CAC800A12A96 /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		5B2C884D242CA7060028BC17 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				5BE01E0E24222A64005DD70C /* View */,
 				5B3E7C06242753410027BD1D /* Const.swift */,
 				5B1F3C032420DFB200E0698C /* Assets.xcassets */,
-				5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */,
 				5B1F3C082420DFB200E0698C /* Info.plist */,
 				5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */,
 			);
@@ -232,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1F3C072420DFB200E0698C /* LaunchScreen.storyboard in Resources */,
 				5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */,
 				5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
@@ -321,14 +317,6 @@
 				5B1F3C012420DFB200E0698C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5B1F3C052420DFB200E0698C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B1F3C062420DFB200E0698C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
