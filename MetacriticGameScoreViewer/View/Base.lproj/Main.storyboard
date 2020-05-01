@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" scopeBarBackgroundImage="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -89,7 +89,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -142,11 +142,11 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
-                                <rect key="frame" x="167" y="50" width="80" height="30"/>
+                                <rect key="frame" x="20" y="50" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                 <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
@@ -207,17 +207,29 @@
                                     <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sb-Zw-rFh">
+                                <rect key="frame" x="20" y="20" width="17.5" height="22"/>
+                                <color key="tintColor" name="BrandBlue"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="Vlw-Xp-8UA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
                             <constraint firstItem="Rus-RX-3nk" firstAttribute="top" secondItem="Ihw-Ub-I2b" secondAttribute="bottom" constant="30" id="3Eh-rU-Qwm"/>
                             <constraint firstItem="XT2-0C-krD" firstAttribute="top" secondItem="Rus-RX-3nk" secondAttribute="bottom" constant="33" id="5ut-Id-A2D"/>
+                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="20" id="8SY-Mh-G1B"/>
                             <constraint firstItem="mcV-Hr-1lC" firstAttribute="top" secondItem="xL8-Ok-nWN" secondAttribute="bottom" constant="9" id="FWn-KP-t9D"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="bottom" secondItem="mcV-Hr-1lC" secondAttribute="bottom" id="Hdp-ZH-dbB"/>
+                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="ZIw-Fo-yFW"/>
                             <constraint firstItem="XT2-0C-krD" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="ch4-8s-xUm"/>
                             <constraint firstItem="mcV-Hr-1lC" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="jZ7-YF-kwI"/>
+                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="kLb-gC-lSr"/>
                             <constraint firstItem="xL8-Ok-nWN" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="n0u-7t-JA3"/>
                             <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="xL8-Ok-nWN" secondAttribute="trailing" constant="20" id="t9i-ne-daw"/>
+                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ihw-Ub-I2b" secondAttribute="trailing" constant="20" id="tHX-tl-oai"/>
                             <constraint firstItem="Ihw-Ub-I2b" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="50" id="vXX-fd-Nos"/>
                             <constraint firstItem="xL8-Ok-nWN" firstAttribute="top" secondItem="XT2-0C-krD" secondAttribute="bottom" constant="33" id="vtU-za-taE"/>
                             <constraint firstItem="Ihw-Ub-I2b" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="wq8-Wv-IXa"/>
@@ -238,14 +250,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lX2-F0-4u2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6525" y="-29"/>
+            <point key="canvasLocation" x="6524.6376811594209" y="-29.464285714285712"/>
         </scene>
         <!--Library Selection Popup View Controller-->
         <scene sceneID="2cY-fr-vTT">
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
@@ -257,24 +269,20 @@
                                         <color key="textColor" name="BrandBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhS-H7-Sm4">
-                                        <rect key="frame" x="349" y="20" width="57" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" name="BrandBlue"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdb-hy-1RP">
+                                        <rect key="frame" x="20" y="20" width="18" height="22"/>
+                                        <color key="tintColor" name="BrandBlue"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
                                         <connections>
-                                            <action selector="cancelBtnPressed:" destination="xde-an-NAK" eventType="touchUpInside" id="xB3-R6-31a"/>
+                                            <action selector="cancelBtnPressed:" destination="xde-an-NAK" eventType="touchUpInside" id="7dI-2B-xVk"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="EhS-H7-Sm4" secondAttribute="trailing" constant="8" id="9Bu-PK-TGQ"/>
-                                    <constraint firstItem="EhS-H7-Sm4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hGP-Fa-jjP" secondAttribute="trailing" constant="8" symbolic="YES" id="Hra-hT-rxC"/>
-                                    <constraint firstAttribute="bottom" secondItem="EhS-H7-Sm4" secondAttribute="bottom" constant="11" id="YOT-tn-ajK"/>
-                                    <constraint firstItem="EhS-H7-Sm4" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="top" constant="20" id="kfu-cS-Id0"/>
-                                    <constraint firstAttribute="bottom" secondItem="hGP-Fa-jjP" secondAttribute="bottom" constant="20" id="lVF-Jf-F8H"/>
-                                    <constraint firstItem="hGP-Fa-jjP" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="top" constant="20" id="s4z-O5-OrD"/>
+                                    <constraint firstItem="hGP-Fa-jjP" firstAttribute="centerX" secondItem="6Xa-kq-HuS" secondAttribute="centerX" id="5Yt-ns-CT9"/>
+                                    <constraint firstItem="Sdb-hy-1RP" firstAttribute="top" secondItem="6Xa-kq-HuS" secondAttribute="top" constant="20" id="G9m-go-exd"/>
+                                    <constraint firstItem="hGP-Fa-jjP" firstAttribute="centerY" secondItem="6Xa-kq-HuS" secondAttribute="centerY" id="YKS-NQ-Btz"/>
+                                    <constraint firstItem="Sdb-hy-1RP" firstAttribute="leading" secondItem="6Xa-kq-HuS" secondAttribute="leading" constant="20" id="YSz-mi-fpi"/>
                                     <constraint firstAttribute="height" constant="70" id="x9e-QK-c3i"/>
                                 </constraints>
                             </view>
@@ -681,6 +689,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
         <image name="textfield" width="298" height="93"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="BrandBlue">
             <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

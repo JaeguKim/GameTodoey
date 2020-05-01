@@ -37,4 +37,8 @@ class DescriptionPopupViewController: UIViewController {
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Const.descToLibSegue, sender: self)
     }
+    
+    @IBAction func dismissBtnPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
