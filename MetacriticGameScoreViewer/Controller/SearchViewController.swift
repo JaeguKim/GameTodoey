@@ -146,11 +146,14 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.searchTextField.text {
-            searchManager.cancelRequests()
-            showLoadingView(isIdle: false)
-            activityIndicator.isHidden = false
+            if title != "" {
+                searchManager.cancelRequests()
+                showLoadingView(isIdle: false)
+                activityIndicator.isHidden = false
+                searchBar.endEditing(true)
+                searchManager.launchSerach(title: title)
+            }
             searchBar.endEditing(true)
-            searchManager.launchSerach(title: title)
         }
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
