@@ -120,12 +120,16 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         let gameInfo = searchManager.gameInfoArray[indexPath.row]
+       /*
         if gameInfo.imageURL == ""{
             cell.gameImgView.image = UIImage(named: "default.jpg")
         } else {
             cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
         }
+ */
         cell.titleLabel.text = gameInfo.title
+        cell.scoreLabel.text = gameInfo.platform
+        /*
         if let score = Int(gameInfo.score){
             var text = "?"
             if score != 0{
@@ -134,6 +138,7 @@ extension SearchViewController: UITableViewDataSource {
             cell.scoreLabel.text = text
             cell.setViewBackgroundColor(score: score)
         }
+ */
         return cell
     }
 }
@@ -149,16 +154,19 @@ extension SearchViewController: UITableViewDelegate {
 //MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         if let title = searchBar.searchTextField.text {
             if title != "" {
                 searchManager.cancelRequests()
                 showLoadingView(isIdle: false)
                 activityIndicator.isHidden = false
                 searchBar.endEditing(true)
-                searchManager.launchSerach(title: title)
+                searchManager.requestPlatform(with: title)
+                //searchManager.launchSerach(title: title)
             }
             searchBar.endEditing(true)
         }
+        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchManager.cancelRequests()
@@ -178,6 +186,15 @@ extension SearchViewController: SearchManagerDelegate {
         realmManager.save(gameInfoArray: gameInfoArray)
         tableView.reloadData()
         searchBar.endEditing(true)
+    }
+    
+    func didUpdateGamePlatformInfo(gameInfoArray: [GameInfo]) {
+        showTableView()
+        searchManager.initValue()
+        tableView.reloadData()
+        searchBar.endEditing(true)
+        //realmManager.save(gameInfoArray: gameInfoArray)
+        
     }
 }
 

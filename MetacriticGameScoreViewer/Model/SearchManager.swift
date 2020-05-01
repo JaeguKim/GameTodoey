@@ -4,6 +4,7 @@ import SwiftyJSON
 
 protocol SearchManagerDelegate {
     func didTitleSearchRequestFail()
+    func didUpdateGamePlatformInfo(gameInfoArray : [GameInfo])
     func didUpdateGameInfo(gameInfoArray : [GameInfo])
 }
 
@@ -25,6 +26,69 @@ class SearchManager {
         }
         isAlreadyRequested = true
         requestInfo(title: title)
+    }
+    
+    func requestPlatform(with title:String){
+        gameInfoArray.removeAll()
+        initValue()
+        let headers : [String:String] = [
+            "Content-type" : "application/x-www-form-urlencoded",
+            "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
+            "x-rapidapi-key" : "c976920022msha45b1a7b96d279ap17e7aejsne930cb2ce86d",
+        ]
+        let parameters : [String:String] = [
+            "title" : title
+        ]
+        let request = Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+            if response.result.isSuccess {
+                let responseJSON : JSON = JSON(response.result.value!)
+                print(responseJSON)
+                if let jsonArray = responseJSON["result"].array {
+                    self.failCnt = 0
+                    self.totalRequests = jsonArray.count
+                    for item in jsonArray {
+                        let platform = item["platform"].stringValue
+                        let title = item["title"].stringValue
+                        if self.isValidPlatform(platform) {
+                            let gameInfo = GameInfo()
+                            gameInfo.platform = platform
+                            gameInfo.title = title
+                            self.gameInfoArray.append(gameInfo)
+                        }
+                        else {
+                            self.totalRequests-=1
+                        }
+                    }
+                    print("totalRequests : \(self.totalRequests)")
+                    if self.totalRequests == 0 {
+                        self.delegate?.didTitleSearchRequestFail()
+                    }
+                    else {
+                        self.delegate?.didUpdateGamePlatformInfo(gameInfoArray: self.gameInfoArray)
+                        //self.delegate?.didUpdateGameInfo(gameInfoArray: self.gameInfoArray)
+                    }
+                }
+                else {
+                    self.failCnt += 1
+                    if self.failCnt < self.maxFailCnt {
+                        self.requestPlatform(with: title)
+                    } else {
+                        self.failCnt = 0
+                        self.delegate?.didTitleSearchRequestFail()
+                    }
+                }
+            }
+            else {
+                self.failCnt += 1
+                if self.failCnt < self.maxFailCnt {
+                    self.requestInfo(title: title)
+                } else {
+                    self.failCnt = 0
+                    self.delegate?.didTitleSearchRequestFail()
+                }
+            }
+        }
+        requests.append(request)
     }
     
     func requestInfo(title:String){
