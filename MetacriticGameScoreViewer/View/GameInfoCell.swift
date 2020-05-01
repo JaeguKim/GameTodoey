@@ -23,6 +23,7 @@ class GameInfoCell: SwipeTableViewCell {
         super.awakeFromNib()
         scoreBackgroundView.layer.cornerRadius = scoreBackgroundView.frame.height / 5
         view.layer.cornerRadius = view.frame.height / 5
+        hideLoadingIndicator()
     }
     
     func setViewBackgroundColor(score : Int) {
