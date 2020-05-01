@@ -127,7 +127,11 @@ extension SearchViewController: UITableViewDataSource {
         }
         cell.titleLabel.text = gameInfo.title
         if let score = Int(gameInfo.score){
-            cell.scoreLabel.text = String(gameInfo.score)
+            var text = "?"
+            if score != 0{
+                text = String(score)
+            }
+            cell.scoreLabel.text = text
             cell.setViewBackgroundColor(score: score)
         }
         return cell

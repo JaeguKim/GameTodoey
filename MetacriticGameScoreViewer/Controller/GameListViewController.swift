@@ -36,7 +36,11 @@ class GameListViewController: UIViewController {
                 gameScoreInfo.platform = realmObj.platform
                 gameScoreInfo.gameDescription = realmObj.gameDescription
                 gameScoreInfo.imageURL = realmObj.imageURL
-                gameScoreInfo.score = realmObj.score
+                var text = "?"
+                if realmObj.score != "0" {
+                    text = realmObj.score
+                }
+                gameScoreInfo.score = text
                 destVC.gameScoreInfo = gameScoreInfo
             }
             //            destVC.isBtnEnabled = false
@@ -64,7 +68,11 @@ class GameListViewController: UIViewController {
             }
             cell.titleLabel.text = gameInfo.title
             if let score = Int(gameInfo.score){
-                cell.scoreLabel.text = String(gameInfo.score)
+                var text = "?"
+                if score != 0 {
+                    text = String(score)
+                }
+                cell.scoreLabel.text = text
                 cell.setViewBackgroundColor(score: score)
             }
         }

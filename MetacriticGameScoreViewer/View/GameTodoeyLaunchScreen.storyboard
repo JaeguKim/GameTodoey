@@ -16,26 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎮GamePlanner🎮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-jU-wex">
-                                <rect key="frame" x="48.5" y="432" width="317" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
-                                <color key="textColor" name="BrandBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 jaeguKim. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
                                 <rect key="frame" x="8" y="842.5" width="398" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
                                 <color key="textColor" name="BrandBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LJN-WI-oAF">
+                                <rect key="frame" x="167" y="389" width="80" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="JJo-jq-iuv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.98039215686274506" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="8" id="6vi-cV-rZD"/>
-                            <constraint firstItem="t9C-jU-wex" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="GUP-RR-kaW"/>
-                            <constraint firstItem="t9C-jU-wex" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="PQD-IT-pCM"/>
+                            <constraint firstItem="LJN-WI-oAF" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="ETn-Hr-sIe"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" id="WRI-lA-5Vc"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="obG-Y5-kRd" secondAttribute="trailing" constant="8" id="ccc-zb-XJa"/>
+                            <constraint firstItem="LJN-WI-oAF" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="l5v-U1-hcX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
@@ -46,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="appLogo" width="80" height="80"/>
         <namedColor name="BrandBlue">
             <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
