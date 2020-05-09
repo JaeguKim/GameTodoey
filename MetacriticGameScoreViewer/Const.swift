@@ -24,4 +24,5 @@ struct Const {
     static let idStr = "id"
     static let libraryTitleStr = "libraryTitle"
     static let defaultLibraryTitles = ["Recents","Favorite👍"]
+    static let dictKey = [0:"PC",1:"PS",2:"XBOX",3:"SWITCH"]
 }

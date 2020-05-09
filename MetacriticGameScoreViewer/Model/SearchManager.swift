@@ -10,7 +10,8 @@ protocol SearchManagerDelegate {
 class SearchManager {
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
     var gameInfoDict : [String:GameInfo] = [:]
-    var keyList : [String] = []
+    //var keyList : [String] = []
+    var keyDict : [String:[String]] = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
     var requests : [Alamofire.Request] = []
     var totalRequests : Int = 0
     var requestsDone : Int = 0
@@ -30,7 +31,9 @@ class SearchManager {
     
     func requestInfo(title:String){
         gameInfoDict.removeAll()
-        keyList.removeAll()
+        for key in keyDict.keys{
+            keyDict[key]?.removeAll()
+        }
         initValue()
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
@@ -55,7 +58,7 @@ class SearchManager {
                             gameInfo.title = title
                             gameInfo.platform = platform
                             let key = title + platform
-                            self.keyList.append(key)
+                            self.keyDict[self.getKey(with: platform)]?.append(key)
                             self.gameInfoDict.updateValue(gameInfo, forKey: key)
                             self.requestInfo(platform: platform, gameTitle: title)
                         }
@@ -188,6 +191,17 @@ class SearchManager {
            }
        }
        
+    func getKey(with platform:String)->String{
+        if platform.hasPrefix("PS"){
+            return "PS"
+        } else if platform.hasPrefix("X"){
+            return "XBOX"
+        } else if platform == "Switch"{
+            return "SWITCH"
+        }
+        return ""
+    }
+    
        func convertPlatformString(platform : String) -> String{
            switch platform {
            case "PS4":

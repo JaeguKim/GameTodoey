@@ -105,7 +105,7 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? DescriptionPopupViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let key = searchManager.keyList[indexPath.row]
+                let key = searchManager.keyDict[Const.dictKey[indexPath.section]!]![indexPath.row]
                 destVC.gameScoreInfo = searchManager.gameInfoDict[key]
             }
         }
@@ -114,13 +114,17 @@ class SearchViewController: UIViewController {
 
 //MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return searchManager.keyDict.count
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchManager.gameInfoDict.count
+        
+        return searchManager.keyDict[Const.dictKey[section]!]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
-        let key = searchManager.keyList[indexPath.row]
+        let key = searchManager.keyDict[Const.dictKey[indexPath.section]!]![indexPath.row]
         cell.showLoadingIndicator()
         if let gameInfo =  searchManager.gameInfoDict[key]{
             if gameInfo.imageURL == ""{
@@ -140,6 +144,7 @@ extension SearchViewController: UITableViewDataSource {
                 cell.setViewBackgroundColor(score: score)
             }
         }
+        
         return cell
     }
 }
@@ -149,6 +154,22 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "PC"
+        }
+        else if section == 1{
+            return "PlayStation"
+        }
+        else if section == 2{
+            return "XBOX"
+        }
+        else if section == 3{
+            return "NINTENDO"
+        }
+        return "ETC"
     }
 }
 
