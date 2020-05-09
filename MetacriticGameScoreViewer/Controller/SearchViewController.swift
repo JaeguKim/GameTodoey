@@ -25,6 +25,7 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        tableView.register(CustomHeader.self, forHeaderFooterViewReuseIdentifier: "sectionHeader")
         searchManager.delegate = self
         searchBar.showsCancelButton = true
         libraryInfoList = realmManager.loadLibraries()
@@ -147,6 +148,24 @@ extension SearchViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionImages = ["pc.png","ps.png","xbox.png","switch.png"]
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionHeader") as! CustomHeader
+        view.contentView.backgroundColor = UIColor(named: "BrandLightBlue")
+        view.image.image = UIImage(named: sectionImages[section])
+        if section == 0{
+            view.image.image = view.image.image?.withTintColor(UIColor.black)
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if searchManager.keyDict[Const.dictKey[section]!]!.count == 0{
+            return 0.0
+        }
+        return 50.0
+    }
 }
 
 //MARK: - UITableViewDelegate
@@ -155,22 +174,7 @@ extension SearchViewController: UITableViewDelegate {
         performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "PC"
-        }
-        else if section == 1{
-            return "PlayStation"
-        }
-        else if section == 2{
-            return "XBOX"
-        }
-        else if section == 3{
-            return "NINTENDO"
-        }
-        return "ETC"
-    }
+
 }
 
 //MARK: - UISearchBarDelegate
@@ -217,5 +221,30 @@ extension SearchViewController: UIGestureRecognizerDelegate{
             return false
         }
         return true
+    }
+}
+
+class CustomHeader: UITableViewHeaderFooterView {
+    var image = UIImageView()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        configureContents()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureContents(){
+        image.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(image)
+        
+        NSLayoutConstraint.activate([
+            image.widthAnchor.constraint(equalToConstant: 50),
+            image.heightAnchor.constraint(equalToConstant: 50),
+            image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+        ])
     }
 }

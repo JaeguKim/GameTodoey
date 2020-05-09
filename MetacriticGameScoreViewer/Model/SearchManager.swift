@@ -10,7 +10,6 @@ protocol SearchManagerDelegate {
 class SearchManager {
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
     var gameInfoDict : [String:GameInfo] = [:]
-    //var keyList : [String] = []
     var keyDict : [String:[String]] = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
     var requests : [Alamofire.Request] = []
     var totalRequests : Int = 0
@@ -192,7 +191,9 @@ class SearchManager {
        }
        
     func getKey(with platform:String)->String{
-        if platform.hasPrefix("PS"){
+        if platform == "PC"{
+            return "PC"
+        } else if platform.hasPrefix("PS"){
             return "PS"
         } else if platform.hasPrefix("X"){
             return "XBOX"
