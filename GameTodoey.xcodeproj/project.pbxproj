@@ -32,6 +32,7 @@
 		5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameInfo.swift */; };
 		5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */; };
 		5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */; };
+		5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEF6704248B7F2500803345 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5BE01E1424224474005DD70C /* Realm_GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameInfo.swift; sourceTree = "<group>"; };
 		5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
+		5BEF6704248B7F2500803345 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
 		F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.debug.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +83,8 @@
 		5B1F3BEE2420DFB200E0698C = {
 			isa = PBXGroup;
 			children = (
-				5B1F3BF92420DFB200E0698C /* MetacriticGameScoreViewer */,
+				5BEF6704248B7F2500803345 /* Default-568h@2x.png */,
+				5B1F3BF92420DFB200E0698C /* GameTodoey */,
 				5B1F3BF82420DFB200E0698C /* Products */,
 				AAB35AE70D4CC19E166027C0 /* Pods */,
 				BBF86556C3A436F5ACFB793B /* Frameworks */,
@@ -96,7 +99,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B1F3BF92420DFB200E0698C /* MetacriticGameScoreViewer */ = {
+		5B1F3BF92420DFB200E0698C /* GameTodoey */ = {
 			isa = PBXGroup;
 			children = (
 				5BE01E132422441A005DD70C /* Model */,
@@ -109,7 +112,7 @@
 				5B1F3C082420DFB200E0698C /* Info.plist */,
 				5B3E7C042427501F0027BD1D /* GoogleService-Info.plist */,
 			);
-			path = MetacriticGameScoreViewer;
+			path = GameTodoey;
 			sourceTree = "<group>";
 		};
 		5B24A8DD2425CA7200A12A96 /* Controller */ = {
@@ -172,9 +175,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B1F3BF62420DFB200E0698C /* MetacriticGameScoreViewer */ = {
+		5B1F3BF62420DFB200E0698C /* GameTodoey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1F3C0B2420DFB200E0698C /* Build configuration list for PBXNativeTarget "MetacriticGameScoreViewer" */;
+			buildConfigurationList = 5B1F3C0B2420DFB200E0698C /* Build configuration list for PBXNativeTarget "GameTodoey" */;
 			buildPhases = (
 				D52F1AAE377FB356506F5B7B /* [CP] Check Pods Manifest.lock */,
 				5B1F3BF32420DFB200E0698C /* Sources */,
@@ -186,7 +189,7 @@
 			);
 			dependencies = (
 			);
-			name = MetacriticGameScoreViewer;
+			name = GameTodoey;
 			productName = MetacriticGameScoreViewer;
 			productReference = 5B1F3BF72420DFB200E0698C /* GamePlanner.app */;
 			productType = "com.apple.product-type.application";
@@ -219,7 +222,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B1F3BF62420DFB200E0698C /* MetacriticGameScoreViewer */,
+				5B1F3BF62420DFB200E0698C /* GameTodoey */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +237,7 @@
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
 				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
 				5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */,
+				5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */,
 				5B031FA324386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +448,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
-				INFOPLIST_FILE = MetacriticGameScoreViewer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GameTodoey/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -466,7 +470,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
-				INFOPLIST_FILE = MetacriticGameScoreViewer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GameTodoey/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,7 +496,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1F3C0B2420DFB200E0698C /* Build configuration list for PBXNativeTarget "MetacriticGameScoreViewer" */ = {
+		5B1F3C0B2420DFB200E0698C /* Build configuration list for PBXNativeTarget "GameTodoey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1F3C0C2420DFB200E0698C /* Debug */,
