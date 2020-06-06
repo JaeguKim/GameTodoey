@@ -207,7 +207,6 @@ extension SearchViewController: SearchManagerDelegate {
     }
     func didUpdateGameInfo(gameInfoDict : [String:GameInfo] ) {
         showTableView()
-        //searchManager.initValue()
         realmManager.save(gameInfoDict: gameInfoDict)
         tableView.reloadData()
         searchBar.endEditing(true)

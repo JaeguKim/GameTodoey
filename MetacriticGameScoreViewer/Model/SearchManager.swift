@@ -115,7 +115,8 @@ class SearchManager {
                 let responseJSON : JSON = JSON(response.result.value!)
                 let score = responseJSON["result"]["score"].stringValue
                 let imageURL = responseJSON["result"]["image"].stringValue
-                let description = responseJSON["result"]["description"].stringValue
+                let description = responseJSON["result"]["description"].stringValue.replacingOccurrences(of: " &hellip;  Expand", with: "")
+                
                 if self.titleFailCnt < self.maxFailCnt && (score == "" || imageURL == "") {
                     self.titleFailCnt += 1
                     self.requestInfo(platform: platform, gameTitle: gameTitle)
