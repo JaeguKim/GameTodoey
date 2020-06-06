@@ -13,9 +13,9 @@ class LibraryInfo : Object {
     
     func updateLibraryImage(){
         if libraryTitle == "Recents"{
-            imageURL = gameInfoList.first!.imageURL
+            imageURL = gameInfoList.first?.imageURL ?? ""
         } else {
-            imageURL = gameInfoList.last!.imageURL
+            imageURL = gameInfoList.last?.imageURL ?? ""
         }
     }
 }
