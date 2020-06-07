@@ -50,7 +50,9 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
         searchBar.searchTextField.leftView?.tintColor = .darkGray
-        //searchBar.tintColor = .lightGray
+        self.tabBarController!.tabBar.layer.borderWidth = 0.50
+        self.tabBarController!.tabBar.layer.borderColor = UIColor.lightGray.cgColor
+        self.tabBarController?.tabBar.clipsToBounds = true
         
     }
     
