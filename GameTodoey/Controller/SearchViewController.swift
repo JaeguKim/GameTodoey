@@ -49,6 +49,9 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
+        searchBar.searchTextField.leftView?.tintColor = .darkGray
+        //searchBar.tintColor = .lightGray
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
