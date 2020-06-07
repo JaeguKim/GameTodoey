@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: CLTypingLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = Const.appName
         if UserDefaults.standard.bool(forKey: "isLogIn") == true {
             performSegue(withIdentifier: Const.welcomeVCToSearchVCSegue, sender: self)
         }

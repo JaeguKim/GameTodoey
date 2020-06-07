@@ -368,7 +368,7 @@
             </objects>
             <point key="canvasLocation" x="5388" y="522"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Welcome-->
         <scene sceneID="x1O-yG-gQN">
             <objects>
                 <viewController id="yuP-M7-WEH" customClass="WelcomeViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
@@ -376,12 +376,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q70-58-JDL" customClass="CLTypingLabel" customModule="CLTypingLabel">
-                                <rect key="frame" x="207" y="475" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                                <color key="textColor" name="BrandBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj7-8x-rhM" userLabel="LoginBtn">
                                 <rect key="frame" x="0.0" y="804" width="414" height="58"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -396,38 +390,55 @@
                                     <segue destination="hlC-Mq-inT" kind="show" id="2zD-DC-QBQ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bda-W6-cHE">
+                                <rect key="frame" x="87" y="411" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6NJ-6y-2YM"/>
+                                    <constraint firstAttribute="width" constant="240" id="zS0-n1-V42"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvd-xr-ktv" userLabel="RegisterBtn">
                                 <rect key="frame" x="0.0" y="738" width="414" height="58"/>
-                                <color key="backgroundColor" name="BrandLightPurple"/>
+                                <color key="backgroundColor" name="LinkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="n0t-VP-21k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                 <state key="normal" title="Register">
-                                    <color key="titleColor" name="BrandBlue"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="XNk-ql-FkC" kind="show" id="K3A-zC-pqO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GameTodoey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mt-xE-ekz">
+                                <rect key="frame" x="107" y="550.5" width="200" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="1ol-Pb-QD8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="31"/>
+                                <color key="textColor" name="BrandBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="leading" secondItem="Hdw-pd-B42" secondAttribute="leading" id="0fb-jX-PNp"/>
+                            <constraint firstItem="bda-W6-cHE" firstAttribute="centerX" secondItem="Hdw-pd-B42" secondAttribute="centerX" id="4Ii-oA-SlX"/>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="bottom" secondItem="Hdw-pd-B42" secondAttribute="bottom" id="7Yc-L8-5sK"/>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="top" secondItem="jvd-xr-ktv" secondAttribute="bottom" constant="8" id="8Zm-o7-ycS"/>
-                            <constraint firstItem="Q70-58-JDL" firstAttribute="centerY" secondItem="Hdw-pd-B42" secondAttribute="centerY" id="EXi-Qg-k2f"/>
-                            <constraint firstItem="Hdw-pd-B42" firstAttribute="centerX" secondItem="Q70-58-JDL" secondAttribute="centerX" id="Qk3-6X-KNo"/>
                             <constraint firstItem="Hj7-8x-rhM" firstAttribute="trailing" secondItem="Hdw-pd-B42" secondAttribute="trailing" id="UZM-2d-FWv"/>
+                            <constraint firstItem="4Mt-xE-ekz" firstAttribute="centerX" secondItem="Hdw-pd-B42" secondAttribute="centerX" id="acu-Qa-urZ"/>
                             <constraint firstItem="jvd-xr-ktv" firstAttribute="leading" secondItem="Hdw-pd-B42" secondAttribute="leading" id="blY-Fi-Udi"/>
                             <constraint firstItem="jvd-xr-ktv" firstAttribute="trailing" secondItem="Hdw-pd-B42" secondAttribute="trailing" id="fvK-lb-VpI"/>
+                            <constraint firstItem="4Mt-xE-ekz" firstAttribute="firstBaseline" secondItem="bda-W6-cHE" secondAttribute="baseline" constant="41" symbolType="layoutAnchor" id="uCo-kn-uJe"/>
+                            <constraint firstItem="bda-W6-cHE" firstAttribute="centerY" secondItem="Hdw-pd-B42" secondAttribute="centerY" id="w7G-S8-0nU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hdw-pd-B42"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8yc-L8-uOg"/>
+                    <navigationItem key="navigationItem" title="Welcome" id="8yc-L8-uOg"/>
                     <connections>
-                        <outlet property="titleLabel" destination="Q70-58-JDL" id="gp3-dg-JAa"/>
                         <segue destination="HOR-Pz-gDB" kind="show" identifier="WelcomeVCToSearchVC" id="aHy-NL-BqK"/>
                     </connections>
                 </viewController>
@@ -669,7 +680,7 @@
                         <color key="selectedImageTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" name="BrandBlue"/>
+                                <color key="value" name="LinkColor"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -687,10 +698,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wal-wh-nS5"/>
+        <segue reference="aHy-NL-BqK"/>
         <segue reference="bdL-xQ-QG3"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="appLogo" width="1024" height="1024"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
         <image name="textfield" width="298" height="93"/>
@@ -701,8 +713,8 @@
         <namedColor name="BrandLightBlue">
             <color red="0.92199999094009399" green="0.98000001907348633" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="BrandLightPurple">
-            <color red="0.92199999094009399" green="0.98000001907348633" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="LinkColor">
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
