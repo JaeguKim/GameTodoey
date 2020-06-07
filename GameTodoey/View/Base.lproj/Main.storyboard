@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" scopeBarBackgroundImage="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -90,7 +90,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -143,7 +143,7 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
@@ -258,7 +258,7 @@
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
@@ -338,13 +338,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ifZ-AP-b1J">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="BrandLightBlue"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ifZ-AP-b1J" firstAttribute="top" secondItem="aG2-W2-dYF" secondAttribute="top" constant="88" id="XRN-Sv-f5E"/>
+                            <constraint firstItem="ifZ-AP-b1J" firstAttribute="top" secondItem="aG2-W2-dYF" secondAttribute="top" id="XRN-Sv-f5E"/>
                             <constraint firstAttribute="bottom" secondItem="ifZ-AP-b1J" secondAttribute="bottom" id="kbr-rx-rXi"/>
                             <constraint firstItem="ifZ-AP-b1J" firstAttribute="trailing" secondItem="H5N-vS-Miv" secondAttribute="trailing" id="u9A-iC-7bn"/>
                             <constraint firstItem="ifZ-AP-b1J" firstAttribute="leading" secondItem="H5N-vS-Miv" secondAttribute="leading" id="vdF-mP-35k"/>
@@ -629,10 +629,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="BrandBlue"/>
-                        <color key="tintColor" name="BrandBlue"/>
                         <color key="barTintColor" name="BrandBlue"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -662,14 +661,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" name="BrandBlue"/>
-                        <color key="selectedImageTintColor" name="BrandBlue"/>
+                        <color key="barTintColor" name="BrandLightBlue"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" name="BrandBlue"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" red="0.79268234969999996" green="0.8232358098" blue="0.83529716730000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -684,7 +682,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aHy-NL-BqK"/>
+        <segue reference="Wal-wh-nS5"/>
         <segue reference="bdL-xQ-QG3"/>
     </inferredMetricsTieBreakers>
     <resources>

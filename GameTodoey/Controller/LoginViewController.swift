@@ -9,11 +9,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    
+
     @IBAction func loginBtnPressed(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             let alert = UIAlertController(title: "Loggin in...", message: "", preferredStyle: .alert)

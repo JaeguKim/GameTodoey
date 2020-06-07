@@ -48,7 +48,6 @@ class SearchViewController: UIViewController {
         parent?.navigationItem.title = "Search Game"
         parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
-         navigationController?.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         searchBar.searchTextField.textColor = UIColor(named: "LinkColor")
     }
     
