@@ -28,6 +28,12 @@ class LibraryViewController: UIViewController {
         parent?.navigationItem.title = "Library"
         collectionView.reloadData()
         collectionView.allowsSelection = true
+        setColorOfBarButtons()
+    }
+    
+    func setColorOfBarButtons(){
+        parent?.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        parent?.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
     
     @objc func addBtnPressed() {
@@ -69,6 +75,7 @@ class LibraryViewController: UIViewController {
         let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         parent?.navigationItem.leftBarButtonItem = leftButton
         parent?.navigationItem.rightBarButtonItem = rightButton
+        setColorOfBarButtons()
         collectionView.allowsSelection = false
         isEditMode = true
         collectionView.reloadData()
@@ -84,7 +91,8 @@ class LibraryViewController: UIViewController {
         self.parent?.navigationItem.hidesBackButton = true
         parent?.navigationItem.leftBarButtonItem = nil
         parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPressed))
-       isEditMode = false
+        setColorOfBarButtons()
+        isEditMode = false
     }
     
     func showAlertMessage(title : String) {
