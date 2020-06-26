@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" scopeBarBackgroundImage="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -95,7 +95,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -148,106 +148,113 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
-                                <rect key="frame" x="167" y="50" width="80" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
-                                <color key="textColor" name="BrandBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rus-RX-3nk">
-                                <rect key="frame" x="158" y="110" width="98" height="141"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="141" id="JIf-KG-Jgq"/>
-                                    <constraint firstAttribute="width" constant="98" id="OOg-cQ-dnb"/>
-                                </constraints>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xL8-Ok-nWN">
-                                <rect key="frame" x="20" y="341" width="374" height="416"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sz-KYk" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="440.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh" userLabel="Description">
-                                                <rect key="frame" x="20" y="14" width="334" height="426.5"/>
-                                                <string key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity's only chance for survival. The Combine's control of the planet since the Black Mesa incident has only strengthened as they corral the remaining population in cities. Among them are some of Earth's greatest scientists: you and your father, Dr. Eli Vance. As founders of a fledgling resistance, you've continued your clandestine scientific activityperforming critical research, and building invaluable tools for the few humans brave enough to defy the Combine. Every day, you learn more about your enemy, and every day you work toward finding a weakness.</string>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="eDK-p4-TLh" secondAttribute="trailing" constant="20" id="PdD-Jj-Qdl"/>
-                                            <constraint firstItem="eDK-p4-TLh" firstAttribute="top" secondItem="FQ9-sz-KYk" secondAttribute="top" constant="14" id="Sal-63-41O"/>
-                                            <constraint firstAttribute="bottom" secondItem="eDK-p4-TLh" secondAttribute="bottom" id="YWJ-hG-FhR"/>
-                                            <constraint firstItem="eDK-p4-TLh" firstAttribute="leading" secondItem="FQ9-sz-KYk" secondAttribute="leading" constant="20" id="sWs-er-JtP"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstItem="FQ9-sz-KYk" firstAttribute="trailing" secondItem="GJI-oD-CuF" secondAttribute="trailing" id="4k1-7I-md3"/>
-                                    <constraint firstItem="FQ9-sz-KYk" firstAttribute="bottom" secondItem="GJI-oD-CuF" secondAttribute="bottom" id="L1K-pZ-6i5"/>
-                                    <constraint firstItem="FQ9-sz-KYk" firstAttribute="top" secondItem="GJI-oD-CuF" secondAttribute="top" id="S2e-CZ-1hb"/>
-                                    <constraint firstItem="FQ9-sz-KYk" firstAttribute="leading" secondItem="GJI-oD-CuF" secondAttribute="leading" id="ZX8-Dk-1qL"/>
-                                    <constraint firstItem="FQ9-sz-KYk" firstAttribute="width" secondItem="wKr-ZG-AcX" secondAttribute="width" id="mKT-CN-6Fp"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="GJI-oD-CuF"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="wKr-ZG-AcX"/>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT2-0C-krD">
-                                <rect key="frame" x="158" y="284" width="98" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
-                                <color key="textColor" name="BrandBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcV-Hr-1lC">
-                                <rect key="frame" x="80" y="766" width="254" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
-                                <state key="normal" title="Save To Your Library">
-                                    <color key="titleColor" name="BrandBlue"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sb-Zw-rFh">
-                                <rect key="frame" x="20" y="20" width="17.5" height="22"/>
+                                <rect key="frame" x="30" y="10" width="15" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="JtI-ly-Jhu"/>
+                                    <constraint firstAttribute="width" secondItem="9sb-Zw-rFh" secondAttribute="height" multiplier="3:5" id="Xei-cK-T3k"/>
+                                    <constraint firstAttribute="height" constant="25" id="dIM-Y0-ibb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="mpe-V7-cRL"/>
+                                </constraints>
                                 <color key="tintColor" name="BrandBlue"/>
                                 <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="dismissBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="Vlw-Xp-8UA"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQ3-gW-yEg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vGE-0L-QuV">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="772.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
+                                                <rect key="frame" x="167" y="0.0" width="80" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                                <color key="textColor" name="BrandBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rus-RX-3nk">
+                                                <rect key="frame" x="158" y="60" width="98" height="141"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="141" id="JIf-KG-Jgq"/>
+                                                    <constraint firstAttribute="width" constant="98" id="OOg-cQ-dnb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT2-0C-krD">
+                                                <rect key="frame" x="158" y="231" width="98" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                                <color key="textColor" name="BrandBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0rR-C5-eHh">
+                                                <rect key="frame" x="20" y="285" width="374" height="415.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-p4-TLh" userLabel="Description">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="385.5"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <string key="text">Summary: Half-Life: Alyx is Valve's VR return to the Half-Life series. It's the story of an impossible fight against a vicious alien race known as the Combine, set between the events of Half-Life and Half-Life 2. Playing as Alyx Vance, you are humanity's only chance for survival. The Combine's control of the planet since the Black Mesa incident has only strengthened as they corral the remaining population in cities. Among them are some of Earth's greatest scientists: you and your father, Dr. Eli Vance. As founders of a fledgling resistance, you've continued your clandestine scientific activityperforming critical research, and building invaluable tools for the few humans brave enough to defy the Combine. Every day, you learn more about your enemy, and every day you work toward finding a weakness.</string>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPH-Wu-WN3">
+                                                        <rect key="frame" x="0.0" y="385.5" width="374" height="30"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="descLabelBtn:" destination="1f1-Ga-29V" eventType="touchUpInside" id="mkk-4h-9YR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcV-Hr-1lC">
+                                                <rect key="frame" x="80" y="730.5" width="254" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                                <state key="normal" title="Save To Your Library">
+                                                    <color key="titleColor" name="BrandBlue"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0rR-C5-eHh" firstAttribute="leading" secondItem="vGE-0L-QuV" secondAttribute="leading" constant="20" id="CJw-fi-e9x"/>
+                                            <constraint firstAttribute="trailing" secondItem="0rR-C5-eHh" secondAttribute="trailing" constant="20" id="lzP-3G-STY"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vGE-0L-QuV" firstAttribute="width" secondItem="BBc-cw-GIu" secondAttribute="width" id="69T-sS-NdI"/>
+                                    <constraint firstItem="p0a-hE-oed" firstAttribute="leading" secondItem="vGE-0L-QuV" secondAttribute="leading" id="Fs6-7W-zph"/>
+                                    <constraint firstItem="vGE-0L-QuV" firstAttribute="trailing" secondItem="p0a-hE-oed" secondAttribute="trailing" id="HXJ-tH-moN"/>
+                                    <constraint firstItem="vGE-0L-QuV" firstAttribute="top" secondItem="p0a-hE-oed" secondAttribute="top" constant="50" id="RE4-2A-Yf4"/>
+                                    <constraint firstItem="vGE-0L-QuV" firstAttribute="bottom" secondItem="p0a-hE-oed" secondAttribute="bottom" id="kOd-Jp-oWa"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="p0a-hE-oed"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BBc-cw-GIu"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" name="BrandLightBlue"/>
                         <constraints>
-                            <constraint firstItem="Rus-RX-3nk" firstAttribute="top" secondItem="Ihw-Ub-I2b" secondAttribute="bottom" constant="30" id="3Eh-rU-Qwm"/>
-                            <constraint firstItem="XT2-0C-krD" firstAttribute="top" secondItem="Rus-RX-3nk" secondAttribute="bottom" constant="33" id="5ut-Id-A2D"/>
-                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="20" id="8SY-Mh-G1B"/>
-                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="top" secondItem="xL8-Ok-nWN" secondAttribute="bottom" constant="9" id="FWn-KP-t9D"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="bottom" secondItem="mcV-Hr-1lC" secondAttribute="bottom" id="Hdp-ZH-dbB"/>
-                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="ZIw-Fo-yFW"/>
-                            <constraint firstItem="XT2-0C-krD" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="ch4-8s-xUm"/>
-                            <constraint firstItem="mcV-Hr-1lC" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="jZ7-YF-kwI"/>
-                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="40" id="kLb-gC-lSr"/>
-                            <constraint firstItem="xL8-Ok-nWN" firstAttribute="leading" secondItem="tEE-Pd-D8j" secondAttribute="leading" constant="20" id="n0u-7t-JA3"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" secondItem="xL8-Ok-nWN" secondAttribute="trailing" constant="20" id="t9i-ne-daw"/>
-                            <constraint firstItem="tEE-Pd-D8j" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ihw-Ub-I2b" secondAttribute="trailing" constant="40" id="tHX-tl-oai"/>
-                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="top" secondItem="tEE-Pd-D8j" secondAttribute="top" constant="50" id="vXX-fd-Nos"/>
-                            <constraint firstItem="xL8-Ok-nWN" firstAttribute="top" secondItem="XT2-0C-krD" secondAttribute="bottom" constant="33" id="vtU-za-taE"/>
-                            <constraint firstItem="Ihw-Ub-I2b" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="wq8-Wv-IXa"/>
-                            <constraint firstItem="Rus-RX-3nk" firstAttribute="centerX" secondItem="tEE-Pd-D8j" secondAttribute="centerX" id="xnC-1D-sV6"/>
+                            <constraint firstAttribute="trailing" secondItem="RQ3-gW-yEg" secondAttribute="trailing" id="5fn-bh-HxG"/>
+                            <constraint firstItem="RQ3-gW-yEg" firstAttribute="leading" secondItem="aVL-9k-6cT" secondAttribute="leading" id="9JT-xW-UTW"/>
+                            <constraint firstAttribute="bottom" secondItem="RQ3-gW-yEg" secondAttribute="bottom" id="mpt-BL-JUF"/>
+                            <constraint firstItem="RQ3-gW-yEg" firstAttribute="top" secondItem="aMh-Oo-81M" secondAttribute="top" id="rLs-w1-qwo"/>
+                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="leading" secondItem="aVL-9k-6cT" secondAttribute="leadingMargin" constant="10" id="rtW-rF-Vg7"/>
+                            <constraint firstItem="9sb-Zw-rFh" firstAttribute="top" secondItem="aVL-9k-6cT" secondAttribute="topMargin" constant="10" id="u6x-zD-jM8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="tEE-Pd-D8j"/>
+                        <viewLayoutGuide key="safeArea" id="aMh-Oo-81M"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JOt-KS-iir"/>
                     <connections>
-                        <outlet property="gameDescLabel" destination="eDK-p4-TLh" id="iwc-fE-UM5"/>
+                        <outlet property="descBtn" destination="PPH-Wu-WN3" id="yid-qM-cV9"/>
+                        <outlet property="gameDesc" destination="eDK-p4-TLh" id="S0y-0d-CZD"/>
                         <outlet property="gameImgView" destination="Rus-RX-3nk" id="O9y-oO-Qef"/>
                         <outlet property="saveBtn" destination="mcV-Hr-1lC" id="4RC-Da-Tzc"/>
-                        <outlet property="scrollView" destination="xL8-Ok-nWN" id="qT0-Md-KvI"/>
                         <outlet property="titleLabel" destination="Ihw-Ub-I2b" id="a1t-oe-Prs"/>
                         <segue destination="xde-an-NAK" kind="popoverPresentation" identifier="DescVCToLibPopupVC" popoverAnchorView="aVL-9k-6cT" id="FWq-kl-IKg">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -263,7 +270,7 @@
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
@@ -359,7 +366,7 @@
                     <navigationItem key="navigationItem" title="Game List" id="MEX-RM-kKG"/>
                     <connections>
                         <outlet property="tableView" destination="ifZ-AP-b1J" id="QJt-2g-Fmm"/>
-                        <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="GameListVCToDescVC" popoverAnchorView="ifZ-AP-b1J" id="3L2-2G-OGq">
+                        <segue destination="1f1-Ga-29V" kind="popoverPresentation" identifier="GameListVCToDescVC" popoverAnchorView="aG2-W2-dYF" id="3L2-2G-OGq">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -699,7 +706,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aHy-NL-BqK"/>
-        <segue reference="bdL-xQ-QG3"/>
+        <segue reference="3L2-2G-OGq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="appLogo" width="1024" height="1024"/>

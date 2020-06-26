@@ -8,25 +8,30 @@ class DescriptionPopupViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!
-    @IBOutlet weak var gameDescLabel: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var gameDesc: UILabel!
+    @IBOutlet weak var descBtn: UIButton!
+    
     var isBtnEnabled = true
+    var isCollapsed = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setData()
         if isBtnEnabled == false {
             saveBtn.isEnabled = isBtnEnabled
             saveBtn.alpha = 0.0
         }
-        scrollView.layer.cornerRadius = scrollView.frame.height / 10
+        gameDesc.layer.cornerRadius = gameDesc.frame.height / 5
+        setData()
+        descBtn.setTitleColor(UIColor(named: "LinkColor"), for: .selected)
+        descBtn.setTitleColor(UIColor(named: "LinkColor"), for: .highlighted)
+        closeDesc()
     }
     
     func setData(){
         titleLabel.text = gameScoreInfo?.title
         gameImgView.sd_setImage(with: URL(string: gameScoreInfo!.imageURL))
-        gameDescLabel.text = gameScoreInfo?.gameDescription
+        gameDesc.text = gameScoreInfo?.gameDescription
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,5 +45,26 @@ class DescriptionPopupViewController: UIViewController {
     
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func descLabelBtn(_ sender: UIButton) {
+        if (isCollapsed){
+            expandDesc()
+        }
+        else{
+            closeDesc()
+        }
+    }
+    
+    func expandDesc(){
+        gameDesc.numberOfLines = 0
+        descBtn.setTitle("Close", for: .normal)
+        isCollapsed = false
+    }
+    
+    func closeDesc(){
+        gameDesc.numberOfLines = 10
+        descBtn.setTitle("Expand", for: .normal)
+        isCollapsed = true
     }
 }

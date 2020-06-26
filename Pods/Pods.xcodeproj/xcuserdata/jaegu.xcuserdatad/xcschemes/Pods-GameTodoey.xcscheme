@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8BCD726FC6CF1CC257DA19D4DCDDF48"
-               BuildableName = "Pods_MetacriticGameScoreViewer.framework"
-               BlueprintName = "Pods-MetacriticGameScoreViewer"
+               BlueprintIdentifier = "116A6814356CAECC002D3506AE4E94EB"
+               BuildableName = "Pods_GameTodoey.framework"
+               BlueprintName = "Pods-GameTodoey"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

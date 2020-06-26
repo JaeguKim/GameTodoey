@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MetacriticGameScoreViewerVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MetacriticGameScoreViewerVersionString[];
+FOUNDATION_EXPORT double Pods_GameTodoeyVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_GameTodoeyVersionString[];
 

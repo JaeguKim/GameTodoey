@@ -24,7 +24,6 @@
 		5B3E7C07242753410027BD1D /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E7C06242753410027BD1D /* Const.swift */; };
 		5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50E0D8242A2398009CF4A7 /* DescriptionPopupViewController.swift */; };
 		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
-		5B8BBD2688DE0F2A220D7AE1 /* Pods_MetacriticGameScoreViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */; };
 		5B9C092E242B561700F73F96 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameInfo.swift */; };
 		5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA134EE242F6FCC00202088 /* SearchManager.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
@@ -33,10 +32,11 @@
 		5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */; };
 		5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */; };
 		5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEF6704248B7F2500803345 /* Default-568h@2x.png */; };
+		AAFAE71802CA72E7C1D0519E /* Pods_GameTodoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C1A58A872666483F63736F /* Pods_GameTodoey.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetacriticGameScoreViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EED0ABE96E8B8145DB6FD2F /* Pods-GameTodoey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameTodoey.debug.xcconfig"; path = "Target Support Files/Pods-GameTodoey/Pods-GameTodoey.debug.xcconfig"; sourceTree = "<group>"; };
 		5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTodoeyLaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B11C0D5242F96E20092A40E /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		5B1F3BF72420DFB200E0698C /* GamePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,9 @@
 		5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BEF6704248B7F2500803345 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
+		80C1A58A872666483F63736F /* Pods_GameTodoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameTodoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.debug.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		F7AB929B862340C5222FE934 /* Pods-GameTodoey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameTodoey.release.xcconfig"; path = "Target Support Files/Pods-GameTodoey/Pods-GameTodoey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B8BBD2688DE0F2A220D7AE1 /* Pods_MetacriticGameScoreViewer.framework in Frameworks */,
+				AAFAE71802CA72E7C1D0519E /* Pods_GameTodoey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,8 @@
 			children = (
 				F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */,
 				7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */,
+				3EED0ABE96E8B8145DB6FD2F /* Pods-GameTodoey.debug.xcconfig */,
+				F7AB929B862340C5222FE934 /* Pods-GameTodoey.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -167,7 +171,7 @@
 		BBF86556C3A436F5ACFB793B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B030B75035E55E19788AEED /* Pods_MetacriticGameScoreViewer.framework */,
+				80C1A58A872666483F63736F /* Pods_GameTodoey.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,15 +255,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GameTodoey/Pods-GameTodoey-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GameTodoey/Pods-GameTodoey-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GameTodoey/Pods-GameTodoey-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D52F1AAE377FB356506F5B7B /* [CP] Check Pods Manifest.lock */ = {
@@ -277,7 +281,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetacriticGameScoreViewer-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-GameTodoey-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,7 +446,7 @@
 		};
 		5B1F3C0C2420DFB200E0698C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F61A186AF3F90CAABB46A3C3 /* Pods-MetacriticGameScoreViewer.debug.xcconfig */;
+			baseConfigurationReference = 3EED0ABE96E8B8145DB6FD2F /* Pods-GameTodoey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -464,7 +468,7 @@
 		};
 		5B1F3C0D2420DFB200E0698C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */;
+			baseConfigurationReference = F7AB929B862340C5222FE934 /* Pods-GameTodoey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
