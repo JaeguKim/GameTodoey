@@ -11,9 +11,8 @@ import UIKit
 class PlayTimeInfoCell: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
-    @IBOutlet weak var mainStoryLabel: UILabel!
-    @IBOutlet weak var mainExtraLabel: UILabel!
-    @IBOutlet weak var completionestLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +20,9 @@ class PlayTimeInfoCell: UITableViewCell {
         // Initialization code
     }
     
-    func setData(mainStory:String,mainExtra:String,completionest:String){
-        mainStoryLabel.text = mainStory
-        mainExtraLabel.text = mainExtra
-        completionestLabel.text = completionest
+    func setData(title:String,time:String){
+        titleLabel.text = title
+        timeLabel.text = time
     }
     
 }

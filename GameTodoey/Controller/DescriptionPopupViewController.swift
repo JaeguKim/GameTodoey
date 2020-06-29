@@ -5,15 +5,17 @@ import RealmSwift
 class DescriptionPopupViewController: UIViewController {
     
     var gameScoreInfo : GameInfo?
-    
+    var playTimeDict : [Int:[String:String]] = [0:["title":"Main Story","time":""],
+                                                1:["title":"Main + Extra","time":""],
+                                                2:["title":"Completionest","time":""]]
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var gameImgView: UIImageView!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var gameDesc: UILabel!
     @IBOutlet weak var descBtn: UIButton!
+    @IBOutlet weak var gameTimeStackView: UIStackView!
     var isBtnEnabled = true
     var isCollapsed = true
-    @IBOutlet weak var playTimeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +23,14 @@ class DescriptionPopupViewController: UIViewController {
             saveBtn.isEnabled = isBtnEnabled
             saveBtn.alpha = 0.0
         }
-        playTimeTableView.dataSource = self
-        playTimeTableView.rowHeight = 150
-        playTimeTableView.estimatedRowHeight = 150
-        playTimeTableView.register(UINib(nibName: Const.playTimeCellNibName, bundle: nil), forCellReuseIdentifier: Const.playTimeCellIdentifier)
         gameDesc.layer.cornerRadius = gameDesc.frame.height / 5
         setData()
         descBtn.setTitleColor(UIColor(named: "LinkColor"), for: .selected)
         descBtn.setTitleColor(UIColor(named: "LinkColor"), for: .highlighted)
         closeDesc()
-        
+        for childView in gameTimeStackView.arrangedSubviews{
+            childView.layer.cornerRadius = childView.frame.height/5
+        }
     }
     
     func setData(){
@@ -71,17 +71,5 @@ class DescriptionPopupViewController: UIViewController {
         gameDesc.numberOfLines = 10
         descBtn.setTitle("Expand", for: .normal)
         isCollapsed = true
-    }
-}
-
-extension DescriptionPopupViewController : UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = playTimeTableView.dequeueReusableCell(withIdentifier: Const.playTimeCellIdentifier,for: indexPath) as! PlayTimeInfoCell
-        cell.setData(mainStory: gameScoreInfo!.mainStoryTime, mainExtra: gameScoreInfo!.mainExtraTime, completionest: gameScoreInfo!.completionTime)
-        return cell
     }
 }

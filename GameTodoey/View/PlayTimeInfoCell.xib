@@ -20,69 +20,30 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndD-OC-sPP">
                         <rect key="frame" x="20" y="20" width="527" height="156"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cRa-PA-d7Q">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-j0-ZUN" userLabel="StackView">
                                 <rect key="frame" x="0.0" y="0.0" width="527" height="156"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r4D-j0-ZUN" userLabel="MainStoryStackView">
-                                        <rect key="frame" x="0.0" y="0.0" width="175.5" height="156"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL8-in-T0o">
-                                                <rect key="frame" x="0.0" y="0.0" width="175.5" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-wO-vFx" userLabel="mainStoryLabel">
-                                                <rect key="frame" x="0.0" y="78" width="175.5" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dEU-hA-TCW" userLabel="MainExtraStackView">
-                                        <rect key="frame" x="175.5" y="0.0" width="176" height="156"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main + Extra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siR-nb-4bt">
-                                                <rect key="frame" x="0.0" y="0.0" width="176" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-xh-0La" userLabel="mainExtraLabel">
-                                                <rect key="frame" x="0.0" y="78" width="176" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rf7-k2-n9n" userLabel="CompletionestStackView">
-                                        <rect key="frame" x="351.5" y="0.0" width="175.5" height="156"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completionest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37Q-cA-mWH">
-                                                <rect key="frame" x="0.0" y="0.0" width="175.5" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-n8-TM3" userLabel="completionestLabel">
-                                                <rect key="frame" x="0.0" y="78" width="175.5" height="78"/>
-                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <color key="textColor" name="BrandBlue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL8-in-T0o" userLabel="titleLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="527" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <color key="textColor" name="BrandBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-wO-vFx" userLabel="timeLabel">
+                                        <rect key="frame" x="0.0" y="78" width="527" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                        <color key="textColor" name="BrandBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cRa-PA-d7Q" firstAttribute="top" secondItem="ndD-OC-sPP" secondAttribute="top" id="0Gp-6Y-OAV"/>
-                            <constraint firstAttribute="bottom" secondItem="cRa-PA-d7Q" secondAttribute="bottom" id="T1l-dn-ETm"/>
-                            <constraint firstItem="cRa-PA-d7Q" firstAttribute="leading" secondItem="ndD-OC-sPP" secondAttribute="leading" id="qk9-pl-xMK"/>
-                            <constraint firstAttribute="trailing" secondItem="cRa-PA-d7Q" secondAttribute="trailing" id="ugj-D2-WAL"/>
+                            <constraint firstItem="r4D-j0-ZUN" firstAttribute="leading" secondItem="ndD-OC-sPP" secondAttribute="leading" id="aWn-kN-6Dr"/>
+                            <constraint firstAttribute="bottom" secondItem="r4D-j0-ZUN" secondAttribute="bottom" id="dhL-Ao-kgR"/>
+                            <constraint firstItem="r4D-j0-ZUN" firstAttribute="top" secondItem="ndD-OC-sPP" secondAttribute="top" id="oQU-kJ-zMp"/>
+                            <constraint firstAttribute="trailing" secondItem="r4D-j0-ZUN" secondAttribute="trailing" id="tCK-am-rwI"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -96,9 +57,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="completionestLabel" destination="QBp-n8-TM3" id="aVG-uH-5KK"/>
-                <outlet property="mainExtraLabel" destination="zd0-xh-0La" id="NEu-HJ-5ed"/>
-                <outlet property="mainStoryLabel" destination="BFZ-wO-vFx" id="vGO-r8-S6D"/>
+                <outlet property="timeLabel" destination="BFZ-wO-vFx" id="IML-HO-T8f"/>
+                <outlet property="titleLabel" destination="wL8-in-T0o" id="XeF-YD-fO8"/>
                 <outlet property="view" destination="ndD-OC-sPP" id="58m-xs-FzD"/>
             </connections>
             <point key="canvasLocation" x="96.376811594202906" y="138.61607142857142"/>
