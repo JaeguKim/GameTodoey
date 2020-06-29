@@ -26,6 +26,8 @@
 		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
 		5B9C092E242B561700F73F96 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameInfo.swift */; };
 		5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA134EE242F6FCC00202088 /* SearchManager.swift */; };
+		5BD32C0224AA09E200D65B9D /* PlayTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */; };
+		5BD32C0324AA09E200D65B9D /* PlayTimeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
 		5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameInfo.swift */; };
@@ -58,6 +60,8 @@
 		5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionPopupViewController.swift; sourceTree = "<group>"; };
 		5B9C092D242B561700F73F96 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		5BA134EE242F6FCC00202088 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTimeInfoCell.swift; sourceTree = "<group>"; };
+		5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayTimeInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E1424224474005DD70C /* Realm_GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameInfo.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				5B1F3C002420DFB200E0698C /* Main.storyboard */,
 				5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */,
 				5BE01E1024222AAF005DD70C /* GameInfoCell.xib */,
+				5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */,
+				5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */,
 				5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */,
 				5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */,
 				5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */,
@@ -238,6 +244,7 @@
 			files = (
 				5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */,
 				5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */,
+				5BD32C0324AA09E200D65B9D /* PlayTimeInfoCell.xib in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
 				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
 				5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */,
@@ -304,6 +311,7 @@
 				5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */,
 				5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */,
 				5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */,
+				5BD32C0224AA09E200D65B9D /* PlayTimeInfoCell.swift in Sources */,
 				5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */,
 				5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,

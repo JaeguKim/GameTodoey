@@ -11,5 +11,8 @@ class Realm_GameInfo : Object {
     @objc dynamic var done : Bool = false
     @objc dynamic var id : String = ""
     @objc dynamic var date = Date()
+    @objc dynamic var mainStoryTime : String = ""
+    @objc dynamic var mainExtraTime : String = ""
+    @objc dynamic var completionTime : String = ""
     var parentLibrary = LinkingObjects(fromType: LibraryInfo.self, property: "gameInfoList")
 }

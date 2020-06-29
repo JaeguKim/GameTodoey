@@ -13,4 +13,7 @@ class GameInfo {
             return title+platform
         }
     }
+    var mainStoryTime : String = ""
+    var mainExtraTime : String = ""
+    var completionTime : String = ""
 }
