@@ -9,6 +9,7 @@ protocol SearchManagerDelegate {
 
 class SearchManager {
     let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
+    let playTimeURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/hltb/"
     var gameInfoDict : [String:GameInfo] = [:]
     var keyDict : [String:[String]] = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
     var requests : [Alamofire.Request] = []
@@ -60,6 +61,18 @@ class SearchManager {
                             self.keyDict[self.getKey(with: platform)]?.append(key)
                             self.gameInfoDict.updateValue(gameInfo, forKey: key)
                             self.requestInfo(platform: platform, gameTitle: title)
+                            //시간구하기
+                            let requestURL = (self.playTimeURL+title).replacingOccurrences(of: " ", with: "%20")
+                            Alamofire.request(requestURL, method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
+                                if response.result.isSuccess {
+                                    for (title, playInfoJSON) in JSON(response.result.value!) {
+                                        print(title)
+                                        print(playInfoJSON["main"])
+                                        print(playInfoJSON["main+extra"])
+                                        print(playInfoJSON["completionist"])
+                                    }
+                                }
+                            }
                         }
                         else {
                             self.totalRequests-=1
