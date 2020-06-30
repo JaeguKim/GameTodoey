@@ -14,6 +14,9 @@ class DescriptionPopupViewController: UIViewController {
     @IBOutlet weak var gameDesc: UILabel!
     @IBOutlet weak var descBtn: UIButton!
     @IBOutlet weak var gameTimeStackView: UIStackView!
+    @IBOutlet weak var mainTimeLabel: UILabel!
+    @IBOutlet weak var mainExtraLabel: UILabel!
+    @IBOutlet weak var completionestTimeLabel: UILabel!
     var isBtnEnabled = true
     var isCollapsed = true
     
@@ -37,6 +40,9 @@ class DescriptionPopupViewController: UIViewController {
         titleLabel.text = gameScoreInfo?.title
         gameImgView.sd_setImage(with: URL(string: gameScoreInfo!.imageURL))
         gameDesc.text = gameScoreInfo?.gameDescription
+        mainTimeLabel.text = gameScoreInfo?.mainStoryTime
+        mainExtraLabel.text = gameScoreInfo?.mainExtraTime
+        completionestTimeLabel.text = gameScoreInfo?.completionTime
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

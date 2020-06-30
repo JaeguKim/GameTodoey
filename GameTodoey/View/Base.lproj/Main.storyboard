@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" scopeBarBackgroundImage="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -95,7 +95,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -148,7 +148,7 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sb-Zw-rFh">
@@ -353,10 +353,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="JOt-KS-iir"/>
                     <connections>
+                        <outlet property="completionestTimeLabel" destination="hMe-RQ-cGm" id="VLI-7K-ldR"/>
                         <outlet property="descBtn" destination="PPH-Wu-WN3" id="yid-qM-cV9"/>
                         <outlet property="gameDesc" destination="eDK-p4-TLh" id="S0y-0d-CZD"/>
                         <outlet property="gameImgView" destination="Rus-RX-3nk" id="O9y-oO-Qef"/>
                         <outlet property="gameTimeStackView" destination="Wmu-8R-vg2" id="Npi-tZ-qkw"/>
+                        <outlet property="mainExtraLabel" destination="xDm-5D-Bow" id="jzu-NP-xbJ"/>
+                        <outlet property="mainTimeLabel" destination="AeU-NY-dQh" id="Qdd-na-Uvv"/>
                         <outlet property="saveBtn" destination="mcV-Hr-1lC" id="4RC-Da-Tzc"/>
                         <outlet property="titleLabel" destination="Ihw-Ub-I2b" id="a1t-oe-Prs"/>
                         <segue destination="xde-an-NAK" kind="popoverPresentation" identifier="DescVCToLibPopupVC" popoverAnchorView="aVL-9k-6cT" id="FWq-kl-IKg">
@@ -373,7 +376,7 @@
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
