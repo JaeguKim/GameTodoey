@@ -63,25 +63,20 @@ class SearchManager {
                             
                             let requestURL = (self.playTimeURL+title).replacingOccurrences(of: " ", with: "%20")
                             Alamofire.request(requestURL, method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
+                                gameInfo.mainStoryTime = "N/A"
+                                gameInfo.mainExtraTime = "N/A"
+                                gameInfo.completionTime = "N/A"
                                 if response.result.isSuccess {
                                     let responseJSON = JSON(response.result.value!)
-                                    let choice = Int.random(in:0...responseJSON.count-1)
-                                    var i = 0
-                                    for (_, playInfoJSON) in responseJSON {
-                                        if choice == i{
-                                            gameInfo.mainStoryTime = "\(playInfoJSON["main"])Hours"
-                                            gameInfo.mainExtraTime = "\(playInfoJSON["main+extra"])Hours"
-                                            gameInfo.completionTime = "\(playInfoJSON["completionist"])Hours"
-                                            break
+                                    for (title, playInfoJSON) in responseJSON {
+                                        if title.contains("DLC") || title.count > gameInfo.title.count{
+                                            continue
                                         }
-                                        i+=1
+                                        gameInfo.mainStoryTime = "\(playInfoJSON["main"])Hours"
+                                        gameInfo.mainExtraTime = "\(playInfoJSON["main+extra"])Hours"
+                                        gameInfo.completionTime = "\(playInfoJSON["completionist"])Hours"
+                                        }
                                     }
-                                }
-                                else {
-                                    gameInfo.mainStoryTime = "N/A"
-                                    gameInfo.mainExtraTime = "N/A"
-                                    gameInfo.completionTime = "N/A"
-                                }
                                 self.gameInfoDict.updateValue(gameInfo, forKey: key)
                                 self.requestInfo(platform: platform, gameTitle: title)
                             }
