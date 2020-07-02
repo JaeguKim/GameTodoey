@@ -32,6 +32,9 @@ class GameListViewController: UIViewController {
                 gameScoreInfo.platform = realmObj.platform
                 gameScoreInfo.gameDescription = realmObj.gameDescription
                 gameScoreInfo.imageURL = realmObj.imageURL
+                gameScoreInfo.mainStoryTime = realmObj.mainStoryTime
+                gameScoreInfo.mainExtraTime = realmObj.mainExtraTime
+                gameScoreInfo.completionTime = realmObj.completionTime
                 var text = "?"
                 if realmObj.score != "0" {
                     text = realmObj.score

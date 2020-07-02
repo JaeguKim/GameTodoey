@@ -58,6 +58,9 @@ struct RealmManager {
                 realmObj.score = gameInfo.score
                 realmObj.id = gameInfo.id
                 realmObj.done = gameInfo.done
+                realmObj.mainStoryTime = gameInfo.mainStoryTime
+                realmObj.mainExtraTime = gameInfo.mainExtraTime
+                realmObj.completionTime = gameInfo.completionTime
                 selectedLibrary.imageURL = gameInfo.imageURL
                 selectedLibrary.libraryTitle == "Recents" ?
                     selectedLibrary.gameInfoList.insert(realmObj, at: 0) : selectedLibrary.gameInfoList.append(realmObj)

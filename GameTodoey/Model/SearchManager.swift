@@ -59,7 +59,8 @@ class SearchManager {
                             gameInfo.platform = platform
                             let key = title + platform
                             self.keyDict[self.getKey(with: platform)]?.append(key)
-
+                            self.gameInfoDict.updateValue(gameInfo, forKey: key)
+                            
                             let requestURL = (self.playTimeURL+title).replacingOccurrences(of: " ", with: "%20")
                             Alamofire.request(requestURL, method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
                                 if response.result.isSuccess {
