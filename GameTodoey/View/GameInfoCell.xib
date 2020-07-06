@@ -42,6 +42,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZn-nP-kMg">
                                                 <rect key="frame" x="235.5" y="0.0" width="205.5" height="60"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="metacritic" translatesAutoresizingMaskIntoConstraints="NO" id="ZRN-ok-OmM">
+                                                        <rect key="frame" x="-17" y="-120" width="240" height="170"/>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1W-3p-60d" userLabel="ScoreLabel">
                                                         <rect key="frame" x="0.0" y="0.0" width="205.5" height="60"/>
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
@@ -56,7 +59,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="H1W-3p-60d" secondAttribute="trailing" id="9Bb-R8-uhm"/>
                                                     <constraint firstAttribute="bottom" secondItem="H1W-3p-60d" secondAttribute="bottom" id="Tfu-LA-3DF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ZRN-ok-OmM" secondAttribute="bottom" constant="10" id="bDv-J3-YvL"/>
                                                     <constraint firstItem="H1W-3p-60d" firstAttribute="top" secondItem="lZn-nP-kMg" secondAttribute="top" id="ddH-YG-GbP"/>
+                                                    <constraint firstItem="ZRN-ok-OmM" firstAttribute="centerX" secondItem="lZn-nP-kMg" secondAttribute="centerX" id="eM4-gj-buK"/>
+                                                    <constraint firstItem="ZRN-ok-OmM" firstAttribute="width" secondItem="lZn-nP-kMg" secondAttribute="width" multiplier="1.16788" id="eem-hP-l4m"/>
                                                     <constraint firstAttribute="width" secondItem="lZn-nP-kMg" secondAttribute="height" multiplier="11:11" id="ek8-7n-84K"/>
                                                     <constraint firstItem="paP-LT-9bM" firstAttribute="centerX" secondItem="lZn-nP-kMg" secondAttribute="centerX" id="kH0-y5-rjp"/>
                                                     <constraint firstItem="paP-LT-9bM" firstAttribute="centerY" secondItem="lZn-nP-kMg" secondAttribute="centerY" id="oeI-rV-KRF"/>
@@ -98,6 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="metacritic" width="726" height="170"/>
         <namedColor name="BrandBlue">
             <color red="0.16500000655651093" green="0.77999997138977051" blue="0.99599999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

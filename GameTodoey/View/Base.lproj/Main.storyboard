@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Keywords" scopeBarBackgroundImage="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-ov-R3a">
@@ -95,7 +95,7 @@
             <objects>
                 <viewController id="Int-Zc-JIw" userLabel="Library View Controller Scene" customClass="LibraryViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q79-Ty-1ah">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-Z4-SNU">
@@ -148,7 +148,7 @@
             <objects>
                 <viewController id="1f1-Ga-29V" customClass="DescriptionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVL-9k-6cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sb-Zw-rFh">
@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="32" width="414" height="810"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vGE-0L-QuV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1216.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1270.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
                                                 <rect key="frame" x="167" y="0.0" width="80" height="30"/>
@@ -208,10 +208,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Wmu-8R-vg2" userLabel="gameTimeStackView">
-                                                <rect key="frame" x="20" y="730.5" width="374" height="414"/>
+                                                <rect key="frame" x="20" y="730.5" width="374" height="468"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long will it take?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38K-la-UYj">
+                                                        <rect key="frame" x="80.5" y="0.0" width="213.5" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                                        <color key="textColor" name="BrandBlue"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CyF-xl-0HA" userLabel="MainStoryView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
+                                                        <rect key="frame" x="0.0" y="54" width="374" height="118"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="o6a-m9-SYC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
@@ -240,7 +246,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-Iq-5AZ" userLabel="MainExtraView">
-                                                        <rect key="frame" x="0.0" y="148" width="374" height="118"/>
+                                                        <rect key="frame" x="0.0" y="202" width="374" height="118"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-GO-fbm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
@@ -269,7 +275,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJt-En-NQN" userLabel="CompletionestView">
-                                                        <rect key="frame" x="0.0" y="296" width="374" height="118"/>
+                                                        <rect key="frame" x="0.0" y="350" width="374" height="118"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4BP-26-UQc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
@@ -308,10 +314,10 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcV-Hr-1lC">
-                                                <rect key="frame" x="80" y="1174.5" width="254" height="42"/>
+                                                <rect key="frame" x="80" y="1228.5" width="254" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                                 <state key="normal" title="Save To Your Library">
-                                                    <color key="titleColor" name="BrandBlue"/>
+                                                    <color key="titleColor" name="LinkColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
@@ -373,7 +379,7 @@
             <objects>
                 <viewController id="xde-an-NAK" customClass="LibrarySelectionPopupViewController" customModule="GamePlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1bO-87-zCg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-kq-HuS">
@@ -808,7 +814,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aHy-NL-BqK"/>
+        <segue reference="gqr-tb-T2D"/>
         <segue reference="3L2-2G-OGq"/>
     </inferredMetricsTieBreakers>
     <resources>
