@@ -14,7 +14,6 @@ class GADCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        background.layer.cornerRadius = background.frame.height/5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

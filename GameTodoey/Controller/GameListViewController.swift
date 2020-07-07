@@ -17,7 +17,7 @@ class GameListViewController: UIViewController {
         self.title = libraryInfo?.libraryTitle
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
+        //tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
         tableView.register(UINib(nibName: Const.adCellNibName,bundle:nil),forCellReuseIdentifier:Const.adCellIdentifier)
@@ -79,19 +79,12 @@ class GameListViewController: UIViewController {
         }
         if nativeAdView != nil &&  indexPath.row == (libraryInfo?.gameInfoList.count)!{
             let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
-            //native ad view constraint 적용후 추가
             cell.background.addSubview(nativeAdView)
             nativeAdView.translatesAutoresizingMaskIntoConstraints = false
             let constW:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0);
             cell.background.addConstraint(constW);
             let constH:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0);
             cell.background.addConstraint(constH);
-            
-            
-            //            let viewDictionary = ["_nativeAdView":nativeAdView]
-
-//            cell.background.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary as [String : Any]))
-//            cell.background.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|", options: NSLayoutConstraint.FormatOptions(rawValue:0), metrics: nil, views: viewDictionary as [String : Any]))
             return cell
         }
         
@@ -176,7 +169,8 @@ extension GameListViewController: GADUnifiedNativeAdLoaderDelegate {
         (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
         (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
         nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
-        (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+        //(nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+        nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
         nativeAdView.iconView?.isHidden = nativeAd.icon == nil
        // nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
         //let mediaContent = nativeAd.mediaContent
