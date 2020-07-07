@@ -2,12 +2,15 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 import SwiftReorder
+import GoogleMobileAds
 
 class GameListViewController: UIViewController {
 
     var libraryInfo : LibraryInfo?
     @IBOutlet weak var tableView: UITableView!
     var realmManager = RealmManager()
+    var adLoader : GADAdLoader!
+    var adData: GADUnifiedNativeAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +20,7 @@ class GameListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
+        tableView.register(UINib(nibName: Const.adCellNibName,bundle:nil),forCellReuseIdentifier:Const.adCellIdentifier)
         realmManager.delegate = self
         if libraryInfo?.libraryTitle != "Recents"{
             tableView.reorder.delegate = self
@@ -24,9 +28,10 @@ class GameListViewController: UIViewController {
         
         adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
             rootViewController: self,
-            adTypes: [ kGADAdLoaderAdTypeUnifiedNative ],
-            options: [ ... ad loader options objects ... ])
+            adTypes: [ GADAdLoaderAdType.unifiedNative ],
+            options: [])
         adLoader.delegate = self
+        adLoader.load(GADRequest())
         
     }
 
@@ -57,13 +62,34 @@ class GameListViewController: UIViewController {
     //MARK: - UITableViewDataSource
     extension GameListViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraryInfo?.gameInfoList.count ?? 0
+            let count = libraryInfo?.gameInfoList.count ?? 0
+            if count == 0{
+                return 1
+            }
+            else{
+                return count+1
+            }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let spacer = tableView.reorder.spacerCell(for: indexPath){
             return spacer
         }
+        if  indexPath.row == (libraryInfo?.gameInfoList.count)!{
+            let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
+            if let headline = adData?.headline{
+                cell.headlineView.text = headline
+            }
+            if let body = adData?.body{
+                cell.bodyView.text = body
+            }
+            if let iconView = adData?.icon?.image{
+                cell.iconView.image = iconView
+            }
+//            nativeAdView.nativeAd = nativeAd
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
         if let gameInfo = libraryInfo?.gameInfoList[indexPath.row] {
@@ -126,10 +152,22 @@ extension GameListViewController : RealmManagerDelegate {
 }
 
 //MARK: - TableViewReorderDelegate
-extension GameListViewController: TableViewReorderDelegate{
+extension GameListViewController: TableViewReorderDelegate {
     func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         if let gameInfoList = libraryInfo?.gameInfoList{
             realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
         }
+    }
+}
+
+extension GameListViewController: GADUnifiedNativeAdLoaderDelegate {
+    public func adLoader(_ adLoader: GADAdLoader,
+                           didReceive nativeAd: GADUnifiedNativeAd){
+          print("Received unified native ad: \(nativeAd)")
+          adData = nativeAd
+        tableView.reloadData()
+      }
+    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Error Occurred \(error)")
     }
 }
