@@ -11,9 +11,6 @@ import UIKit
 class GADCell: UITableViewCell {
 
     @IBOutlet weak var background: UIView!
-    @IBOutlet weak var iconView: UIImageView!
-    @IBOutlet weak var headlineView: UILabel!
-    @IBOutlet weak var bodyView: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

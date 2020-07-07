@@ -79,8 +79,19 @@ class GameListViewController: UIViewController {
         }
         if nativeAdView != nil &&  indexPath.row == (libraryInfo?.gameInfoList.count)!{
             let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
-            cell.addSubview(nativeAdView)
-            let viewDictionary = ["_nativeAdView":nativeAdView!]
+            //native ad view constraint 적용후 추가
+            cell.background.addSubview(nativeAdView)
+            nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+            let constW:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0);
+            cell.background.addConstraint(constW);
+            let constH:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0);
+            cell.background.addConstraint(constH);
+            
+            
+            //            let viewDictionary = ["_nativeAdView":nativeAdView]
+
+//            cell.background.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[_nativeAdView]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDictionary as [String : Any]))
+//            cell.background.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[_nativeAdView]|", options: NSLayoutConstraint.FormatOptions(rawValue:0), metrics: nil, views: viewDictionary as [String : Any]))
             return cell
         }
         
