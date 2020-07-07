@@ -26,8 +26,6 @@
 		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
 		5B9C092E242B561700F73F96 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameInfo.swift */; };
 		5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA134EE242F6FCC00202088 /* SearchManager.swift */; };
-		5BD32C0224AA09E200D65B9D /* PlayTimeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */; };
-		5BD32C0324AA09E200D65B9D /* PlayTimeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
 		5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameInfo.swift */; };
@@ -35,6 +33,7 @@
 		5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */; };
 		5BE2D9C724B408EC00D3B688 /* GADCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2D9C524B408EC00D3B688 /* GADCell.swift */; };
 		5BE2D9C824B408EC00D3B688 /* GADCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2D9C624B408EC00D3B688 /* GADCell.xib */; };
+		5BE2D9D424B4449200D3B688 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2D9D324B4449200D3B688 /* UnifiedNativeAdView.xib */; };
 		5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEF6704248B7F2500803345 /* Default-568h@2x.png */; };
 		AAFAE71802CA72E7C1D0519E /* Pods_GameTodoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C1A58A872666483F63736F /* Pods_GameTodoey.framework */; };
 /* End PBXBuildFile section */
@@ -62,8 +61,6 @@
 		5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionPopupViewController.swift; sourceTree = "<group>"; };
 		5B9C092D242B561700F73F96 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		5BA134EE242F6FCC00202088 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
-		5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTimeInfoCell.swift; sourceTree = "<group>"; };
-		5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayTimeInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E1424224474005DD70C /* Realm_GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameInfo.swift; sourceTree = "<group>"; };
@@ -71,6 +68,8 @@
 		5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
 		5BE2D9C524B408EC00D3B688 /* GADCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADCell.swift; sourceTree = "<group>"; };
 		5BE2D9C624B408EC00D3B688 /* GADCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GADCell.xib; sourceTree = "<group>"; };
+		5BE2D9CB24B4351200D3B688 /* GameTodoey-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameTodoey-Bridging-Header.h"; sourceTree = "<group>"; };
+		5BE2D9D324B4449200D3B688 /* UnifiedNativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 		5BEF6704248B7F2500803345 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
 		80C1A58A872666483F63736F /* Pods_GameTodoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameTodoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,11 +147,11 @@
 				5BE01E1024222AAF005DD70C /* GameInfoCell.xib */,
 				5BE2D9C524B408EC00D3B688 /* GADCell.swift */,
 				5BE2D9C624B408EC00D3B688 /* GADCell.xib */,
-				5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */,
-				5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */,
+				5BE2D9D324B4449200D3B688 /* UnifiedNativeAdView.xib */,
 				5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */,
 				5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */,
 				5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */,
+				5BE2D9CB24B4351200D3B688 /* GameTodoey-Bridging-Header.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +221,7 @@
 				TargetAttributes = {
 					5B1F3BF62420DFB200E0698C = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -250,13 +250,13 @@
 			files = (
 				5B1F3C042420DFB200E0698C /* Assets.xcassets in Resources */,
 				5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */,
-				5BD32C0324AA09E200D65B9D /* PlayTimeInfoCell.xib in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
 				5BE2D9C824B408EC00D3B688 /* GADCell.xib in Resources */,
 				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
 				5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */,
 				5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */,
 				5B031FA324386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard in Resources */,
+				5BE2D9D424B4449200D3B688 /* UnifiedNativeAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +319,6 @@
 				5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */,
 				5BE2D9C724B408EC00D3B688 /* GADCell.swift in Sources */,
 				5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */,
-				5BD32C0224AA09E200D65B9D /* PlayTimeInfoCell.swift in Sources */,
 				5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */,
 				5B3E7BFF242727EF0027BD1D /* RegisterViewController.swift in Sources */,
 				5B1F3BFB2420DFB200E0698C /* AppDelegate.swift in Sources */,
@@ -465,6 +464,7 @@
 			baseConfigurationReference = 3EED0ABE96E8B8145DB6FD2F /* Pods-GameTodoey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
@@ -477,6 +477,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
 				PRODUCT_NAME = GamePlanner;
 				PROVISIONING_PROFILE_SPECIFIER = GamePlanner_Development_Provisioning;
+				SWIFT_OBJC_BRIDGING_HEADER = "GameTodoey/View/GameTodoey-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,6 +489,7 @@
 			baseConfigurationReference = F7AB929B862340C5222FE934 /* Pods-GameTodoey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2242LQBA9Q;
@@ -499,6 +502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaegukim.MetacriticGameScoreViewer;
 				PRODUCT_NAME = GamePlanner;
 				PROVISIONING_PROFILE_SPECIFIER = GamePlanner_Development_Provisioning;
+				SWIFT_OBJC_BRIDGING_HEADER = "GameTodoey/View/GameTodoey-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

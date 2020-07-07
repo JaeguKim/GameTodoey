@@ -10,7 +10,7 @@ class GameListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var realmManager = RealmManager()
     var adLoader : GADAdLoader!
-    var adData: GADUnifiedNativeAd?
+    var nativeAdView: GADUnifiedNativeAdView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,9 @@ class GameListViewController: UIViewController {
             options: [])
         adLoader.delegate = self
         adLoader.load(GADRequest())
-        
+        guard let nibObjects = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil,options:nil), let adView = nibObjects.first as? GADUnifiedNativeAdView else { assert(false,"Could not load nib file for adView")
+        }
+        nativeAdView = adView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,18 +77,10 @@ class GameListViewController: UIViewController {
         if let spacer = tableView.reorder.spacerCell(for: indexPath){
             return spacer
         }
-        if  indexPath.row == (libraryInfo?.gameInfoList.count)!{
+        if nativeAdView != nil &&  indexPath.row == (libraryInfo?.gameInfoList.count)!{
             let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
-            if let headline = adData?.headline{
-                cell.headlineView.text = headline
-            }
-            if let body = adData?.body{
-                cell.bodyView.text = body
-            }
-            if let iconView = adData?.icon?.image{
-                cell.iconView.image = iconView
-            }
-//            nativeAdView.nativeAd = nativeAd
+            cell.addSubview(nativeAdView)
+            let viewDictionary = ["_nativeAdView":nativeAdView!]
             return cell
         }
         
@@ -160,14 +154,56 @@ extension GameListViewController: TableViewReorderDelegate {
     }
 }
 
+//MARK: - GADUnifiedNativeAdLoaderDelegate
 extension GameListViewController: GADUnifiedNativeAdLoaderDelegate {
     public func adLoader(_ adLoader: GADAdLoader,
                            didReceive nativeAd: GADUnifiedNativeAd){
-          print("Received unified native ad: \(nativeAd)")
-          adData = nativeAd
+        print("Received unified native ad: \(nativeAd)")
+        nativeAdView.nativeAd = nativeAd
+        nativeAd.delegate = self
+        (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+        (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
+        (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
+        nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
+        (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+        nativeAdView.iconView?.isHidden = nativeAd.icon == nil
+       // nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+        //let mediaContent = nativeAd.mediaContent
+//        if mediaContent.hasVideoContent {
+//            mediaContent.videoController.delegate = self
+//
+//        }
+        
         tableView.reloadData()
       }
     func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
         print("Error Occurred \(error)")
+    }
+}
+
+//MARK: - GADUnifiedNativeAdDelegate
+extension GameListViewController: GADUnifiedNativeAdDelegate {
+    func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
+    }
+
+    func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
+    }
+
+    func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
+    }
+
+    func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
+    }
+
+    func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
+    }
+
+    func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
+      print("\(#function) called")
     }
 }

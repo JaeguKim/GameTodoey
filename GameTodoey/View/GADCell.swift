@@ -10,13 +10,14 @@ import UIKit
 
 class GADCell: UITableViewCell {
 
+    @IBOutlet weak var background: UIView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var headlineView: UILabel!
     @IBOutlet weak var bodyView: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        background.layer.cornerRadius = background.frame.height/5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
