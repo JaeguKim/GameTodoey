@@ -33,6 +33,8 @@
 		5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameInfo.swift */; };
 		5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */; };
 		5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */; };
+		5BE2D9C724B408EC00D3B688 /* GADCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2D9C524B408EC00D3B688 /* GADCell.swift */; };
+		5BE2D9C824B408EC00D3B688 /* GADCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2D9C624B408EC00D3B688 /* GADCell.xib */; };
 		5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BEF6704248B7F2500803345 /* Default-568h@2x.png */; };
 		AAFAE71802CA72E7C1D0519E /* Pods_GameTodoey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C1A58A872666483F63736F /* Pods_GameTodoey.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		5BE01E1424224474005DD70C /* Realm_GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameInfo.swift; sourceTree = "<group>"; };
 		5BE1294B24307A9C0088B57C /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BE1294C24307A9C0088B57C /* LibraryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCollectionViewCell.xib; sourceTree = "<group>"; };
+		5BE2D9C524B408EC00D3B688 /* GADCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADCell.swift; sourceTree = "<group>"; };
+		5BE2D9C624B408EC00D3B688 /* GADCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GADCell.xib; sourceTree = "<group>"; };
 		5BEF6704248B7F2500803345 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7DE7BCD0A9AB9627D37CB329 /* Pods-MetacriticGameScoreViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetacriticGameScoreViewer.release.xcconfig"; path = "Target Support Files/Pods-MetacriticGameScoreViewer/Pods-MetacriticGameScoreViewer.release.xcconfig"; sourceTree = "<group>"; };
 		80C1A58A872666483F63736F /* Pods_GameTodoey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameTodoey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,8 @@
 				5B1F3C002420DFB200E0698C /* Main.storyboard */,
 				5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */,
 				5BE01E1024222AAF005DD70C /* GameInfoCell.xib */,
+				5BE2D9C524B408EC00D3B688 /* GADCell.swift */,
+				5BE2D9C624B408EC00D3B688 /* GADCell.xib */,
 				5BD32C0024AA09E200D65B9D /* PlayTimeInfoCell.swift */,
 				5BD32C0124AA09E200D65B9D /* PlayTimeInfoCell.xib */,
 				5B031FA224386E1E00E3A5E1 /* GameTodoeyLaunchScreen.storyboard */,
@@ -246,6 +252,7 @@
 				5B3E7C052427501F0027BD1D /* GoogleService-Info.plist in Resources */,
 				5BD32C0324AA09E200D65B9D /* PlayTimeInfoCell.xib in Resources */,
 				5B1F3C022420DFB200E0698C /* Main.storyboard in Resources */,
+				5BE2D9C824B408EC00D3B688 /* GADCell.xib in Resources */,
 				5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */,
 				5BE1294E24307A9C0088B57C /* LibraryCollectionViewCell.xib in Resources */,
 				5BEF6705248B7F2500803345 /* Default-568h@2x.png in Resources */,
@@ -310,6 +317,7 @@
 				5B1F3BFF2420DFB200E0698C /* SearchViewController.swift in Sources */,
 				5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */,
 				5B2C8854242CAC120028BC17 /* LibraryInfo.swift in Sources */,
+				5BE2D9C724B408EC00D3B688 /* GADCell.swift in Sources */,
 				5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */,
 				5BD32C0224AA09E200D65B9D /* PlayTimeInfoCell.swift in Sources */,
 				5BE1294D24307A9C0088B57C /* LibraryCollectionViewCell.swift in Sources */,

@@ -16,4 +16,5 @@ pod 'CLTypingLabel'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Analytics'
+pod 'Google-Mobile-Ads-SDK'
 end

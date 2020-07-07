@@ -21,6 +21,13 @@ class GameListViewController: UIViewController {
         if libraryInfo?.libraryTitle != "Recents"{
             tableView.reorder.delegate = self
         }
+        
+        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
+            rootViewController: self,
+            adTypes: [ kGADAdLoaderAdTypeUnifiedNative ],
+            options: [ ... ad loader options objects ... ])
+        adLoader.delegate = self
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
