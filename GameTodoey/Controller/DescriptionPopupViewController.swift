@@ -23,7 +23,7 @@ class DescriptionPopupViewController: UIViewController {
     var isBtnEnabled = true
     var isCollapsed = true
     var adLoader : GADAdLoader!
-    var nativeAdView: GADUnifiedNativeAdView!
+    var adManager : GADManager = GADManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,8 @@ class DescriptionPopupViewController: UIViewController {
         for childView in gameTimeStackView.arrangedSubviews{
             childView.layer.cornerRadius = childView.frame.height/5
         }
-        
-        //initAdLoader()
+        adManager.delegate = self
+        adManager.initAdLoader(viewController: self)
     }
     
     func setData(){
@@ -84,5 +84,16 @@ class DescriptionPopupViewController: UIViewController {
         gameDesc.numberOfLines = 10
         descBtn.setTitle("Expand", for: .normal)
         isCollapsed = true
+    }
+}
+
+extension DescriptionPopupViewController : GADManagerDelegate {
+    func didAdLoaded(nativeAdView: GADUnifiedNativeAdView) {
+        adView.addSubview(nativeAdView)
+        nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+        let constW:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: adView, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0);
+        adView.addConstraint(constW);
+        let constH:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: adView, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0);
+        adView.addConstraint(constH);
     }
 }
