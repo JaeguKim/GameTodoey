@@ -16,9 +16,9 @@ class SearchViewController: UIViewController {
     
     var searchManager = SearchManager()
     var realmManager = RealmManager()
+    var adManager = GADManager()
     var libraryInfoList : Results<LibraryInfo>?
-    var adLoader : GADAdLoader!
-    var nativeAdView: GADUnifiedNativeAdView!
+    var nativeAdView : GADUnifiedNativeAdView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +36,10 @@ class SearchViewController: UIViewController {
         AddDefaultCollection()
         showLoadingView(isIdle: true)
         addGestureRecognizer()
-        initAdLoader()
+        adManager.initAdLoader(viewController : self)
+        adManager.delegate = self
     }
 
-    func initAdLoader(){
-        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
-            rootViewController: self,
-            adTypes: [ GADAdLoaderAdType.unifiedNative ],
-            options: [])
-        adLoader.delegate = self
-        adLoader.load(GADRequest())
-        guard let nibObjects = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil,options:nil), let adView = nibObjects.first as? GADUnifiedNativeAdView else { assert(false,"Could not load nib file for adView")
-        }
-        nativeAdView = adView
-    }
     func addGestureRecognizer(){
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -150,8 +140,8 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if nativeAdView != nil && searchManager.keyDict[Const.dictKey[indexPath.section]!]!.count == indexPath.row{
             let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
-            cell.background.addSubview(nativeAdView)
-            nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+            cell.background.addSubview(nativeAdView!)
+            nativeAdView!.translatesAutoresizingMaskIntoConstraints = false
             let constW:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0);
             cell.background.addConstraint(constW);
             let constH:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0);
@@ -282,57 +272,8 @@ class CustomHeader: UITableViewHeaderFooterView {
     }
 }
 
-//MARK: - GADUnifiedNativeAdLoaderDelegate
-extension SearchViewController: GADUnifiedNativeAdLoaderDelegate {
-    public func adLoader(_ adLoader: GADAdLoader,
-                           didReceive nativeAd: GADUnifiedNativeAd){
-        print("Received unified native ad: \(nativeAd)")
-        nativeAdView.nativeAd = nativeAd
-        nativeAd.delegate = self
-        (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
-        (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
-        (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
-        nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
-        //(nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
-        nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
-        nativeAdView.iconView?.isHidden = nativeAd.icon == nil
-       // nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
-        //let mediaContent = nativeAd.mediaContent
-//        if mediaContent.hasVideoContent {
-//            mediaContent.videoController.delegate = self
-//
-//        }
-        
-        tableView.reloadData()
-      }
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
-        print("Error Occurred \(error)")
-    }
-}
-
-//MARK: - GADUnifiedNativeAdDelegate
-extension SearchViewController: GADUnifiedNativeAdDelegate {
-    func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
+extension SearchViewController : GADManagerDelegate {
+    func didAdLoaded(nativeAdView: GADUnifiedNativeAdView) {
+        self.nativeAdView = nativeAdView
     }
 }

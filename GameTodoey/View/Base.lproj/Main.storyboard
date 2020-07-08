@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="32" width="414" height="810"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vGE-0L-QuV">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1270.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1428.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halo 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-Ub-I2b" userLabel="Title">
                                                 <rect key="frame" x="167" y="0.0" width="80" height="30"/>
@@ -323,11 +323,17 @@
                                                     <action selector="saveBtnPressed:" destination="1f1-Ga-29V" eventType="touchUpInside" id="ihJ-NM-pQ2"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVQ-kb-De6">
+                                                <rect key="frame" x="20" y="1300.5" width="374" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="XVQ-kb-De6" firstAttribute="leading" secondItem="vGE-0L-QuV" secondAttribute="leading" constant="20" id="4bT-o2-9zN"/>
                                             <constraint firstItem="0rR-C5-eHh" firstAttribute="leading" secondItem="vGE-0L-QuV" secondAttribute="leading" constant="20" id="CJw-fi-e9x"/>
                                             <constraint firstAttribute="trailing" secondItem="Wmu-8R-vg2" secondAttribute="trailing" constant="20" id="ciX-1C-7gs"/>
                                             <constraint firstItem="Wmu-8R-vg2" firstAttribute="leading" secondItem="vGE-0L-QuV" secondAttribute="leading" constant="20" id="ezn-t3-KPn"/>
+                                            <constraint firstAttribute="trailing" secondItem="XVQ-kb-De6" secondAttribute="trailing" constant="20" id="gqu-Fz-THS"/>
                                             <constraint firstAttribute="trailing" secondItem="0rR-C5-eHh" secondAttribute="trailing" constant="20" id="lzP-3G-STY"/>
                                         </constraints>
                                     </stackView>
@@ -356,6 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JOt-KS-iir"/>
                     <connections>
+                        <outlet property="adView" destination="XVQ-kb-De6" id="4Zd-4L-S9P"/>
                         <outlet property="completionestTimeLabel" destination="hMe-RQ-cGm" id="VLI-7K-ldR"/>
                         <outlet property="descBtn" destination="PPH-Wu-WN3" id="yid-qM-cV9"/>
                         <outlet property="gameDesc" destination="eDK-p4-TLh" id="S0y-0d-CZD"/>

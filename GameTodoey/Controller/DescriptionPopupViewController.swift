@@ -1,6 +1,7 @@
 import UIKit
 import SDWebImage
 import RealmSwift
+import GoogleMobileAds
 
 class DescriptionPopupViewController: UIViewController {
     
@@ -17,8 +18,12 @@ class DescriptionPopupViewController: UIViewController {
     @IBOutlet weak var mainTimeLabel: UILabel!
     @IBOutlet weak var mainExtraLabel: UILabel!
     @IBOutlet weak var completionestTimeLabel: UILabel!
+    @IBOutlet weak var adView: UIView!
+    
     var isBtnEnabled = true
     var isCollapsed = true
+    var adLoader : GADAdLoader!
+    var nativeAdView: GADUnifiedNativeAdView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +39,8 @@ class DescriptionPopupViewController: UIViewController {
         for childView in gameTimeStackView.arrangedSubviews{
             childView.layer.cornerRadius = childView.frame.height/5
         }
+        
+        //initAdLoader()
     }
     
     func setData(){

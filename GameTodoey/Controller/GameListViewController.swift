@@ -9,7 +9,6 @@ class GameListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var realmManager = RealmManager()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = libraryInfo?.libraryTitle

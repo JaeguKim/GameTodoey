@@ -26,6 +26,7 @@
 		5B869609242E091200EA7D0E /* LibrarySelectionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */; };
 		5B9C092E242B561700F73F96 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C092D242B561700F73F96 /* GameInfo.swift */; };
 		5BA134EF242F6FCC00202088 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA134EE242F6FCC00202088 /* SearchManager.swift */; };
+		5BAD157F24B574BE00E13447 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD157E24B574BE00E13447 /* GADManager.swift */; };
 		5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */; };
 		5BE01E1224222AAF005DD70C /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BE01E1024222AAF005DD70C /* GameInfoCell.xib */; };
 		5BE01E1524224474005DD70C /* Realm_GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE01E1424224474005DD70C /* Realm_GameInfo.swift */; };
@@ -61,6 +62,7 @@
 		5B869608242E091200EA7D0E /* LibrarySelectionPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySelectionPopupViewController.swift; sourceTree = "<group>"; };
 		5B9C092D242B561700F73F96 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		5BA134EE242F6FCC00202088 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		5BAD157E24B574BE00E13447 /* GADManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADManager.swift; sourceTree = "<group>"; };
 		5BE01E0F24222AAF005DD70C /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		5BE01E1024222AAF005DD70C /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		5BE01E1424224474005DD70C /* Realm_GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_GameInfo.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				5B2C8853242CAC120028BC17 /* LibraryInfo.swift */,
 				5BA134EE242F6FCC00202088 /* SearchManager.swift */,
 				5B11C0D5242F96E20092A40E /* RealmManager.swift */,
+				5BAD157E24B574BE00E13447 /* GADManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				5B50E0D9242A2398009CF4A7 /* DescriptionPopupViewController.swift in Sources */,
 				5B24A8DF2425CAC800A12A96 /* GameListViewController.swift in Sources */,
 				5BE01E1124222AAF005DD70C /* GameInfoCell.swift in Sources */,
+				5BAD157F24B574BE00E13447 /* GADManager.swift in Sources */,
 				5B2C884E242CA7060028BC17 /* LibraryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
