@@ -2,15 +2,13 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 import SwiftReorder
-import GoogleMobileAds
 
 class GameListViewController: UIViewController {
 
     var libraryInfo : LibraryInfo?
     @IBOutlet weak var tableView: UITableView!
     var realmManager = RealmManager()
-    var adLoader : GADAdLoader!
-    var nativeAdView: GADUnifiedNativeAdView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,21 +18,10 @@ class GameListViewController: UIViewController {
         //tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         tableView.register(UINib(nibName: Const.gameInfoCellNibName, bundle: nil), forCellReuseIdentifier: Const.gameInfoCellIdentifier)
-        tableView.register(UINib(nibName: Const.adCellNibName,bundle:nil),forCellReuseIdentifier:Const.adCellIdentifier)
         realmManager.delegate = self
         if libraryInfo?.libraryTitle != "Recents"{
             tableView.reorder.delegate = self
         }
-        
-        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
-            rootViewController: self,
-            adTypes: [ GADAdLoaderAdType.unifiedNative ],
-            options: [])
-        adLoader.delegate = self
-        adLoader.load(GADRequest())
-        guard let nibObjects = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil,options:nil), let adView = nibObjects.first as? GADUnifiedNativeAdView else { assert(false,"Could not load nib file for adView")
-        }
-        nativeAdView = adView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,29 +51,15 @@ class GameListViewController: UIViewController {
     //MARK: - UITableViewDataSource
     extension GameListViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let count = libraryInfo?.gameInfoList.count ?? 0
-            if count == 0{
-                return 1
-            }
-            else{
-                return count+1
-            }
+            return libraryInfo?.gameInfoList.count ?? 0
+         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let spacer = tableView.reorder.spacerCell(for: indexPath){
             return spacer
         }
-        if nativeAdView != nil &&  indexPath.row == (libraryInfo?.gameInfoList.count)!{
-            let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
-            cell.background.addSubview(nativeAdView)
-            nativeAdView.translatesAutoresizingMaskIntoConstraints = false
-            let constW:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1, constant: 0);
-            cell.background.addConstraint(constW);
-            let constH:NSLayoutConstraint = NSLayoutConstraint(item: nativeAdView!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell.background, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1, constant: 0);
-            cell.background.addConstraint(constH);
-            return cell
-        }
+     
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.gameInfoCellIdentifier,for: indexPath) as! GameInfoCell
         cell.delegate = self
@@ -155,60 +128,5 @@ extension GameListViewController: TableViewReorderDelegate {
         if let gameInfoList = libraryInfo?.gameInfoList{
             realmManager.reorderGameList(gameInfoList: gameInfoList, sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
         }
-    }
-}
-
-//MARK: - GADUnifiedNativeAdLoaderDelegate
-extension GameListViewController: GADUnifiedNativeAdLoaderDelegate {
-    public func adLoader(_ adLoader: GADAdLoader,
-                           didReceive nativeAd: GADUnifiedNativeAd){
-        print("Received unified native ad: \(nativeAd)")
-        nativeAdView.nativeAd = nativeAd
-        nativeAd.delegate = self
-        (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
-        (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
-        (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
-        nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
-        //(nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
-        nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
-        nativeAdView.iconView?.isHidden = nativeAd.icon == nil
-       // nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
-        //let mediaContent = nativeAd.mediaContent
-//        if mediaContent.hasVideoContent {
-//            mediaContent.videoController.delegate = self
-//
-//        }
-        
-        tableView.reloadData()
-      }
-    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: GADRequestError) {
-        print("Error Occurred \(error)")
-    }
-}
-
-//MARK: - GADUnifiedNativeAdDelegate
-extension GameListViewController: GADUnifiedNativeAdDelegate {
-    func nativeAdDidRecordClick(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdDidRecordImpression(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillPresentScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdDidDismissScreen(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
-    }
-
-    func nativeAdWillLeaveApplication(_ nativeAd: GADUnifiedNativeAd) {
-      print("\(#function) called")
     }
 }
