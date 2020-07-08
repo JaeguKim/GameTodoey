@@ -36,7 +36,6 @@ class SearchViewController: UIViewController {
         AddDefaultCollection()
         showLoadingView(isIdle: true)
         addGestureRecognizer()
-        adManager.initAdLoader(viewController : self)
         adManager.delegate = self
     }
 
@@ -207,6 +206,7 @@ extension SearchViewController: UISearchBarDelegate {
         
         if let title = searchBar.searchTextField.text {
             if title != "" {
+                adManager.initAdLoader(viewController: self)
                 searchManager.cancelRequests()
                 showLoadingView(isIdle: false)
                 activityIndicator.isHidden = false
@@ -272,6 +272,7 @@ class CustomHeader: UITableViewHeaderFooterView {
     }
 }
 
+//MARK: - GADManagerDelegate
 extension SearchViewController : GADManagerDelegate {
     func didAdLoaded(nativeAdView: GADUnifiedNativeAdView) {
         self.nativeAdView = nativeAdView
