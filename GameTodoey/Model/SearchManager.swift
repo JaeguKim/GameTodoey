@@ -8,7 +8,8 @@ protocol SearchManagerDelegate {
 }
 
 class SearchManager {
-    let metacriticURL = "https://chicken-coop.p.rapidapi.com/games"
+    let gameListURL = "https://chicken-coop.p.rapidapi.com/games"
+    let metacriticURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/metacritic/"
     let playTimeURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/hltb/"
     var gameInfoDict : [String:GameInfo] = [:]
     var keyDict : [String:[String]] = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
@@ -43,7 +44,7 @@ class SearchManager {
         let parameters : [String:String] = [
             "title" : title
         ]
-        let request = Alamofire.request(metacriticURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+        let request = Alamofire.request(gameListURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 print(responseJSON)
@@ -118,8 +119,8 @@ class SearchManager {
     func requestInfo(platform:String, gameTitle:String){
         
         let newPlatform = self.convertPlatformString(platform: platform)
-        let newTitle = gameTitle.replacingOccurrences(of: " ", with: "%20")
-
+        let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
+        
         let headers : [String:String] = [
             "Content-type" : "application/x-www-form-urlencoded",
             "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
@@ -130,7 +131,7 @@ class SearchManager {
             "platform" : newPlatform
         ]
         
-        let request = Alamofire.request(metacriticURL+"/\(newTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+        let request = Alamofire.request(gameListURL+"/\(newTitle)", method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 let score = responseJSON["result"]["score"].stringValue
