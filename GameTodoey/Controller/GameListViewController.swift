@@ -69,7 +69,7 @@ class GameListViewController: UIViewController {
                 cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             }
             cell.titleLabel.text = gameInfo.title
-            if let score = Int(gameInfo.score){
+            if let score = Float(gameInfo.score){
                 var text = "?"
                 if score != 0 {
                     text = String(score)

@@ -158,7 +158,7 @@ extension SearchViewController: UITableViewDataSource {
             }
             cell.titleLabel.text = gameInfo.title
             
-            if let score = Int(gameInfo.score){
+            if let score = Float(gameInfo.score){
                 cell.hideLoadingIndicator()
                 var text = "?"
                 if score != 0{

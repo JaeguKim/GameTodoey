@@ -119,7 +119,7 @@ class SearchManager {
     func requestInfo(platform:String, gameTitle:String){
         
         let newPlatform = self.convertPlatformString(platform: platform)
-        let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
+        let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
 //
 //        let headers : [String:String] = [
 //            "Content-type" : "application/x-www-form-urlencoded",
