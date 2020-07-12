@@ -26,7 +26,11 @@ class GameInfoCell: SwipeTableViewCell {
         hideLoadingIndicator()
     }
     
-    func setViewBackgroundColor(score : Float) {
+    func setViewBackgroundColor(score : String) {
+        guard let score = Float(score) else {
+            scoreBackgroundView.backgroundColor = UIColor.red
+            return
+        }
         let color : UIColor?
         if score >= 8.0 {
             color = UIColor.green

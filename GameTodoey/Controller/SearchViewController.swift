@@ -151,22 +151,18 @@ extension SearchViewController: UITableViewDataSource {
         let key = searchManager.keyDict[Const.dictKey[indexPath.section]!]![indexPath.row]
         cell.showLoadingIndicator()
         if let gameInfo =  searchManager.gameInfoDict[key]{
+            cell.titleLabel.text = gameInfo.title
             if gameInfo.imageURL == ""{
                 cell.gameImgView.image = UIImage(named: "default.jpg")
+                return cell
             } else {
                 cell.gameImgView.sd_setImage(with: URL(string: gameInfo.imageURL))
             }
-            cell.titleLabel.text = gameInfo.title
+            let text = gameInfo.score == "" ? "?" : gameInfo.score
+            cell.setViewBackgroundColor(score: gameInfo.score)
+            cell.scoreLabel.text = text
+            cell.hideLoadingIndicator()
             
-            if let score = Float(gameInfo.score){
-                cell.hideLoadingIndicator()
-                var text = "?"
-                if score != 0{
-                    text = String(score)
-                }
-                cell.scoreLabel.text = text
-                cell.setViewBackgroundColor(score: score)
-            }
         }
         
         return cell
