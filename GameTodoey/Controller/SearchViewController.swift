@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
     var adManager = GADManager()
     var libraryInfoList : Results<LibraryInfo>?
     var nativeAdView : GADUnifiedNativeAdView? = nil
+    var webScrapingManager = WebScrapingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class SearchViewController: UIViewController {
         showLoadingView(isIdle: true)
         addGestureRecognizer()
         adManager.delegate = self
+        webScrapingManager.scrapeMetacritic()
     }
 
     func addGestureRecognizer(){

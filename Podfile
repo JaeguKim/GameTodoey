@@ -7,6 +7,7 @@ target 'GameTodoey' do
 
   # Pods for MetacriticGameScoreViewer
 pod 'Alamofire', '~> 4.4'
+pod 'Kanna'
 pod 'SwiftyJSON'
 pod 'SDWebImage'
 pod 'RealmSwift'
