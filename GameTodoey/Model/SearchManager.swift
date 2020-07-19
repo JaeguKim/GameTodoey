@@ -120,17 +120,6 @@ class SearchManager {
         
         let newPlatform = self.convertPlatformString(platform: platform)
         let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
-//
-//        let headers : [String:String] = [
-//            "Content-type" : "application/x-www-form-urlencoded",
-//            "x-rapidapi-host" : "chicken-coop.p.rapidapi.com",
-//            "x-rapidapi-key" : "c976920022msha45b1a7b96d279ap17e7aejsne930cb2ce86d",
-//        ]
-//
-//        let parameters : [String:String] = [
-//            "platform" : newPlatform
-//        ]
-        
         let request = Alamofire.request(metacriticURL+"/\(newPlatform)/\(newTitle)", method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)

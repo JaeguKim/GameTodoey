@@ -38,7 +38,8 @@ class SearchViewController: UIViewController {
         showLoadingView(isIdle: true)
         addGestureRecognizer()
         adManager.delegate = self
-        webScrapingManager.scrapeMetacritic()
+        webScrapingManager.scrapeMetacritic(platform: "PS4",gameTitle: "The Last of Us Part II")
+        webScrapingManager.scrapeHowLongToBeat(title: "The Last of Us Part II")
     }
 
     func addGestureRecognizer(){
