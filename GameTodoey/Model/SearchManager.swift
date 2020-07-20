@@ -7,6 +7,11 @@ protocol SearchManagerDelegate {
     func didUpdateGameInfo(gameInfoDict : [String:GameInfo])
 }
 
+protocol ScrapingDelegate {
+    func didScrapingFail(Error: String)
+    func didScrapingFinished(key: String, gameInfo: GameInfo)
+}
+
 class SearchManager {
     let gameListURL = "https://chicken-coop.p.rapidapi.com/games"
     let metacriticURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/metacritic/"
@@ -20,12 +25,17 @@ class SearchManager {
     var titleFailCnt : Int = 0
     let maxFailCnt : Int = 5
     var isAlreadyRequested : Bool = false
+    let metacriticScrapingComp = MetacriticScrapingComp()
+    let hltbScrapingComp = HLTBScrapingComp()
     var delegate : SearchManagerDelegate?
+    var cntOfFinishedScraping = 0
     
     func launchSerach(title:String){
         if isAlreadyRequested {
             return
         }
+        self.metacriticScrapingComp.delegate = self
+        self.hltbScrapingComp.deleagte = self
         isAlreadyRequested = true
         requestInfo(title: title)
     }
@@ -50,7 +60,7 @@ class SearchManager {
                 print(responseJSON)
                 if let jsonArray = responseJSON["result"].array {
                     self.failCnt = 0
-                    self.totalRequests = jsonArray.count
+                    self.totalRequests = 0
                     for item in jsonArray {
                         let platform = item["platform"].stringValue
                         let title = item["title"].stringValue
@@ -61,35 +71,17 @@ class SearchManager {
                             let key = title + platform
                             self.keyDict[self.getKey(with: platform)]?.append(key)
                             self.gameInfoDict.updateValue(gameInfo, forKey: key)
-                            
-                            let requestURL = (self.playTimeURL+title).replacingOccurrences(of: " ", with: "%20")
-                            Alamofire.request(requestURL, method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
-                                gameInfo.mainStoryTime = "N/A"
-                                gameInfo.mainExtraTime = "N/A"
-                                gameInfo.completionTime = "N/A"
-                                if response.result.isSuccess {
-                                    let responseJSON = JSON(response.result.value!)
-                                    for (title, playInfoJSON) in responseJSON {
-                                        if title.contains("DLC") || title.count > gameInfo.title.count{
-                                            continue
-                                        }
-                                        gameInfo.mainStoryTime = "\(playInfoJSON["main"])Hours"
-                                        gameInfo.mainExtraTime = "\(playInfoJSON["main+extra"])Hours"
-                                        gameInfo.completionTime = "\(playInfoJSON["completionist"])Hours"
-                                        }
-                                    }
-                                self.gameInfoDict.updateValue(gameInfo, forKey: key)
-                                self.requestInfo(platform: platform, gameTitle: title)
-                            }
-                        }
-                        else {
-                            self.totalRequests-=1
+                            self.metacriticScrapingComp.scrapeMetacritic(key:key,gameInfo: gameInfo, platform: platform, gameTitle: title)
+                            self.hltbScrapingComp.scrapeHowLongToBeat(key:key,gameInfo: gameInfo, title: title)
+                            self.totalRequests += 1
                         }
                     }
-                    self.delegate?.didUpdateGameInfo(gameInfoDict: self.gameInfoDict)
                     print("totalRequests : \(self.totalRequests)")
                     if self.totalRequests == 0 {
                         self.delegate?.didTitleSearchRequestFail()
+                    }
+                    else {
+                        self.delegate?.didUpdateGameInfo(gameInfoDict: self.gameInfoDict)
                     }
                 }
                 else {
@@ -103,55 +95,15 @@ class SearchManager {
                     }
                 }
             }
-            else {
-                self.failCnt += 1
-                if self.failCnt < self.maxFailCnt {
-                    self.requestInfo(title: title)
-                } else {
-                    self.failCnt = 0
-                    self.delegate?.didTitleSearchRequestFail()
-                }
-            }
-        }
-        requests.append(request)
-    }
-    
-    func requestInfo(platform:String, gameTitle:String){
-        
-        let newPlatform = self.convertPlatformString(platform: platform)
-        let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
-        let request = Alamofire.request(metacriticURL+"/\(newPlatform)/\(newTitle)", method: .get, parameters: nil, headers: ["Content-type" : "application/x-www-form-urlencoded"]).responseJSON { (response) in
-            if response.result.isSuccess {
-                let responseJSON : JSON = JSON(response.result.value!)
-                let score = responseJSON["user_score"].stringValue
-                let imageURL = responseJSON["image"].stringValue
-                let description = responseJSON["description"].stringValue.replacingOccurrences(of: " &hellip;  Expand", with: "")
-                
-                if self.titleFailCnt < self.maxFailCnt && (score == "" || imageURL == "") {
-                    self.titleFailCnt += 1
-                    self.requestInfo(platform: platform, gameTitle: gameTitle)
-                    return
-                }
-                let key = gameTitle+platform
-                if let gameInfo = self.gameInfoDict[key]{
-                    gameInfo.imageURL = imageURL
-                    gameInfo.title = gameTitle
-                    gameInfo.platform = platform
-                    gameInfo.score = score
-                    gameInfo.gameDescription = description
-                    gameInfo.done = false
-                    self.gameInfoDict[key] = gameInfo
-                }
-                self.requestsDone += 1
-                print("requestsDone : \(self.requestsDone)")
-            }
-            else {
-                self.requestInfo(platform: platform, gameTitle: gameTitle)
-            }
-            if self.isRequestsDone(){
-                self.delegate?.didUpdateGameInfo(gameInfoDict: self.gameInfoDict)
-                self.isAlreadyRequested = false
-            }
+//            else {
+//                self.failCnt += 1
+//                if self.failCnt < self.maxFailCnt {
+//                    self.requestInfo(title: title)
+//                } else {
+//                    self.failCnt = 0
+//                    self.delegate?.didTitleSearchRequestFail()
+//                }
+//            }
         }
         requests.append(request)
     }
@@ -170,14 +122,9 @@ class SearchManager {
     }
     
     func cancelRequests(){
-        for request in requests {
-            request.cancel()
-        }
-        
         failCnt = 0
         titleFailCnt = 0
         requests.removeAll()
-        
     }
     
     func isValidPlatform(_ platform : String) -> Bool {
@@ -213,25 +160,23 @@ class SearchManager {
         }
         return ""
     }
+}
+
+extension SearchManager : ScrapingDelegate {
+    func didScrapingFail(Error: String) {
+        print(Error)
+    }
     
-       func convertPlatformString(platform : String) -> String{
-           switch platform {
-           case "PS4":
-               return "playstation-4";
-           case "PS3":
-               return "playstation-3";
-           case "PC":
-               return "pc";
-           case "XONE":
-               return "xbox-one";
-           case "X360":
-               return "xbox-360";
-           case "XBOX":
-               return "xbox";
-           case "Switch":
-               return "switch";
-           default:
-               return platform
-           }
-       }
+    func didScrapingFinished(key: String, gameInfo : GameInfo) {
+        cntOfFinishedScraping += 1
+        print(cntOfFinishedScraping)
+        if gameInfo.imageURL != "" && gameInfo.mainStoryTime != ""{
+            self.gameInfoDict.updateValue(gameInfo, forKey: key)
+            delegate?.didUpdateGameInfo(gameInfoDict: gameInfoDict)
+        }
+        if cntOfFinishedScraping == 2*totalRequests {
+            self.isAlreadyRequested = false
+            cntOfFinishedScraping = 0
+        }
+    }
 }

@@ -3,20 +3,27 @@ import Kanna
 import SwiftyJSON
 
 class HLTBScrapingComp {
-
+    
     let HLTB_BASE_URL = "https://howlongtobeat.com"
     let HLTB_SEARCH_SUFFIX = "search_results.php"
+    var key : String!
+    var gameInfo : GameInfo!
+    var deleagte : ScrapingDelegate?
     
-    func scrapeHowLongToBeat(title: String) {
+    func scrapeHowLongToBeat(key: String, gameInfo: GameInfo, title: String) {
+        self.key = key
+        self.gameInfo = gameInfo
         getHowLongToBeatSearchResult(title: title)
     }
-
+    
     func getHowLongToBeatSearchResult(title: String){
+        let newTitle = title.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"")
+        
         let headers : [String : String] = [
             "User-Agent": "Mozilla/5.0"
         ]
         let parameters : [String:String] = [
-            "queryString": title,
+            "queryString": newTitle,
             "t": "games",
             "sorthead": "popular",
             "sortd": "Normal Order",
@@ -28,39 +35,51 @@ class HLTBScrapingComp {
         ]
         _ = Alamofire.request("\(HLTB_BASE_URL)/\(HLTB_SEARCH_SUFFIX)",method: .post, parameters: parameters, headers: headers).responseString { (response) in
             print(response.result.isSuccess)
-            //print(response.result.error)
-            self.parseHtml(html: response.result.value!)
+            if response.result.isSuccess {
+                let results = self.parseHtml(html: response.result.value!,originalTitle: title)
+                
+                self.gameInfo.mainStoryTime = "\(results["Main"]!)"
+                self.gameInfo.mainExtraTime = "\(results["MainExtra"]!)"
+                self.gameInfo.completionTime = "\(results["Completionist"]!)"
+                self.deleagte?.didScrapingFinished(key: self.key, gameInfo: self.gameInfo)
+            }
+            else{
+                self.deleagte?.didScrapingFail(Error : "HowLongToBeat Request Failed")
+            }
         }
     }
     
-    func parseHtml(html: String) -> [String : Double]{
-        var results : [String : Double] = [:]
+    func parseHtml(html: String, originalTitle: String) -> [String : String]{
+        var results : [String : String] = [:]
+        var main = "N/A", mainExtra = "N/A", complete = "N/A"
         do {
             let doc = try Kanna.HTML(html: html, encoding: String.Encoding.utf8)
             for elem in doc.xpath("//li"){
-                //let gameTitleAnchor = elem.xpath("//a")[0]
-                //let gameName = gameTitleAnchor["title"]
-                var main = 0.0, mainExtra = 0.0, complete = 0.0
-                let gameTimeDivTags = elem.css("div[@class*=search_list_tidbit]")
-                for i in 1...gameTimeDivTags.count {
+                let gameTitleAnchor = elem.xpath("//a")[0]
+                let gameName = gameTitleAnchor["title"]
+                if gameName!.contains("DLC") || gameName!.count > originalTitle.count {
+                    continue
+                }
+                let gameTimeDivTags = elem.css("div[class*=search_list_tidbit]")
+                for i in 0...gameTimeDivTags.count-1 {
                     let line = gameTimeDivTags[i].text!
                     if line.starts(with: "Main Story") || line.starts(with: "Single-Player") || line.starts(with: "Solo"){
-                        main = parseTime(String(gameTimeDivTags[i+1].text!))
-                        results["Main"] = main
+                        main = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
                     }
                     else if line.starts(with: "Main + Extra") || line.starts(with: "Co-Op"){
-                        mainExtra = parseTime(String(gameTimeDivTags[i+1].text!))
-                        results["MainExtra"] = mainExtra
+                        mainExtra = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
                     }
                     else if line.starts(with: "Completionist") || line.starts(with: "Vs."){
-                        complete = parseTime(String(gameTimeDivTags[i+1].text!))
-                        results["Completionist"] = complete
+                        complete = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
                     }
                 }
             }
         } catch {
-            print("error occurred")
+            self.deleagte?.didScrapingFail(Error : "Error occurred while scraping HTML of howLongToBeat")
         }
+        results["Main"] = main
+        results["MainExtra"] = mainExtra
+        results["Completionist"] = complete
         return results
     }
     
@@ -92,5 +111,5 @@ class HLTBScrapingComp {
         }
         return (time as NSString).doubleValue
     }
-
+    
 }

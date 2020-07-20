@@ -19,7 +19,6 @@ class SearchViewController: UIViewController {
     var adManager = GADManager()
     var libraryInfoList : Results<LibraryInfo>?
     var nativeAdView : GADUnifiedNativeAdView? = nil
-    var webScrapingManager = WebScrapingManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +37,6 @@ class SearchViewController: UIViewController {
         showLoadingView(isIdle: true)
         addGestureRecognizer()
         adManager.delegate = self
-        webScrapingManager.scrapeMetacritic(platform: "PS4",gameTitle: "The Last of Us Part II")
-        webScrapingManager.scrapeHowLongToBeat(title: "The Last of Us Part II")
     }
 
     func addGestureRecognizer(){
@@ -133,14 +130,14 @@ extension SearchViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = searchManager.keyDict[Const.dictKey[section]!]?.count ?? 0
-        if count != 0{
+        if count != 0 && nativeAdView != nil{
             count += 1
         }
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if nativeAdView != nil && searchManager.keyDict[Const.dictKey[indexPath.section]!]!.count == indexPath.row{
+        if searchManager.keyDict[Const.dictKey[indexPath.section]!]!.count == indexPath.row{
             let cell = tableView.dequeueReusableCell(withIdentifier: Const.adCellIdentifier, for: indexPath) as! GADCell
             cell.background.addSubview(nativeAdView!)
             nativeAdView!.translatesAutoresizingMaskIntoConstraints = false
