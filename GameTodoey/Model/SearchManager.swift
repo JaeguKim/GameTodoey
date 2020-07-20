@@ -165,6 +165,7 @@ class SearchManager {
 extension SearchManager : ScrapingDelegate {
     func didScrapingFail(Error: String) {
         print(Error)
+        cntOfFinishedScraping += 1
     }
     
     func didScrapingFinished(key: String, gameInfo : GameInfo) {

@@ -6,17 +6,13 @@ class HLTBScrapingComp {
     
     let HLTB_BASE_URL = "https://howlongtobeat.com"
     let HLTB_SEARCH_SUFFIX = "search_results.php"
-    var key : String!
-    var gameInfo : GameInfo!
     var deleagte : ScrapingDelegate?
     
     func scrapeHowLongToBeat(key: String, gameInfo: GameInfo, title: String) {
-        self.key = key
-        self.gameInfo = gameInfo
-        getHowLongToBeatSearchResult(title: title)
+        getHowLongToBeatSearchResult(key:key,gameInfo:gameInfo,title: title)
     }
     
-    func getHowLongToBeatSearchResult(title: String){
+    func getHowLongToBeatSearchResult(key:String,gameInfo:GameInfo,title: String){
         let newTitle = title.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"")
         
         let headers : [String : String] = [
@@ -37,11 +33,10 @@ class HLTBScrapingComp {
             print(response.result.isSuccess)
             if response.result.isSuccess {
                 let results = self.parseHtml(html: response.result.value!,originalTitle: title)
-                
-                self.gameInfo.mainStoryTime = "\(results["Main"]!)"
-                self.gameInfo.mainExtraTime = "\(results["MainExtra"]!)"
-                self.gameInfo.completionTime = "\(results["Completionist"]!)"
-                self.deleagte?.didScrapingFinished(key: self.key, gameInfo: self.gameInfo)
+                gameInfo.mainStoryTime = "\(results["Main"]!)"
+                gameInfo.mainExtraTime = "\(results["MainExtra"]!)"
+                gameInfo.completionTime = "\(results["Completionist"]!)"
+                self.deleagte?.didScrapingFinished(key: key, gameInfo: gameInfo)
             }
             else{
                 self.deleagte?.didScrapingFail(Error : "HowLongToBeat Request Failed")
@@ -52,7 +47,14 @@ class HLTBScrapingComp {
     func parseHtml(html: String, originalTitle: String) -> [String : String]{
         var results : [String : String] = [:]
         var main = "N/A", mainExtra = "N/A", complete = "N/A"
+        if html.contains("No results"){
+            results["Main"] = main
+            results["MainExtra"] = mainExtra
+            results["Completionist"] = complete
+            return results
+        }
         do {
+            print(originalTitle)
             let doc = try Kanna.HTML(html: html, encoding: String.Encoding.utf8)
             for elem in doc.xpath("//li"){
                 let gameTitleAnchor = elem.xpath("//a")[0]
