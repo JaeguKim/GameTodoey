@@ -14,13 +14,9 @@ protocol ScrapingDelegate {
 
 class SearchManager {
     let gameListURL = "https://chicken-coop.p.rapidapi.com/games"
-    let metacriticURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/metacritic/"
-    let playTimeURL = "http://hltb-api-env.eba-2upuxuta.us-west-2.elasticbeanstalk.com/hltb/"
     var gameInfoDict : [String:GameInfo] = [:]
     var keyDict : [String:[String]] = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
-    var requests : [Alamofire.Request] = []
     var totalRequests : Int = 0
-    var requestsDone : Int = 0
     var failCnt : Int = 0
     var titleFailCnt : Int = 0
     let maxFailCnt : Int = 5
@@ -30,7 +26,7 @@ class SearchManager {
     var delegate : SearchManagerDelegate?
     var cntOfFinishedScraping = 0
     
-    func launchSerach(title:String){
+    func launchSearch(title:String){
         if isAlreadyRequested {
             return
         }
@@ -54,7 +50,7 @@ class SearchManager {
         let parameters : [String:String] = [
             "title" : title
         ]
-        let request = Alamofire.request(gameListURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
+        let _ = Alamofire.request(gameListURL, method: .get, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 print(responseJSON)
@@ -95,36 +91,15 @@ class SearchManager {
                     }
                 }
             }
-//            else {
-//                self.failCnt += 1
-//                if self.failCnt < self.maxFailCnt {
-//                    self.requestInfo(title: title)
-//                } else {
-//                    self.failCnt = 0
-//                    self.delegate?.didTitleSearchRequestFail()
-//                }
-//            }
         }
-        requests.append(request)
-    }
-    
-    func getCompletionRate() -> Float{
-         return Float(self.requestsDone) / Float(self.totalRequests)
-    }
-    
-    func isRequestsDone() -> Bool{
-        if requestsDone == totalRequests {return true} else {return false}
     }
     
     func initValue(){
-        requestsDone = 0
-        totalRequests = 0
-    }
-    
-    func cancelRequests(){
+        gameInfoDict = [:]
+        keyDict = ["PC":[],"PS":[],"XBOX":[],"SWITCH":[]]
         failCnt = 0
         titleFailCnt = 0
-        requests.removeAll()
+        cntOfFinishedScraping = 0
     }
     
     func isValidPlatform(_ platform : String) -> Bool {
@@ -162,6 +137,8 @@ class SearchManager {
     }
 }
 
+
+//MARK: - ScrapingDelegate
 extension SearchManager : ScrapingDelegate {
     func didScrapingFail(Error: String) {
         print(Error)

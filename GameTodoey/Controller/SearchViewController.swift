@@ -63,7 +63,15 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        searchManager.cancelRequests()
+        searchManager.initValue()
+    }
+    
+    func removeAllCellImages(){
+        for cell in tableView.visibleCells{
+            if let gameInfoCell = cell as? GameInfoCell{
+                gameInfoCell.gameImgView.image = nil
+            }
+        }
     }
     
     func showLoadingView(isIdle:Bool){
@@ -195,7 +203,6 @@ extension SearchViewController: UITableViewDelegate {
         performSegue(withIdentifier: Const.searchToDescSegue, sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }
 
 //MARK: - UISearchBarDelegate
@@ -205,18 +212,20 @@ extension SearchViewController: UISearchBarDelegate {
         if let title = searchBar.searchTextField.text {
             if title != "" {
                 adManager.initAdLoader(viewController: self)
-                searchManager.cancelRequests()
+                searchManager.initValue()
+                removeAllCellImages()
+                tableView.reloadData()
                 showLoadingView(isIdle: false)
                 activityIndicator.isHidden = false
                 searchBar.endEditing(true)
-                searchManager.launchSerach(title: title)
+                searchManager.launchSearch(title: title)
             }
             searchBar.endEditing(true)
         }
         
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchManager.cancelRequests()
+        searchManager.initValue()
         showLoadingView(isIdle: true)
         searchBar.endEditing(true)
     }
