@@ -7,13 +7,16 @@ class HLTBScrapingComp {
     let HLTB_BASE_URL = "https://howlongtobeat.com"
     let HLTB_SEARCH_SUFFIX = "search_results.php"
     var deleagte : ScrapingDelegate?
-    
+    let charactersToTrim = [":","'","-"]
     func scrapeHowLongToBeat(key: String, gameInfo: GameInfo, title: String) {
         getHowLongToBeatSearchResult(key:key,gameInfo:gameInfo,title: title)
     }
     
     func getHowLongToBeatSearchResult(key:String,gameInfo:GameInfo,title: String){
-        let newTitle = title.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"")
+        var newTitle = title
+        for ch in charactersToTrim{
+            newTitle = newTitle.replacingOccurrences(of:ch,with:"")
+        }
         
         let headers : [String : String] = [
             "User-Agent": "Mozilla/5.0"
@@ -54,28 +57,30 @@ class HLTBScrapingComp {
             return results
         }
         do {
-            print(originalTitle)
+            var maxProb = 0.0
             let doc = try Kanna.HTML(html: html, encoding: String.Encoding.utf8)
             for elem in doc.xpath("//li"){
                 let gameTitleAnchor = elem.xpath("//a")[0]
-                let gameName = gameTitleAnchor["title"]
-                if gameName!.contains("DLC") || gameName!.count != originalTitle.count {
-                    continue
+                let gameName = gameTitleAnchor["title"]!
+                if gameName.contains(originalTitle) || originalTitle.contains(gameName){
+                    let curProb = Double(min(gameName.count,originalTitle.count))/Double(max(gameName.count,originalTitle.count))
+                    if curProb > maxProb{
+                        maxProb = curProb
+                        let gameTimeDivTags = elem.css("div[class*=search_list_tidbit]")
+                        for i in 0...gameTimeDivTags.count-1 {
+                            let line = gameTimeDivTags[i].text!
+                            if line.starts(with: "Main Story") || line.starts(with: "Single-Player") || line.starts(with: "Solo"){
+                                main = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
+                            }
+                            else if line.starts(with: "Main + Extra") || line.starts(with: "Co-Op"){
+                                mainExtra = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
+                            }
+                            else if line.starts(with: "Completionist") || line.starts(with: "Vs."){
+                                complete = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
+                            }
+                        }
+                    }
                 }
-                let gameTimeDivTags = elem.css("div[class*=search_list_tidbit]")
-                for i in 0...gameTimeDivTags.count-1 {
-                    let line = gameTimeDivTags[i].text!
-                    if line.starts(with: "Main Story") || line.starts(with: "Single-Player") || line.starts(with: "Solo"){
-                        main = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
-                    }
-                    else if line.starts(with: "Main + Extra") || line.starts(with: "Co-Op"){
-                        mainExtra = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
-                    }
-                    else if line.starts(with: "Completionist") || line.starts(with: "Vs."){
-                        complete = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
-                    }
-                }
-                break
             }
         } catch {
             self.deleagte?.didScrapingFail(Error : "Error occurred while scraping HTML of howLongToBeat")
