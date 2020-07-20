@@ -32,7 +32,7 @@ class HLTBScrapingComp {
         _ = Alamofire.request("\(HLTB_BASE_URL)/\(HLTB_SEARCH_SUFFIX)",method: .post, parameters: parameters, headers: headers).responseString { (response) in
             print(response.result.isSuccess)
             if response.result.isSuccess {
-                let results = self.parseHtml(html: response.result.value!,originalTitle: title)
+                let results = self.parseHtml(html: response.result.value!,originalTitle: newTitle)
                 gameInfo.mainStoryTime = "\(results["Main"]!)"
                 gameInfo.mainExtraTime = "\(results["MainExtra"]!)"
                 gameInfo.completionTime = "\(results["Completionist"]!)"
@@ -59,7 +59,7 @@ class HLTBScrapingComp {
             for elem in doc.xpath("//li"){
                 let gameTitleAnchor = elem.xpath("//a")[0]
                 let gameName = gameTitleAnchor["title"]
-                if gameName!.contains("DLC") || gameName!.count > originalTitle.count {
+                if gameName!.contains("DLC") || gameName!.count != originalTitle.count {
                     continue
                 }
                 let gameTimeDivTags = elem.css("div[class*=search_list_tidbit]")
@@ -75,6 +75,7 @@ class HLTBScrapingComp {
                         complete = "\(String(parseTime(gameTimeDivTags[i+1].text!)))Hours"
                     }
                 }
+                break
             }
         } catch {
             self.deleagte?.didScrapingFail(Error : "Error occurred while scraping HTML of howLongToBeat")
