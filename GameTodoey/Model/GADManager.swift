@@ -7,6 +7,7 @@ class GADManager : NSObject {
     var adLoader : GADAdLoader!
     var nativeAdView: GADUnifiedNativeAdView!
     var delegate : GADManagerDelegate?
+    var isActivated : Bool = false
     
     func initAdLoader(viewController:UIViewController){
         adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",

@@ -138,8 +138,10 @@ extension SearchViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = searchManager.keyDict[Const.dictKey[section]!]?.count ?? 0
-        if count != 0 && nativeAdView != nil{
-            count += 1
+        if adManager.isActivated {
+            if count != 0 && nativeAdView != nil{
+                count += 1
+            }
         }
         return count
     }

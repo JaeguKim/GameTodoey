@@ -39,8 +39,10 @@ class DescriptionPopupViewController: UIViewController {
         for childView in gameTimeStackView.arrangedSubviews{
             childView.layer.cornerRadius = childView.frame.height/5
         }
-        adManager.delegate = self
-        adManager.initAdLoader(viewController: self)
+        if adManager.isActivated {
+            adManager.delegate = self
+            adManager.initAdLoader(viewController: self)
+        }
     }
     
     func setData(){
