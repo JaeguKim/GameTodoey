@@ -17,6 +17,7 @@ class GADManager : NSObject {
         adLoader.delegate = self
         adLoader.load(GADRequest())
         guard let nibObjects = Bundle.main.loadNibNamed("UnifiedNativeAdView", owner: nil,options:nil), let adView = nibObjects.first as? GADUnifiedNativeAdView else { assert(false,"Could not load nib file for adView")
+            return
         }
         nativeAdView = adView
     }

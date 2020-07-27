@@ -7,7 +7,7 @@ class HLTBScrapingComp {
     let HLTB_BASE_URL = "https://howlongtobeat.com"
     let HLTB_SEARCH_SUFFIX = "search_results.php"
     var deleagte : ScrapingDelegate?
-    let charactersToTrim = [":","'","-"]
+    let charactersToTrim = [":",".","'","-"]
     func scrapeHowLongToBeat(key: String, gameInfo: GameInfo, title: String) {
         getHowLongToBeatSearchResult(key:key,gameInfo:gameInfo,title: title)
     }

@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController {
                 if let e = error {
                     print(e.localizedDescription)
                     alert.dismiss(animated: true, completion: nil)
-                    let alert = UIAlertController(title: "Failed Registering", message: "", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Failed Registering", message: "Password should be more than 6 characters", preferredStyle: .alert)
                     self.present(alert, animated: true) {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             alert.dismiss(animated: true, completion: nil)

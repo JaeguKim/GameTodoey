@@ -4,10 +4,16 @@ import SwiftyJSON
 
 class MetacriticScrapingComp{
     var delegate: ScrapingDelegate?
+    let charactersToTrim = [":",".","'"]
     
     func scrapeMetacritic(key: String, gameInfo: GameInfo, platform: String, gameTitle: String) -> Void {
         let newPlatform = self.convertPlatformString(platform: platform)
-        let newTitle = gameTitle.replacingOccurrences(of:":",with:"").replacingOccurrences(of:"'",with:"").replacingOccurrences(of: " ", with: "-").lowercased()
+        var newTitle = gameTitle
+        for ch in charactersToTrim{
+            newTitle = newTitle.replacingOccurrences(of:ch,with:"")
+        }
+        newTitle = newTitle.replacingOccurrences(of: " ", with: "-").lowercased()
+
         let requestURL = "https://www.metacritic.com/game/\(newPlatform)/\(newTitle)"
         Alamofire.request(requestURL).responseString { response in
             print("\(response.result.isSuccess)")
