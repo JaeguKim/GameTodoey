@@ -42,7 +42,8 @@ class HLTBScrapingComp {
                 self.deleagte?.didScrapingFinished(key: key, gameInfo: gameInfo)
             }
             else{
-                self.deleagte?.didScrapingFail(Error : "HowLongToBeat Request Failed")
+                self.scrapeHowLongToBeat(key: key, gameInfo: gameInfo, title: title)
+                //self.deleagte?.didScrapingFail(Error : "HowLongToBeat Request Failed")
             }
         }
     }

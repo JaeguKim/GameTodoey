@@ -11,8 +11,13 @@ class MetacriticScrapingComp{
         let requestURL = "https://www.metacritic.com/game/\(newPlatform)/\(newTitle)"
         Alamofire.request(requestURL).responseString { response in
             print("\(response.result.isSuccess)")
-            if let html = response.result.value {
-                self.parseMetacriticHTML(key:key,gameInfo:gameInfo,html: html)
+            if response.result.isSuccess {
+                if let html = response.result.value {
+                    self.parseMetacriticHTML(key:key,gameInfo:gameInfo,html: html)
+                }
+            }
+            else{
+                self.scrapeMetacritic(key: key, gameInfo: gameInfo, platform: platform, gameTitle: gameTitle)
             }
         }
     }
