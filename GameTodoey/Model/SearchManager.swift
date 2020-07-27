@@ -54,6 +54,11 @@ class SearchManager {
             if response.result.isSuccess {
                 let responseJSON : JSON = JSON(response.result.value!)
                 print(responseJSON)
+                if responseJSON["result"] == "No result"{
+                    self.isAlreadyRequested = false
+                    self.delegate?.didTitleSearchRequestFail()
+                    return
+                }
                 if let jsonArray = responseJSON["result"].array {
                     self.failCnt = 0
                     self.totalRequests = 0
