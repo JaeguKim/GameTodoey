@@ -6,7 +6,21 @@
   
 ## Summary  
 iOS app which allows users to search play-time and user-rating for video games.  
+This app provides following informations with simple search.  
+* User rating  
+* Length of game for main story, main+extra contents, perfect completion of the game.  
+* Summary of game  
+   
+## Data Source  
+This app crawls data from following websites. 
+* [Metacritic](https://www.metacritic.com/)
+* [HowLongToBeat](https://howlongtobeat.com/)  
   
 ## Sample App Screenshot  
-[img](img/gameTodoeyScreenShot.png) 
-
+![image](img/1.png)  
+  
+## libraries  
+[Podfile](https://github.com/JaeguKim/GameTodoey/blob/master/Podfile)  
+  
+## License  
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
