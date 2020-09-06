@@ -7,5 +7,6 @@
 ## Summary  
 iOS app which allows users to search play-time and user-rating for video games.  
   
-## Screenshot  
-[img](img/gameTodoeyScreenShot.png)  
+## Sample App Screenshot  
+[img](img/gameTodoeyScreenShot.png) 
+
